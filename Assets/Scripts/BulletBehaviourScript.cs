@@ -20,10 +20,16 @@ public class BulletBehaviourScript : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter(Collider other){
+        //Destruimos la bala si toca a un enemigo y destruimos al enemigo
 				if (other.tag == "Enemy") {
 						Destroy (gameObject);
 						Destroy (other.gameObject);
 				}
+        //Destruimos la bala si toca un muro
+                if (other.tag == "Wall")
+                {
+                    Destroy(gameObject);
+                }
 		}
 
 }
