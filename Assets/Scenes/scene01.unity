@@ -2720,6 +2720,10 @@ Prefab:
       propertyPath: pipe
       value: 
       objectReference: {fileID: 100000, guid: 5bb00c6082bc8114cb04b28bfd4a4d75, type: 2}
+    - target: {fileID: 100074, guid: 01e426a32cf83a74ab7f37b7447e9ef5, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01e426a32cf83a74ab7f37b7447e9ef5, type: 2}
   m_RootGameObject: {fileID: 2043250145}
@@ -2853,7 +2857,7 @@ GameObject:
   - 120: {fileID: 2043250152}
   m_Layer: 0
   m_Name: swat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

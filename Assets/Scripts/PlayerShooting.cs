@@ -8,11 +8,13 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject ShotgunBullet;
 	public GameObject bullet;
 	public GameObject pipe;
+    public GameObject chainsaw;
+    public BrutalityBar brutalityHeight;
 	float timer;                                    // A timer to determine when to fire.				// A timer to determine melee attack duration
 	Ray shootRay;                                   // A ray from the gun end forwards.
 	RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
 
-	public enum Weapon { MELEE, RIFLE, SHOTGUN}
+	public enum Weapon { MELEE, RIFLE, SHOTGUN, CHAINSAW}
 	public enum AttackStates { ATTACK, REST }
 	public Weapon weapon;
 	public AttackStates atkState;
@@ -24,11 +26,18 @@ public class PlayerShooting : MonoBehaviour
 	void Awake ()
 	{
 		// Create a layer mask for the Shootable layer.
+        chainsaw.SetActive (false);
 	} 
 	
 	void Update ()
 	{
 		// Add the time since Update was last called to the timer.
+
+        if (brutalityHeight.playerEnergy >= 255)
+        {
+            weapon = Weapon.CHAINSAW;
+
+        }
 
 		switch (weapon) {
 		case Weapon.MELEE:
@@ -57,6 +66,15 @@ public class PlayerShooting : MonoBehaviour
 									DisableEffects ();
 								}*/
 			break;
+        case Weapon.CHAINSAW:
+            chainsaw.SetActive(true);
+            brutalityHeight.playerEnergy -= 20 * Time.deltaTime;
+            if (brutalityHeight.playerEnergy <= 0)
+            {
+                chainsaw.SetActive(false);
+                weapon = Weapon.RIFLE;
+            }
+            break;
 		case Weapon.SHOTGUN:
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.85f;
