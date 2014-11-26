@@ -9,33 +9,36 @@ public class RangedEnemy : MonoBehaviour {
 	public float range = 10f;                      // The distance the gun can fire.
 	public GameObject ShotgunBullet;
 	public GameObject bullet;
+	private GameObject player;
 	public enum Weapon {RIFLE, SHOTGUN}
 	public Weapon weapon;
 	float timer;
 	float dist;
 	
 	// Use this for initialization
-	void Start () {
-
+	void Awake () {
+		player = GameObject.FindWithTag ("Player");
+		weapon = Weapon.RIFLE;
 
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		dist = Vector3.Distance(enemyNav.target.position, transform.position);
-		if (dist <= 12)
+		// Distance between target and enemy
+		dist = Vector3.Distance( player.transform.position, transform.position);
+		Debug.Log (dist);
+		if (dist < 10) 
 		{
-		Debug.Log ("shooting");
-		Shoot ();
+			Shooting ();
 		}
-
 	}
 
-	void Shoot ()
+	void Shooting ()
 	{
 		// Reset the timer.
 		timer = 0f;
+
 
 		// ... set the second position of the line renderer to the fullest extent of the gun's range.
 		switch (weapon) {

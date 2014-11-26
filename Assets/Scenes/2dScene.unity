@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 176838472}
   m_GameObject: {fileID: 94743381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.30706596, y: .965732098, z: 0}
+  m_LocalPosition: {x: -14.7108421, y: .965732098, z: 0}
   m_LocalScale: {x: .775000095, y: 1.84843838, z: 1}
   m_Children:
   - {fileID: 217134938}
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1500145274}
+  agent: {fileID: 0}
 --- !u!114 &94743389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,8 +315,8 @@ MonoBehaviour:
   enemyNav: {fileID: 0}
   timeBetweenBullets: 0
   range: 10
-  ShotgunBullet: {fileID: 0}
-  bullet: {fileID: 100002, guid: c13cd15de5a0ce14782e124e4e597311, type: 2}
+  ShotgunBullet: {fileID: 100002, guid: c0d862febd8ab1941bfbb5444fd6248a, type: 2}
+  bullet: {fileID: 100000, guid: 76b7fc729ea54a0489f889eec927e8b3, type: 2}
   weapon: 0
 --- !u!1001 &176838472
 Prefab:
@@ -326,7 +327,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 449d9bf4ad9db9f498c5cbd08bf1b997, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.30706596
+      value: -14.7108421
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 449d9bf4ad9db9f498c5cbd08bf1b997, type: 2}
       propertyPath: m_LocalPosition.y
@@ -778,6 +779,7 @@ GameObject:
   - 54: {fileID: 1154733421}
   - 195: {fileID: 1154733420}
   - 114: {fileID: 1154733419}
+  - 114: {fileID: 1154733425}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -792,7 +794,7 @@ Transform:
   m_PrefabInternal: {fileID: 1455398844}
   m_GameObject: {fileID: 1154733417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.82689953, y: .965732098, z: -5.55437088}
+  m_LocalPosition: {x: -13.970499, y: .965732098, z: -5.55437088}
   m_LocalScale: {x: .775000095, y: 1.84843838, z: 1}
   m_Children:
   - {fileID: 439725775}
@@ -811,6 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1500145274}
+  agent: {fileID: 0}
 --- !u!195 &1154733420
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -890,6 +893,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1455398844}
   m_GameObject: {fileID: 1154733417}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1154733425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1154733417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1872538f885be5c48996ab17abbcd9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNav: {fileID: 0}
+  timeBetweenBullets: 0
+  range: 10
+  ShotgunBullet: {fileID: 100002, guid: c0d862febd8ab1941bfbb5444fd6248a, type: 2}
+  bullet: {fileID: 100000, guid: 76b7fc729ea54a0489f889eec927e8b3, type: 2}
+  weapon: 0
 --- !u!1001 &1241061254
 Prefab:
   m_ObjectHideFlags: 0
@@ -899,7 +919,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 3f4a74a579e3b224cbf11f7ffe6e172c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.02228355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f4a74a579e3b224cbf11f7ffe6e172c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -907,7 +927,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f4a74a579e3b224cbf11f7ffe6e172c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.99144554
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f4a74a579e3b224cbf11f7ffe6e172c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1025,7 +1045,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 449d9bf4ad9db9f498c5cbd08bf1b997, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.82689953
+      value: -13.970499
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 449d9bf4ad9db9f498c5cbd08bf1b997, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1210,7 +1230,7 @@ Transform:
   m_PrefabInternal: {fileID: 1241061254}
   m_GameObject: {fileID: 1500145268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.02228355, y: 1.09408855, z: 2.99144554}
+  m_LocalPosition: {x: 0, y: 1.09408855, z: 0}
   m_LocalScale: {x: .75, y: 1.9359591, z: .912499726}
   m_Children:
   - {fileID: 10036906}

@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyNavMesh : MonoBehaviour {
 
 	public Transform target;
-	NavMeshAgent agent;
+	public NavMeshAgent agent;
 
 	void Start()
 	{
