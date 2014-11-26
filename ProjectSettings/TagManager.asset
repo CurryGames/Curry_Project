@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Wall
   - DataLogic
+  - pause
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
