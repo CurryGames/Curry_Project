@@ -6,6 +6,8 @@ public class BulletBehaviourScript : MonoBehaviour {
 	public float speedBullet;
 	public float minError = 0.5f;
 	public float maxError = 0.5f;
+	public enum Shooter { PLAYER, ENEMY}
+	public Shooter shooter;
     //public BrutalityBar brutalityHeight;
     //public float brutality;
 
@@ -20,25 +22,35 @@ public class BulletBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// MOVEMOS LA BALA EN X+
+		// Bullet is moving in its Z+ position
 		transform.Translate (0, 0, Time.deltaTime * speedBullet);
         
 
 	}
 
 	public void OnTriggerEnter(Collider other){
-        //Destruimos la bala si toca a un enemigo y destruimos al enemigo
-				if (other.tag == "Enemy") {
-						Destroy (gameObject);
-						Destroy (other.gameObject);
-                        //brutality += 32;
-                        //brutalityHeight.playerEnergy = brutality;
+
+		switch (shooter) 
+		{
+			case Shooter.PLAYER: 				// If Player is the one shooting
+       			// Destroy enemy and bullet if collision
+				if (other.tag == "Enemy") 
+				{
+					Destroy (gameObject);
+					Destroy (other.gameObject);
+					//brutality += 32;
+					//brutalityHeight.playerEnergy = brutality;
 				}
-        //Destruimos la bala si toca un muro
-                if (other.tag == "Wall")
-                {
-                    Destroy(gameObject);
-                }
+			break;
+			case Shooter.ENEMY:					// If enemy is the one shooting
+			break;
 		}
+        // Any case, Destroy bullet if collides with Wall
+		if (other.tag == "Wall") 
+		{
+			Destroy (gameObject);
+		}
+		
+	}
 
 }
