@@ -7,6 +7,8 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 
 	public EnemyMoveStates state;
 
+	public bool onPatrol;
+
 	public float speedMove;
 
 	private Vector3 moveDirection;
@@ -17,32 +19,38 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 	void Start () {
 	
 		controller = transform.GetComponent<CharacterController> ();
-
+		onPatrol = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-		switch (state) {
-		
-		case EnemyMoveStates.RIGHT:
-			rightBehaviour();
-			break;
-		case EnemyMoveStates.LEFT:
-			leftBehaviour();
-			break;
-		case EnemyMoveStates.UP:
-			upBehaviour();
-			break;
-        case EnemyMoveStates.DOWN:
-            downBehaviour();
-            break;
 
+		if (onPatrol)
+		{
+	
+			switch (state) 
+			{
+			case EnemyMoveStates.RIGHT:
+				rightBehaviour();
+				break;
+			case EnemyMoveStates.LEFT:
+				leftBehaviour();
+				break;
+			case EnemyMoveStates.UP:
+				upBehaviour();
+				break;
+	        case EnemyMoveStates.DOWN:
+	            downBehaviour();
+	            break;
+			}
+
+			// (gravity)
+			moveDirection.y -= 20 * Time.deltaTime;
+			// move player
+			controller.Move(moveDirection * Time.deltaTime);
 		}
-		// (gravity)
-		moveDirection.y -= 20 * Time.deltaTime;
-		// move player
-		controller.Move(moveDirection * Time.deltaTime);
+
+
 	}
 
 	// SETS
@@ -59,6 +67,7 @@ public class EnemyMoveBehaviour : MonoBehaviour {
     {
         state = EnemyMoveStates.DOWN;
     }
+
 	// BEHAVIOURS
 	private void rightBehaviour(){
 		// DESPLAZAMOS EN X+ el enemigo

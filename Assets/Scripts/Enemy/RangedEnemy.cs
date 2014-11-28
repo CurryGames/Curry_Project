@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class RangedEnemy : MonoBehaviour {
-
-	public EnemyNavMesh enemyNav;
-
+	
 	public float timeBetweenBullets;        // The time between each shot.
 	public float range = 10f;                      // The distance the gun can fire.
 	public GameObject ShotgunBullet;
