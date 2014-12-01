@@ -21,6 +21,7 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 		speedMove = enemyStats.speed;
 		controller = transform.GetComponent<CharacterController> ();
 		chasing = false;
+
 	}
 	
 	// Update is called once per frame

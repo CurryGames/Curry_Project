@@ -200,12 +200,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1872538f885be5c48996ab17abbcd9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   timeBetweenBullets: 2
   ShotgunBullet: {fileID: 100002, guid: c0d862febd8ab1941bfbb5444fd6248a, type: 2}
   bullet: {fileID: 100000, guid: 76b7fc729ea54a0489f889eec927e8b3, type: 2}
   weapon: 0
   detectDistance: 8
   shootRange: 10
+=======
+  timeBetweenBullets: 0
+  range: 10
+  ShotgunBullet: {fileID: 100002, guid: c0d862febd8ab1941bfbb5444fd6248a, type: 2}
+  bullet: {fileID: 100000, guid: 76b7fc729ea54a0489f889eec927e8b3, type: 2}
+  weapon: 0
+>>>>>>> origin/master
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+<<<<<<< HEAD
   chasing: 0
   speedMove: 5
 --- !u!114 &11400006
@@ -231,6 +240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa35573d9c5e0bd4e88d6d7e2cb8478a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  onPatrol: 0
+  speedMove: 5
+>>>>>>> origin/master
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1
