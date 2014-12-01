@@ -19,7 +19,7 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 	void Start () {
 	
 		controller = transform.GetComponent<CharacterController> ();
-		onPatrol = true;
+		onPatrol = false;
 	}
 	
 	// Update is called once per frame
