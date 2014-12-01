@@ -5,13 +5,12 @@ public class PlayerStats : MonoBehaviour {
 
 	public int maxHealth;
 	public int currentHealth;
-	public float speed;
+	public float speed = 6f;
 	bool alive = true;
 
 	// Use this for initialization
 	void Awake () 
 	{
-		speed = 6f;
 		maxHealth = 300;
 		currentHealth = maxHealth;
 	

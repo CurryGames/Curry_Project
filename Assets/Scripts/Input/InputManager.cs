@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour {
 		RaycastHit hit;
 
 		if ( Physics.Raycast( ray, out hit ) ) {
-			Debug.Log("RayCast");
+			//Debug.Log("RayCast");
 			// SI EL RAYCAST TOCA UN ELEMENTO CON INPUTBEHAVIOUR, LO RECOGEMOS
 			result = hit.transform.gameObject.GetComponent<InputBehaviour>();
 			point = hit.point;

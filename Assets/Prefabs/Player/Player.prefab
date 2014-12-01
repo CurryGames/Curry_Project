@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
+  - 64: {fileID: 6400000}
   - 23: {fileID: 2300000}
   m_Layer: 0
   m_Name: God Sprite
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 6.03999996, z: 0}
+  m_LocalPosition: {x: 0, y: .259649217, z: 0}
   m_LocalScale: {x: 2, y: 1.83000004, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -95,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: .472337723, z: .0475823544}
+  m_LocalPosition: {x: 0, y: .143038765, z: .0475823544}
   m_LocalScale: {x: 1.91095901, y: 1.73287702, z: .516539812}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -107,8 +108,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.620000005, y: 1.09000003, z: 2.68000007}
-  m_LocalScale: {x: 1.5, y: 3.08768678, z: 1.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: .75, y: 1.9359591, z: .912499726}
   m_Children:
   - {fileID: 400000}
   - {fileID: 400002}
@@ -122,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .189999998, y: 0, z: .340000004}
+  m_LocalPosition: {x: .189999998, y: .1767084, z: .340000033}
   m_LocalScale: {x: .209999993, y: 1, z: .49000001}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -196,6 +197,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!64 &6400000
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1

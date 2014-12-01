@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 		
 		// Set up references.
 		//anim = GetComponent <Animator> ();
-
 		playerStats = GetComponent<PlayerStats> ();
 		speed = playerStats.speed;
 		playerRigidbody = GetComponent <Rigidbody> ();
