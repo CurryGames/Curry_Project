@@ -6,9 +6,11 @@ public class PlayerShooting : MonoBehaviour
 	public float timeBetweenBullets;        // The time between each shot.
 	public float range = 10f;                      // The distance the gun can fire.
 	public GameObject ShotgunBullet;
+	private BoxCollider colliderSaw;
 	public GameObject bullet;
 	public GameObject pipe;
     public GameObject chainsaw;
+	private PlayerState state;
     public BrutalityBar brutalityHeight;
 	float timer;                                    // A timer to determine when to fire.				// A timer to determine melee attack duration
 	Ray shootRay;                                   // A ray from the gun end forwards.
@@ -26,18 +28,26 @@ public class PlayerShooting : MonoBehaviour
 	void Awake ()
 	{
 		// Create a layer mask for the Shootable layer.
-        //chainsaw.SetActive (false);
+        chainsaw.SetActive (false);
+
 	} 
-	
+	void Start ()
+	{
+		state = transform.FindChild ("player").
+			GetComponent<PlayerState> ();
+		colliderSaw = transform.FindChild ("colliderSaw").
+			GetComponent<BoxCollider> ();
+		colliderSaw.enabled = false;
+	}
 	void Update ()
 	{
 		// Add the time since Update was last called to the timer.
 
-       /* if (brutalityHeight.playerEnergy >= 255)
+       if (brutalityHeight.playerEnergy >= 255)
         {
             weapon = Weapon.CHAINSAW;
 
-        }*/
+        }
 
 		switch (weapon) {
 		/*case Weapon.MELEE:
@@ -52,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
 					
 			break;*/
 		case Weapon.RIFLE:
-				
+			state.setRiffle ();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.15f;
 					// If the Fire1 button is being press and it's time to fire...
@@ -67,16 +77,22 @@ public class PlayerShooting : MonoBehaviour
 									DisableEffects ();
 								}*/
 			break;
-        /*case Weapon.CHAINSAW:
+        case Weapon.CHAINSAW:
             chainsaw.SetActive(true);
+			colliderSaw.enabled = true;
             brutalityHeight.playerEnergy -= 20 * Time.deltaTime;
+			state.setChainsaw ();
+
             if (brutalityHeight.playerEnergy <= 0)
             {
                 chainsaw.SetActive(false);
+				colliderSaw.enabled = false;
                 weapon = Weapon.RIFLE;
+
             }
-            break;*/
+            break;
 		case Weapon.SHOTGUN:
+			state.setShootgun ();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.85f;
 			// If the Fire1 button is being press and it's time to fire...

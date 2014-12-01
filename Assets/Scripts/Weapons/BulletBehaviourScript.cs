@@ -8,15 +8,15 @@ public class BulletBehaviourScript : MonoBehaviour {
 	public float maxError = 0.5f;
 	public enum Shooter { PLAYER, ENEMY}
 	public Shooter shooter;
-    //public BrutalityBar brutalityHeight;
-    //public float brutality;
+    public BrutalityBar brutalityHeight;
+    public float brutality;
 
 	// Use this for initialization
 	void Start () {
 		transform.Translate (0, 0.5f, 0.4f);
 		transform.Rotate (new Vector3 (0f, Random.Range (minError, maxError), 0f));
-        //brutalityHeight = Camera.main.transform.GetComponent<BrutalityBar> ();
-       // brutality = brutalityHeight.playerEnergy;
+        brutalityHeight = Camera.main.transform.GetComponent<BrutalityBar> ();
+        brutality = brutalityHeight.playerEnergy;
 
 	}
 	
@@ -38,8 +38,8 @@ public class BulletBehaviourScript : MonoBehaviour {
 				{
 					Destroy (gameObject);
 					Destroy (other.gameObject);
-					//brutality += 32;
-					//brutalityHeight.playerEnergy = brutality;
+					brutality += 8;
+					brutalityHeight.playerEnergy = brutality;
 				}
 			break;
 			case Shooter.ENEMY:					// If enemy is the one shooting
