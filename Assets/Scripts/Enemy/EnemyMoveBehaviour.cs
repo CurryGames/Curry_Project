@@ -6,26 +6,28 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 	public enum EnemyMoveStates { RIGHT, LEFT, UP, DOWN}
 
 	public EnemyMoveStates state;
-
-	public bool onPatrol;
-
-	public float speedMove;
-
+	private CharacterController controller;
+	private EnemyStats enemyStats;
 	private Vector3 moveDirection;
 
-	private CharacterController controller;
+	public bool chasing;
+	private float speedMove;
+
+
 
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+		enemyStats = GetComponent<EnemyStats> ();
+		speedMove = enemyStats.speed;
 		controller = transform.GetComponent<CharacterController> ();
-		onPatrol = false;
+		chasing = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (onPatrol)
+		if (!chasing)
 		{
 	
 			switch (state) 
