@@ -8,15 +8,18 @@ public class BulletBehaviourScript : MonoBehaviour {
 	public float maxError = 0.5f;
 	public enum Shooter { PLAYER, ENEMY}
 	public Shooter shooter;
+	private PlayerStats player;
+	private EnemyStats enemyStats;
     //public BrutalityBar brutalityHeight;
     //public float brutality;
 
 	// Use this for initialization
-	void Start () {
-		transform.Translate (0, 0.5f, 0.4f);
+	void Awake () {
+		transform.Translate (0, 0.6f, 0.4f);
 		transform.Rotate (new Vector3 (0f, Random.Range (minError, maxError), 0f));
         //brutalityHeight = Camera.main.transform.GetComponent<BrutalityBar> ();
        // brutality = brutalityHeight.playerEnergy;
+
 
 	}
 	
@@ -43,6 +46,12 @@ public class BulletBehaviourScript : MonoBehaviour {
 				}
 			break;
 			case Shooter.ENEMY:					// If enemy is the one shooting
+				if (other.tag == "Player")
+				{
+					Debug.Log ("getdamage");
+					player.GetDamage(5);
+
+				}
 			break;
 		}
         // Any case, Destroy bullet if collides with Wall

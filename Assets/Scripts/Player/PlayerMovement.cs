@@ -2,7 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 6f;            // The speed that the player will move at.
+	private PlayerStats playerStats;
+	public float speed;            // The speed that the player will move at.
 	private PlayerShooting playerShot;
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 	//Animator anim;                      // Reference to the animator component.
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 		
 		// Set up references.
 		//anim = GetComponent <Animator> ();
+		playerStats = GetComponent<PlayerStats> ();
+		speed = playerStats.speed;
 		playerRigidbody = GetComponent <Rigidbody> ();
 
 		playerShot = transform.GetComponent<PlayerShooting> ();

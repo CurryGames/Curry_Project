@@ -3,13 +3,16 @@ using System.Collections;
 
 public class RangedEnemy : MonoBehaviour {
 	
-	public float timeBetweenBullets;        // The time between each shot.
-	public float range = 10f;                      // The distance the gun can fire.
+	public float timeBetweenBullets;        // The time between each shot.       
 	public GameObject ShotgunBullet;
 	public GameObject bullet;
 	private GameObject player;
+	private EnemyMoveBehaviour enemyMove;
 	public enum Weapon {RIFLE, SHOTGUN}
 	public Weapon weapon;
+	public float detectDistance = 8f;
+	public float shootRange = 12f;  
+
 	float timer;
 	float dist;
 	
@@ -17,6 +20,7 @@ public class RangedEnemy : MonoBehaviour {
 	void Awake () {
 		player = GameObject.FindWithTag ("Player");
 		weapon = Weapon.RIFLE;
+		enemyMove = GetComponent<EnemyMoveBehaviour> ();
 
 	}
 	
@@ -25,10 +29,19 @@ public class RangedEnemy : MonoBehaviour {
 	{
 		// Distance between target and enemy
 		dist = Vector3.Distance( player.transform.position, transform.position);
-		Debug.Log (dist);
-		if (dist < 10) 
+		//Debug.Log (dist);
+
+		if (dist <= detectDistance) enemyMove.chasing = true;
+
+		if ((dist <= shootRange) && (enemyMove.chasing))
 		{
-			Shooting ();
+			switch (weapon){
+			case Weapon.RIFLE:
+				timer += Time.deltaTime;
+				timeBetweenBullets = 0.35f;
+				if (timer >= timeBetweenBullets) Shooting ();
+				break;
+			}
 		}
 	}
 
@@ -41,8 +54,8 @@ public class RangedEnemy : MonoBehaviour {
 		// ... set the second position of the line renderer to the fullest extent of the gun's range.
 		switch (weapon) {
 		case Weapon.RIFLE:
-			GameObject bulletGO = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
-			//GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
+			GameObject bulletGO = (GameObject)Instantiate (bullet, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
+			//GameObject bulletGO = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
 			Destroy (bulletGO, 2);
 			break;
 		case Weapon.SHOTGUN:

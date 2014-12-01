@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,11 +31,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 33: {fileID: 3300000}
-  - 64: {fileID: 6400000}
   - 23: {fileID: 2300000}
   m_Layer: 0
   m_Name: Trevor
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .981337547, z: 0}
+  m_LocalPosition: {x: 2.56085563, y: 1.09408855, z: 0}
   m_LocalScale: {x: .75, y: 1.9359591, z: .912499726}
   m_Children:
   - {fileID: 400002}
@@ -59,8 +58,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -.183012709, y: .683012724, z: -.683012724, w: -.183012709}
-  m_LocalPosition: {x: 0, y: .472337723, z: .0475823544}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: .403829724, z: .0475823544}
   m_LocalScale: {x: 1.27397263, y: 1.15525138, z: .516539812}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -134,19 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!64 &6400000
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
