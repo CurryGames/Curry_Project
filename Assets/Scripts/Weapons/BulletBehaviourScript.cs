@@ -36,8 +36,6 @@ public class BulletBehaviourScript : MonoBehaviour {
        			// Destroy enemy and bullet if collision
 				if (other.tag == "Enemy") 
 				{
-					Destroy (gameObject);
-					Destroy (other.gameObject);
 					brutality += 8;
 					brutalityHeight.playerEnergy = brutality;
 				}

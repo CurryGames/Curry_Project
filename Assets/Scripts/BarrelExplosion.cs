@@ -36,7 +36,6 @@ public class BarrelExplosion : MonoBehaviour {
 				if (col.rigidbody != null)
 				{
 					col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier,forceMode);
-					Debug.Log("booooooooommmm");
 				}
 				
 			}

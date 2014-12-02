@@ -32,9 +32,19 @@ public class EnemyStats : MonoBehaviour {
 			currentHealth = 0;
 			alive = false;
 		}
+		if (!alive) Destroy (gameObject);
 	}
 	
-	
+	void OnTriggerEnter (Collider col)
+	{
+		if(col.gameObject.tag == "Bullet")
+		{	
+			Destroy(col.gameObject);
+			GetDamage(100);
+		}
+	}
+
+
 	void GetDamage(int dmg)
 	{
 		currentHealth -= dmg;
