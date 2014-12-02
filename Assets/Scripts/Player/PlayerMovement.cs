@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey (KeyCode.F1)) Application.LoadLevel ("2dScene");
+		if (Input.GetKey (KeyCode.F1)) Application.LoadLevel ("2dScene 3");
 
-		if (Input.GetKeyDown("escape")) Application.Quit ();
+		//if (Input.GetKeyDown("escape")) Application.Quit ();
 		//if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
 		if (Input.GetKey ("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
 		if (Input.GetKey ("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;

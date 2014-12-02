@@ -12,6 +12,7 @@ public class Spawn : MonoBehaviour {
 	public GameObject[] wave1;
     public GameObject[] wave2;
     public GameObject[] wave3;
+	private PlayerStats playerStats;
 
 	public int deathCount;
 	public int maxDeath;
@@ -22,13 +23,16 @@ public class Spawn : MonoBehaviour {
         state = State.PAUSED;
 		currentTime = 2F;
 		deathCount = 0;
+		playerStats = GameObject.FindGameObjectWithTag("Player").
+			GetComponent<PlayerStats>();
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		deathCount = playerStats.deathNumber;
         switch (state)
         {
 
@@ -49,8 +53,11 @@ public class Spawn : MonoBehaviour {
             
                 }
                 
-				if(deathCount >= maxDeath) state = State.CLEARED;
-                
+				if(deathCount >= maxDeath)
+				{
+					state = State.CLEARED;
+					playerStats.deathNumber = 0;
+				}
                 
                 break;
             case State.CLEARED:
@@ -63,6 +70,17 @@ public class Spawn : MonoBehaviour {
 
 
 		}
+
+	void OnTriggerEnter(Collider other) {
+		
+		if ((other.tag=="Player")&&(state == State.PAUSED)) {
+			
+			state = State.ONPLAY;
+			
+		}
+		
+		
+	}
 		
 
 }
