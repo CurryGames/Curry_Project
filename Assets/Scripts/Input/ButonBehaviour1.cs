@@ -16,6 +16,6 @@ public class ButonBehaviour1 : MonoBehaviour {
 
 	// QUÉ HACE EL EVENTO ONDOWN ???
 	void onDown(int number){
-		Application.LoadLevel("2dScene");
+		Application.LoadLevel("Alpha_Level");
 	}	
 }

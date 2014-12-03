@@ -799,9 +799,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1856845661}
-  m_Text: TOP DOWN SHOOTER
+  m_Text: PROJECT CURRY
   m_OffsetZ: 0
-  m_CharacterSize: .25
+  m_CharacterSize: .200000003
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 0

@@ -36,7 +36,7 @@ public class DataLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// CARGAMOS EL MENU
-		//Application.LoadLevel("Menu");
+		Application.LoadLevel("Logo");
 	}
 	
 	// Update is called once per frame

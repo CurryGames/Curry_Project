@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.7108421, y: .965732098, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .75, y: 1.84843838, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  blood: {fileID: 400000, guid: 84d0c30da65be8241b4385b31e1aad3e, type: 2}
   speed: 0
   speedOnChase: 0
 --- !u!195 &19500000

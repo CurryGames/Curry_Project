@@ -6,11 +6,13 @@ public class EnemyStats : MonoBehaviour {
 	private NavMeshAgent agent;
 
 	public int maxHealth;
+	//public Transform blood;
 	float brutalPoints;
 	int currentHealth;
 	public float speed;
 	public float speedOnChase;
 	private PlayerStats playerStats;
+	private PlayerShooting playerShooting;
 	bool alive = true;
 	
 	// Use this for initialization
@@ -18,6 +20,7 @@ public class EnemyStats : MonoBehaviour {
 	{
 		agent = GetComponent<NavMeshAgent> ();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
 
 		speedOnChase = agent.speed;
 		speed = 4f;
@@ -41,7 +44,9 @@ public class EnemyStats : MonoBehaviour {
 
 		if (!alive)
 		{
-			playerStats.currentBrutality += brutalPoints;
+			if (playerShooting.weapon != PlayerShooting.Weapon.CHAINSAW) playerStats.currentBrutality += brutalPoints;
+			//GameObject bld= (GameObject)Instantiate(blood.gameObject,transform.position,Quaternion.identity);
+			//Destroy(bld,2);
 			playerStats.deathNumber ++;
 			Destroy (gameObject);
 		}
@@ -53,6 +58,10 @@ public class EnemyStats : MonoBehaviour {
 		{	
 			Destroy(col.gameObject);
 			GetDamage(100);
+		}
+		if(col.gameObject.tag == "Chainsaw")
+		{	
+			GetDamage(500);
 		}
 	}
 

@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour {
 	public float speed;
 	public float currentBrutality;
 	public int deathNumber;
+	public int damage;
 	private GodMode godMode;
 	public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
@@ -15,6 +16,7 @@ public class PlayerStats : MonoBehaviour {
 	private PauseLogic pauseLogic;
 	private BrutalityInterface brutalInterfaz;
 	bool alive = true;
+	bool levelCleared;
 
 	private Animator animation;
 
@@ -27,7 +29,9 @@ public class PlayerStats : MonoBehaviour {
 		brutalInterfaz = Camera.main.GetComponent <BrutalityInterface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
 		speed = 6f;
-		maxHealth = 300;
+		maxHealth = 256;
+		levelCleared = false;
+		damage = 12;
 		currentHealth = maxHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
@@ -39,6 +43,7 @@ public class PlayerStats : MonoBehaviour {
 {
 		if (currentHealth >= maxHealth)
 			currentHealth = maxHealth;
+		if (Input.GetKeyDown (KeyCode.E)) Application.Quit ();
 		if (currentHealth <= 0) 
 		{
 			currentHealth = 0;
@@ -48,8 +53,10 @@ public class PlayerStats : MonoBehaviour {
 		if (!alive)
 		{
 			GameOver ();
-			if (Input.GetKey (KeyCode.E)) Application.Quit ();
+
 		}
+
+		if(levelCleared) if (Input.GetKey (KeyCode.E)) Application.Quit ();
 
 	}
 
@@ -60,7 +67,7 @@ public class PlayerStats : MonoBehaviour {
 			Destroy(col.gameObject);
 			if (godMode.godmode == false)
 			{
-				GetDamage(25);
+				GetDamage(damage);
 			}
 			else GetDamage (0);
 		}
@@ -69,7 +76,7 @@ public class PlayerStats : MonoBehaviour {
 		{
 
 			LevelEnd ();
-			if (Input.GetKey (KeyCode.E)) Application.Quit ();
+
 
 		} 
 	}
@@ -111,6 +118,8 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		brutalInterfaz.enabled = false;
 		pauseLogic.enabled = false;
+		levelCleared = true;
+
 		
 	}
 }

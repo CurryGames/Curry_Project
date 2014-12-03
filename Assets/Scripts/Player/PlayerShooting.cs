@@ -40,7 +40,7 @@ public class PlayerShooting : MonoBehaviour
 	{
 		// Add the time since Update was last called to the timer.
 
-		if (playerStats.currentBrutality >= 300)
+		if (playerStats.currentBrutality >= 256)
         {
             weapon = Weapon.CHAINSAW;
 
@@ -68,12 +68,14 @@ public class PlayerShooting : MonoBehaviour
 			colliderSaw.enabled = true;
 			playerStats.currentBrutality -= 20 * Time.deltaTime;
 			playerStats.setChainsaw ();
-
+			playerStats.damage = 1;
+			playerStats.speed = 12;
 			if (playerStats.currentBrutality <= 0)
             {
                 chainsaw.SetActive(false);
 				colliderSaw.enabled = false;
                 weapon = Weapon.RIFLE;
+				playerStats.damage = 12;
 
             }
             break;

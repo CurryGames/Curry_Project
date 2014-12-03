@@ -15,9 +15,12 @@ public class Spawn : MonoBehaviour {
 	private PlayerStats playerStats;
 
 	public int deathCount;
+	public int emiesNumber;
+	public int maxEnemies;
 	public int maxDeath;
 	public float currentTime;
 	public float currentTime2;
+	public bool active;
 	// Use this for initialization
 	void Start () {
         state = State.PAUSED;
@@ -36,33 +39,35 @@ public class Spawn : MonoBehaviour {
         {
 
             case State.PAUSED:
-
-				door.SetActive(false);
+				
+				if (active)door.SetActive(false);
 
                 break;
             case State.ONPLAY:
 
 				currentTime -= Time.deltaTime;
-				door.SetActive(true);
+				if (active) door.SetActive(true);
 
-                if (currentTime <= 0)
+			if ((currentTime <= 0)  && (emiesNumber < maxEnemies))
                 {
                     Instantiate(wave1[Random.Range(0, wave1.GetLength(0))], transform.position, Quaternion.identity);
                     currentTime = currentTime2;
+					emiesNumber++;
             
                 }
                 
-				if(deathCount >= maxDeath)
+			if(deathCount >= maxDeath)
 				{
 					state = State.CLEARED;
-					playerStats.deathNumber = 0;
+					if (active)playerStats.deathNumber = 0;
+					
 				}
                 
                 break;
             case State.CLEARED:
 				
 				deathCount = 0;
-				door.SetActive(false);
+				if (active)door.SetActive(false);
                 break;
         }
 
