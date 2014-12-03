@@ -23,8 +23,7 @@ public class PlayerStats : MonoBehaviour {
 		animation = GetComponentInChildren<Animator> ();
 		interfaz = Camera.main.GetComponent <Interface>();
 		brutalInterfaz = Camera.main.GetComponent <BrutalityInterface>();
-		pauseLogic = GameObject.FindGameObjectWithTag ("pause").
-			GetComponent<PauseLogic> ();
+		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
 		speed = 6f;
 		maxHealth = 300;
 		currentHealth = maxHealth;

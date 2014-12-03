@@ -17,8 +17,7 @@ public class EnemyStats : MonoBehaviour {
 	void Awake () 
 	{
 		agent = GetComponent<NavMeshAgent> ();
-		playerStats = GameObject.FindGameObjectWithTag("Player").
-			GetComponent<PlayerStats>();
+		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 
 		speedOnChase = agent.speed;
 		speed = 4f;
@@ -37,10 +36,14 @@ public class EnemyStats : MonoBehaviour {
 			currentHealth = 0;
 			alive = false;
 			playerBrutality += 8;
-			playerStats.currentBrutality = playerBrutality;
-			playerStats.deathNumber ++;
+
 		}
-		if (!alive) Destroy (gameObject);
+		if (!alive)
+		{
+			playerStats.currentBrutality += playerBrutality;
+			playerStats.deathNumber ++;
+			Destroy (gameObject);
+		}
 	}
 	
 	void OnTriggerEnter (Collider col)

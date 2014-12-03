@@ -23,8 +23,7 @@ public class Spawn : MonoBehaviour {
         state = State.PAUSED;
 		currentTime = 2F;
 		deathCount = 0;
-		playerStats = GameObject.FindGameObjectWithTag("Player").
-			GetComponent<PlayerStats>();
+		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 
 
 	}
