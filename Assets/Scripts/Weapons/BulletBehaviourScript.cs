@@ -8,7 +8,6 @@ public class BulletBehaviourScript : MonoBehaviour {
 	public float maxError = 0.5f;
 	public enum Shooter { PLAYER, ENEMY}
 	public Shooter shooter;
-    public float brutality;
 
 	// Use this for initialization
 	void Start () {

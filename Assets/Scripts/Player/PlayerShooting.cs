@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject pipe;
     public GameObject chainsaw;
     public PlayerStats playerStats;
-	float timer;                                    // A timer to determine when to fire.				// A timer to determine melee attack duration
+	float timer;                                    // A timer to determine when to fire.				
 	Ray shootRay;                                   // A ray from the gun end forwards.
 	RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
 
@@ -32,7 +32,6 @@ public class PlayerShooting : MonoBehaviour
 	} 
 	void Start ()
 	{
-
 		colliderSaw = transform.FindChild ("colliderSaw").GetComponent<BoxCollider> ();
 		colliderSaw.enabled = false;
 		playerStats = GetComponent <PlayerStats> ();
@@ -114,7 +113,8 @@ public class PlayerShooting : MonoBehaviour
 	
 			// ... set the second position of the line renderer to the fullest extent of the gun's range.
 			//gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
-		switch (weapon) {
+		switch (weapon) 
+		{
 		/*case Weapon.MELEE:
 			GameObject pipeGO = (GameObject) Instantiate (pipe, transform.position, transform.rotation);
 			Destroy (pipeGO, 0.3f);
@@ -131,4 +131,5 @@ public class PlayerShooting : MonoBehaviour
 				 
 		}
 	}
+
 }

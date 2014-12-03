@@ -6,7 +6,7 @@ public class EnemyStats : MonoBehaviour {
 	private NavMeshAgent agent;
 
 	public int maxHealth;
-	float playerBrutality;
+	float brutalPoints;
 	int currentHealth;
 	public float speed;
 	public float speedOnChase;
@@ -23,7 +23,7 @@ public class EnemyStats : MonoBehaviour {
 		speed = 4f;
 		maxHealth = 300;
 		currentHealth = maxHealth;
-		playerBrutality = playerStats.currentBrutality;
+		brutalPoints = 40;
 		
 	}
 	
@@ -31,16 +31,17 @@ public class EnemyStats : MonoBehaviour {
 	void Update ()
 	{
 		if (currentHealth >= maxHealth) currentHealth = maxHealth;
+
 		if (currentHealth <= 0) 
 		{
 			currentHealth = 0;
 			alive = false;
-			playerBrutality += 8;
 
 		}
+
 		if (!alive)
 		{
-			playerStats.currentBrutality += playerBrutality;
+			playerStats.currentBrutality += brutalPoints;
 			playerStats.deathNumber ++;
 			Destroy (gameObject);
 		}

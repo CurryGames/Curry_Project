@@ -10,14 +10,14 @@ public class GodMode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		godmode = false;
-		playerCollider = GetComponent <BoxCollider> ();
+		//playerCollider = GetComponent <BoxCollider> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (godmode == false) 
 		{
-			playerCollider.enabled = true;
+			//playerCollider.enabled = true;
 			godSprite.SetActive (false);
 
 			if(Input.GetKeyUp(KeyCode.G)) godmode = true;
@@ -25,7 +25,7 @@ public class GodMode : MonoBehaviour {
 		}
 		if (godmode == true) 
 		{
-			playerCollider.enabled = false;
+			//playerCollider.enabled = false;
 			godSprite.SetActive (true);
 			
 			if(Input.GetKeyUp(KeyCode.N)) godmode = false;

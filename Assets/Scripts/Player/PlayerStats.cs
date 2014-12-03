@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour {
 	public float speed;
 	public float currentBrutality;
 	public int deathNumber;
+	private GodMode godMode;
 	public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
 	private Interface interfaz;
@@ -20,6 +21,7 @@ public class PlayerStats : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
+		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
 		interfaz = Camera.main.GetComponent <Interface>();
 		brutalInterfaz = Camera.main.GetComponent <BrutalityInterface>();
@@ -34,15 +36,20 @@ public class PlayerStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-	{
-			if (currentHealth >= maxHealth)
-					currentHealth = maxHealth;
-			if (currentHealth <= 0) {
-					currentHealth = 0;
-					GameOver ();
-					if (Input.GetKey (KeyCode.E)) Application.Quit ();
-					alive = false;
-			}
+{
+		if (currentHealth >= maxHealth)
+			currentHealth = maxHealth;
+		if (currentHealth <= 0) 
+		{
+			currentHealth = 0;
+			alive = false;
+		}
+		
+		if (!alive)
+		{
+			GameOver ();
+			if (Input.GetKey (KeyCode.E)) Application.Quit ();
+		}
 
 	}
 
@@ -51,7 +58,11 @@ public class PlayerStats : MonoBehaviour {
 		if(col.gameObject.tag == "enemyBullet")
 		{	
 			Destroy(col.gameObject);
-			GetDamage(25);
+			if (godMode.godmode == false)
+			{
+				GetDamage(25);
+			}
+			else GetDamage (0);
 		}
 
 		if(col.tag == "pointB")
