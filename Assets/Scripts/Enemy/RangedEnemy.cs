@@ -10,7 +10,7 @@ public class RangedEnemy : MonoBehaviour {
 	private EnemyMoveBehaviour enemyMove;
 	public enum Weapon {RIFLE, SHOTGUN}
 	public Weapon weapon;
-	public float detectDistance = 8f;
+	public float detectDistance = 50f;
 	public float shootRange = 12f;  
 
 	float timer;

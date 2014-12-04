@@ -33,13 +33,13 @@ public class EnemyStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (playerStats.currentHealth == 0) alive = false;
 		if (currentHealth >= maxHealth) currentHealth = maxHealth;
 
 		if (currentHealth <= 0) 
 		{
 			currentHealth = 0;
 			alive = false;
-
 		}
 
 		if (!alive)

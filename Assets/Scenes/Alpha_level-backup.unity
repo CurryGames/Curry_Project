@@ -8791,15 +8791,15 @@ Prefab:
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: wave1.Array.data[2]
       value: 
-      objectReference: {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
+      objectReference: {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: wave1.Array.data[0]
       value: 
-      objectReference: {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
+      objectReference: {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: wave1.Array.data[1]
       value: 
-      objectReference: {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
+      objectReference: {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: maxDeath
       value: 5
@@ -17117,9 +17117,9 @@ MonoBehaviour:
   state: 1
   door: {fileID: 1289366143}
   wave1:
-  - {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
-  - {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
-  - {fileID: 100004, guid: 418f7df3bb00eed49a0e7e6daf4b5bb5, type: 2}
+  - {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
+  - {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
+  - {fileID: 100000, guid: 9a6c0edb76b7828488ade5fab8d57bea, type: 2}
   wave2: []
   wave3: []
   deathCount: 0
