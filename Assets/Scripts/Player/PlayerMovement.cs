@@ -27,13 +27,18 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey (KeyCode.F1)) Application.LoadLevel ("Alpha_Level");
+		speed = playerStats.speed;
+        if (Input.GetKey(KeyCode.F1)) Application.LoadLevel("Alpha_Level");
+        if (!playerStats.brutalMode)
+        {
+            //if (Input.GetKeyDown("escape")) Application.Quit ();
+            //if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
+            if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
+            if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 
-		//if (Input.GetKeyDown("escape")) Application.Quit ();
-		//if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
-		if (Input.GetKey ("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
-		if (Input.GetKey ("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
-	}
+        }
+    }
+	
 
 	
 	void FixedUpdate ()

@@ -40,9 +40,10 @@ public class PlayerShooting : MonoBehaviour
 	{
 		// Add the time since Update was last called to the timer.
 
-		if (playerStats.currentBrutality >= 256)
+        if ((playerStats.currentBrutality >= 256) && (Input.GetKeyDown(KeyCode.Space)))
         {
             weapon = Weapon.CHAINSAW;
+            playerStats.brutalMode = true;
 
         }
 
@@ -76,6 +77,8 @@ public class PlayerShooting : MonoBehaviour
 				colliderSaw.enabled = false;
                 weapon = Weapon.RIFLE;
 				playerStats.damage = 12;
+                playerStats.speed = 6;
+                playerStats.brutalMode = true;
 
             }
             break;

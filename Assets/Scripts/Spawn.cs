@@ -21,6 +21,7 @@ public class Spawn : MonoBehaviour {
 	public float currentTime;
 	public float currentTime2;
 	public bool active;
+    public bool objective;
 	// Use this for initialization
 	void Start () {
         state = State.PAUSED;
@@ -76,12 +77,28 @@ public class Spawn : MonoBehaviour {
 		}
 
 	void OnTriggerEnter(Collider other) {
-		
-		if ((other.tag=="Player")&&(state == State.PAUSED)) {
-			
-			state = State.ONPLAY;
-			
-		}
+
+        if (!objective)
+        {
+
+            if ((other.tag == "Player") && (state == State.PAUSED))
+            {
+
+                state = State.ONPLAY;
+
+            }
+        }
+
+        if (objective)
+        {
+
+            if ((other.tag == "Player") && (state == State.PAUSED) && (playerStats.onKey == true))
+            {
+
+                state = State.ONPLAY;
+
+            }
+        }
 		
 		
 	}

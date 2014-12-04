@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour {
 	private PauseLogic pauseLogic;
 	private BrutalityInterface brutalInterfaz;
 	bool alive = true;
+    public bool onKey;
+    public bool brutalMode;
 	bool levelCleared;
 
 	private Animator animation;
@@ -31,7 +33,10 @@ public class PlayerStats : MonoBehaviour {
 		speed = 6f;
 		maxHealth = 256;
 		levelCleared = false;
+        brutalMode = false;
+        onKey = false;
 		damage = 12;
+        currentBrutality = 256;
 		currentHealth = maxHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
@@ -43,6 +48,7 @@ public class PlayerStats : MonoBehaviour {
 {
 		if (currentHealth >= maxHealth)
 			currentHealth = maxHealth;
+        if (currentBrutality >= 256) currentBrutality = 256;
 		if (Input.GetKeyDown (KeyCode.E)) Application.Quit ();
 		if (currentHealth <= 0) 
 		{
@@ -72,13 +78,22 @@ public class PlayerStats : MonoBehaviour {
 			else GetDamage (0);
 		}
 
-		if(col.tag == "pointB")
-		{
+        if ((col.tag == "pointB") && onKey)
+        {
 
-			LevelEnd ();
+            LevelEnd();
+            onKey = false;
 
 
-		} 
+        }
+
+        if (col.tag == "Key")
+        {
+
+            onKey = true;
+            Destroy(col.gameObject);
+
+        } 
 	}
 
 	void GetDamage(int dmg)
