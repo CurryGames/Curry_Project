@@ -78,7 +78,7 @@ public class PlayerShooting : MonoBehaviour
                 weapon = Weapon.RIFLE;
 				playerStats.damage = 12;
                 playerStats.speed = 6;
-                playerStats.brutalMode = true;
+                playerStats.brutalMode = false;
 
             }
             break;

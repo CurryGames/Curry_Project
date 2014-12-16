@@ -7,11 +7,12 @@ public class DataLogic : MonoBehaviour {
 	//public AudioClip jump;
 
 	// VARIABLE CURRENT LEVEL
-	//private int currentLevel;
-	//private int nextLevel;
+	private int currentLevel;
+	private int nextLevel;
+    public bool on;
 
 	// SET 
-	/*public void setCurrentLevel(int levelAux){
+	public void setCurrentLevel(int levelAux){
 		currentLevel = levelAux;
 	}
 
@@ -24,7 +25,7 @@ public class DataLogic : MonoBehaviour {
 	}
 	public int getNextLevel(){
 		return nextLevel;
-	}*/
+	}
 	// SE EJECUTA ANTES DE QUE EL ESCENARIO SE CARGUE
 	void Awake(){
 
@@ -36,7 +37,7 @@ public class DataLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// CARGAMOS EL MENU
-		Application.LoadLevel("Logo");
+        if (!on) Application.LoadLevel("Logo");
 	}
 	
 	// Update is called once per frame

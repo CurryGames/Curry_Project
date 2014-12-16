@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LevelLogic : MonoBehaviour {
-	/*
+	
 	// PRIVATE DATALOGIC CLASE DATALOGIC
 	private DataLogic dataLogic;
 
@@ -39,5 +39,6 @@ public class LevelLogic : MonoBehaviour {
 	public void loadNextLevel(){
 		// CARGA EL SIGUIENTE NIVEL
 		Application.LoadLevel (dataLogic.getNextLevel ());
-	}*/
+	}
+
 }

@@ -22,10 +22,7 @@ public class Aura : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
-		
-		
+				
 		if (down) {
 			
 			color.a = Mathf.Lerp (0, 1, temp / tempInit);
@@ -38,7 +35,6 @@ public class Aura : MonoBehaviour {
 			
 		}
 		
-		
 		if (!down){
 			
 			color.a = Mathf.Lerp (0, 1, temp / tempInit);
@@ -49,9 +45,6 @@ public class Aura : MonoBehaviour {
 				down = true;
 				temp = tempInit;
 			}
-			
 		}
-		
-		
 	}
 }

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	private PlayerShooting playerShot;
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 	//Animator anim;                      // Reference to the animator component.
+    bool loadScreen = false;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 	int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
 	float camRayLength = 100f;          // The length of the ray from the camera into the scene.
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		speed = playerStats.speed;
-        if (Input.GetKey(KeyCode.F1)) Application.LoadLevel("Alpha_Level");
+        
         if (!playerStats.brutalMode)
         {
             //if (Input.GetKeyDown("escape")) Application.Quit ();
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 
         }
+
     }
 	
 
