@@ -9,22 +9,28 @@ public class LoadingScreen : MonoBehaviour {
     public bool loadCurrentScreen;
     public bool loadNextScreen;
     private LevelLogic levelLogic;
+    private DataLogic dataLogic;
     public float tempInit = 1f;
     public Color color;
 
 	// Use this for initialization
 	void Start () {
-        state = State.FADEOUT;
+        state = State.FADEOUT;        
         temp = tempInit;
+        loadCurrentScreen = false;
+        loadNextScreen = false;
         color = renderer.material.color;
         levelLogic = GameObject.FindGameObjectWithTag("LevelLogic").
             GetComponent<LevelLogic>();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<DataLogic>();
+
         DontDestroyOnLoad(transform.gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.F1) && !loadCurrentScreen) loadCurrentScreen = true;
+        
         if (loadCurrentScreen) loadingCurrentLevel();
         if (loadNextScreen) loadingNexttLevel();
 	}
@@ -40,20 +46,14 @@ public class LoadingScreen : MonoBehaviour {
                 if (temp <= 0)
                 {
                     state = State.LOADING;
+                    Debug.Log("your level is loading");
                     temp = 0;
                 }
                 break;
 
             case State.LOADING:
 
-                temp += Time.deltaTime;
-                if (temp >= 1)
-                {
-
-                    temp = tempInit;
-                    state = State.FADEIN;
-                    levelLogic.loadCurrentLevel();
-                }
+                levelLogic.loadCurrentLevel();
 
                 break;
             case State.FADEIN:
@@ -65,8 +65,11 @@ public class LoadingScreen : MonoBehaviour {
 
                 if (temp < 0)
                 {
-
-                    Destroy(this.gameObject);
+                    state = State.FADEOUT;
+                    loadCurrentScreen = false;
+                    temp = tempInit;
+                    //Destroy(this.gameObject);
+                    
                 }
                 break;
         }
@@ -83,20 +86,14 @@ public class LoadingScreen : MonoBehaviour {
 			if (temp <= 0) {
                 state = State.LOADING;
 				temp = 0;
+                Debug.Log("your level is loading");
 			}
              break;
 
             case State.LOADING:
-             
-             temp += Time.deltaTime;
-             if (temp >= 1)
-             {
-                            
-                 temp = tempInit;
-                 state = State.FADEIN;
-                 levelLogic.loadNextLevel();
-             } 
-             
+            
+            levelLogic.loadNextLevel();
+
              break;
             case State.FADEIN:
 
@@ -106,12 +103,25 @@ public class LoadingScreen : MonoBehaviour {
             temp -= Time.deltaTime;  
             if (temp < 0)
             {
-                
-                Destroy(this.gameObject);
+
+                state = State.FADEOUT;
+                loadNextScreen = false;
+                temp = tempInit;
+                //Destroy(this.gameObject);
             }
             break;
         }
     }
-    
+
+    void OnLevelWasLoaded(int level)
+    {
+
+        if ((level == dataLogic.getCurrentLevel()) || (level == dataLogic.getNextLevel()))
+        {
+            temp = tempInit;
+            state = State.FADEIN;
+            Debug.Log("your level was loaded!!!");
+        }
+    }
 
 }

@@ -639,7 +639,7 @@ MeshCollider:
   m_GameObject: {fileID: 23112491}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -728,7 +728,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25654088}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 8.94235134, y: -.439999998, z: 13.5264301}
+  m_LocalPosition: {x: 9.21676064, y: -.439999998, z: 13.5264301}
   m_LocalScale: {x: 10, y: 5.87500191, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 474673336}
@@ -909,7 +909,7 @@ MeshCollider:
   m_GameObject: {fileID: 36915033}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -1006,6 +1006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   temp: 0
+  loadCurrentScreen: 0
+  loadNextScreen: 0
   tempInit: 1
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &62285410
@@ -1607,7 +1609,7 @@ MeshCollider:
   m_GameObject: {fileID: 148808509}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -2419,7 +2421,7 @@ MeshCollider:
   m_GameObject: {fileID: 187891045}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -3349,7 +3351,7 @@ MeshCollider:
   m_GameObject: {fileID: 261043788}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -5175,7 +5177,7 @@ MeshCollider:
   m_GameObject: {fileID: 429323694}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -5627,7 +5629,7 @@ MeshCollider:
   m_GameObject: {fileID: 487088427}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -5646,7 +5648,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 487088427}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 8.93875217, y: -.50000006, z: 11.2586889}
+  m_LocalPosition: {x: 8.73327351, y: -.50000006, z: 11.2586889}
   m_LocalScale: {x: 10, y: 10, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 474673336}
@@ -6125,7 +6127,7 @@ MeshCollider:
   m_GameObject: {fileID: 543533989}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -9158,7 +9160,7 @@ MeshCollider:
   m_GameObject: {fileID: 921841600}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -9789,7 +9791,7 @@ MeshCollider:
   m_GameObject: {fileID: 994546232}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -10839,7 +10841,7 @@ MeshCollider:
   m_GameObject: {fileID: 1079894734}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -17293,7 +17295,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1690723430}
   - 33: {fileID: 1690723429}
-  - 64: {fileID: 1690723428}
   - 23: {fileID: 1690723427}
   m_Layer: 8
   m_Name: Floor
@@ -17322,19 +17323,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1690723428
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1690723426}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1690723429
 MeshFilter:
   m_ObjectHideFlags: 0

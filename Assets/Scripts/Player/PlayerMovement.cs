@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 	private PlayerStats playerStats;
 	public float speed;            // The speed that the player will move at.
 	private PlayerShooting playerShot;
+    private LoadingScreen loadingScreen;
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 	//Animator anim;                      // Reference to the animator component.
     bool loadScreen = false;
@@ -22,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 		playerStats = GetComponent<PlayerStats> ();
 		speed = playerStats.speed;
 		playerRigidbody = GetComponent <Rigidbody> ();
-
+        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
+            GetComponent<LoadingScreen>();
 		playerShot = transform.GetComponent<PlayerShooting> ();
 	}
 
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //if (Input.GetKeyDown("escape")) Application.Quit ();
             //if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
+            if (Input.GetKey(KeyCode.F1) && !loadingScreen.loadCurrentScreen) loadingScreen.loadCurrentScreen = true;
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
             if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 
