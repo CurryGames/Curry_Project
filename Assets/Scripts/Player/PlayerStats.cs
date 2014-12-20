@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour {
 	public GameObject EndLevelScreen;
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
-	private BrutalityInterface brutalInterfaz;
+	private PlayerMovement playerMov;
 	bool alive = true;
     public bool onKey;
     public bool brutalMode;
@@ -27,8 +27,8 @@ public class PlayerStats : MonoBehaviour {
 	{
 		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
+		playerMov = GetComponentInChildren<PlayerMovement> ();
 		interfaz = Camera.main.GetComponent <Interface>();
-		brutalInterfaz = Camera.main.GetComponent <BrutalityInterface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
 		speed = 6f;
 		maxHealth = 256;
@@ -123,7 +123,7 @@ public class PlayerStats : MonoBehaviour {
 
 		GameOverScreen.SetActive (true);
 		interfaz.enabled = false;
-		brutalInterfaz.enabled = false;
+		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
 
 	}
@@ -131,7 +131,7 @@ public class PlayerStats : MonoBehaviour {
 		
 		EndLevelScreen.SetActive (true);
 		interfaz.enabled = false;
-		brutalInterfaz.enabled = false;
+		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
 		levelCleared = true;
 

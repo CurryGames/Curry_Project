@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuLogic : MonoBehaviour {
@@ -8,11 +9,17 @@ public class MenuLogic : MonoBehaviour {
 	public State screen;
 	public GameObject start; 
 	public GameObject menu;
+	public Button playButton;
+	public Button optionsButton;
+	public Button exitButton;
 	public GameObject options;
+	private LoadingScreen loadingScreen;
 
 	// Use this for initialization
 	void Start () {
 		screen = State.START;
+		loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
+			GetComponent<LoadingScreen>();
 	
 	}
 	
@@ -33,6 +40,13 @@ public class MenuLogic : MonoBehaviour {
 			start.SetActive(false);
 			menu.SetActive(true);
 			options.SetActive(false);
+			playButton.GetComponent<Button>().onClick.AddListener (() => {
+
+				loadingScreen.loadNextScreen = true;
+
+			}
+			);
+			exitButton.GetComponent<Button>().onClick.AddListener (() => { Application.Quit ();});
 			break;
 		case State.OPTIONS:
 			start.SetActive(false);
