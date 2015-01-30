@@ -12,6 +12,8 @@ public class LightEffects : MonoBehaviour {
     public float tempInit;
     public float tempInitFlu;
     public float tempEffect;
+    public float glowMax;
+    public float glowMim;
 
     public Color color;
 
@@ -70,7 +72,7 @@ public class LightEffects : MonoBehaviour {
     {
         if (down)
         {
-            color.a = Mathf.Lerp(0.1F, 0.13F, temp / tempInit);
+            color.a = Mathf.Lerp(glowMax, glowMim, temp / tempInit);
             renderer.material.color = color;
             temp -= Time.deltaTime;
 
@@ -83,7 +85,7 @@ public class LightEffects : MonoBehaviour {
 
         if (!down)
         {
-            color.a = Mathf.Lerp(0.1F, 0.13F, temp / tempInit);
+            color.a = Mathf.Lerp(glowMax, glowMim, temp / tempInit);
             renderer.material.color = color;
             temp += Time.deltaTime;
 

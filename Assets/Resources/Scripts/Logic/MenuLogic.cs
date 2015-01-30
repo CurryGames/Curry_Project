@@ -14,13 +14,16 @@ public class MenuLogic : MonoBehaviour {
 	public Button exitButton;
 	public GameObject options;
 	private LoadingScreen loadingScreen;
+    private bool down;
+    private float temp;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 		screen = State.START;
 		loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
 			GetComponent<LoadingScreen>();
-	
+        down = false;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +31,30 @@ public class MenuLogic : MonoBehaviour {
 		switch (screen) {
 	
 		case State.START:
-			start.SetActive(true);
+
+                temp += Time.deltaTime;
+
+            if (!down)
+            {
+                start.SetActive(true);
+
+                if (temp >= 0.5f)
+                {
+                    down = true;
+                    temp = 0;
+                }
+            }
+            else
+            {
+                start.SetActive(false);
+
+                if (temp >= 0.5f)
+                {
+                    down = false;
+                    temp = 0;
+                }
+            }
+
 			menu.SetActive(false);
 			options.SetActive(false);
 			if(Input.GetKeyDown(KeyCode.Return))
