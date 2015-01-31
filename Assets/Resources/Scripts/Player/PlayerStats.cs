@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour {
 	public float currentBrutality;
 	public int deathNumber;
 	public int damage;
+    public int currentMunition;
+    public int maxMunition;
 	private GodMode godMode;
 	public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
@@ -78,6 +80,13 @@ public class PlayerStats : MonoBehaviour {
 			else GetDamage (0);
 		}
 
+        if (col.gameObject.tag == "Medicine")
+        {
+            Destroy(col.gameObject);
+            GetHealth(50);
+
+        }
+
         if ((col.tag == "pointB") && onKey)
         {
 
@@ -100,6 +109,11 @@ public class PlayerStats : MonoBehaviour {
 	{
 		currentHealth -= dmg;	
 	}
+
+    void GetHealth(int hlth)
+    {
+        currentHealth += hlth;
+    }
 
 	// ANIMATIONS
 	
