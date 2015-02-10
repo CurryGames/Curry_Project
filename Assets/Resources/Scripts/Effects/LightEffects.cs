@@ -14,6 +14,8 @@ public class LightEffects : MonoBehaviour {
     public float tempEffect;
     public float glowMax;
     public float glowMim;
+    public float fluMax;
+    public float fluMim;
 
     public Color color;
 
@@ -62,7 +64,8 @@ public class LightEffects : MonoBehaviour {
         tempFlu -= Time.deltaTime;
         if (tempFlu < 0)
         {
-            color.a = Random.Range(0.1f, 0.05f);
+            //color.a = Random.Range(0.1f, 0.05f);
+            color.a = Random.Range(fluMax, fluMim);
             renderer.material.color = color;
             tempFlu = tempInitFlu;
         } 

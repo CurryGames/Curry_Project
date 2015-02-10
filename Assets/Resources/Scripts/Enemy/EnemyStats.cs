@@ -81,7 +81,7 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(col.gameObject);
             GetDamage(100);
-			if (hit == false)hit = true;
+			
         }
         if (col.gameObject.tag == "Chainsaw")
         {
@@ -90,9 +90,10 @@ public class EnemyStats : MonoBehaviour
     }
 
 
-    void GetDamage(int dmg)
+    public void GetDamage(int dmg)
     {
         currentHealth -= dmg;
+        if (hit == false) hit = true;
     }
 
     void HitAnim()

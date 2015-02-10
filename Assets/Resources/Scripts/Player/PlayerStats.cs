@@ -17,23 +17,30 @@ public class PlayerStats : MonoBehaviour {
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
 	private PlayerMovement playerMov;
+    public TextMesh bullets;
+    public int riffleBullets;
+    public int shotgunBullets;
 	bool alive = true;
     public bool onKey;
     public bool brutalMode;
 	bool levelCleared;
 
 	private Animator animation;
+    private Animator animationLegs;
 
 	// Use this for initialization
 	void Awake () 
 	{
 		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
+        animationLegs = GameObject.FindGameObjectWithTag("Legs").GetComponent<Animator>();
 		playerMov = GetComponentInChildren<PlayerMovement> ();
 		interfaz = Camera.main.GetComponent <Interface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
 		speed = 6f;
 		maxHealth = 256;
+        riffleBullets = 400;
+        shotgunBullets = 20;
 		levelCleared = false;
         brutalMode = false;
         onKey = false;
@@ -57,7 +64,17 @@ public class PlayerStats : MonoBehaviour {
 			currentHealth = 0;
 			alive = false;
 		}
-		
+
+        if (riffleBullets <= 0)
+        {
+            riffleBullets = 0;
+        }
+
+        if (shotgunBullets <= 0)
+        {
+            shotgunBullets = 0;
+        }
+
 		if (!alive)
 		{
 			GameOver ();
@@ -80,10 +97,24 @@ public class PlayerStats : MonoBehaviour {
 			else GetDamage (0);
 		}
 
-        if (col.gameObject.tag == "Medicine")
+        if ((col.gameObject.tag == "Medicine") && (currentHealth < maxHealth))
         {
             Destroy(col.gameObject);
             GetHealth(50);
+
+        }
+
+        if ((col.gameObject.tag == "riffleArmor"))
+        {
+            Destroy(col.gameObject);
+            GetArmorRiffle(100);
+
+        }
+
+        if ((col.gameObject.tag == "shotgunArmor"))
+        {
+            Destroy(col.gameObject);
+            GetArmorShotgun(10);
 
         }
 
@@ -115,6 +146,16 @@ public class PlayerStats : MonoBehaviour {
         currentHealth += hlth;
     }
 
+    void GetArmorShotgun(int bulletNum)
+    {
+        shotgunBullets += bulletNum;
+    }
+
+    void GetArmorRiffle(int bulletNum)
+    {
+        riffleBullets += bulletNum;
+    }
+
 	// ANIMATIONS
 	
 	public void setRiffle(){
@@ -133,6 +174,19 @@ public class PlayerStats : MonoBehaviour {
 		// REPRODUCIMOS LA ANIMACION DE Chainsaw
 		animation.Play ("Chainsaw");
 	}
+
+    public void setRun()
+    {
+        // REPRODUCIMOS LA ANIMACION DE Chainsaw
+        animationLegs.Play("Run");
+    }
+
+    public void setIddle()
+    {
+        // REPRODUCIMOS LA ANIMACION DE Chainsaw
+        animationLegs.Play("Iddle");
+    }
+
 	public void GameOver(){
 
 		GameOverScreen.SetActive (true);

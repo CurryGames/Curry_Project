@@ -15,7 +15,7 @@ public class PlayerShooting : MonoBehaviour
 	Ray shootRay;                                   // A ray from the gun end forwards.
 	RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
 
-	public enum Weapon {RIFLE, SHOTGUN, CHAINSAW}
+	public enum Weapon {GUN, RIFLE, SHOTGUN, CHAINSAW}
 	//public enum AttackStates { ATTACK, REST }
 	public Weapon weapon;
 	//public AttackStates atkState;
@@ -48,13 +48,34 @@ public class PlayerShooting : MonoBehaviour
         }
 
 		switch (weapon) {
+            case Weapon.GUN:
+                playerStats.setRiffle();
+                playerStats.bullets.text = "Inf.";
+                timer += Time.deltaTime;
+                timeBetweenBullets = 0.45f;
+                // If the Fire1 button is being press and it's time to fire...
+                if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0)
+                {
+                    // ... shoot the gun.
+                    
+                    Shoot();
+                }
+                // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
+                /*if(timer >= timeBetweenBullets * effectsDisplayTime)
+            {
+                // ... disable the effects.
+                DisableEffects ();
+            }*/
+                break;
 		case Weapon.RIFLE:
 			playerStats.setRiffle ();
+            playerStats.bullets.text = playerStats.riffleBullets.ToString();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.15f;
 					// If the Fire1 button is being press and it's time to fire...
-			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets) {
+			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0) {
 								// ... shoot the gun.
+                playerStats.riffleBullets--;
 				Shoot ();
 			}
 									// If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
@@ -75,7 +96,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 chainsaw.SetActive(false);
 				colliderSaw.enabled = false;
-                weapon = Weapon.RIFLE;
+                weapon = Weapon.GUN;
 				playerStats.damage = 12;
                 playerStats.speed = 6;
                 playerStats.brutalMode = false;
@@ -84,11 +105,13 @@ public class PlayerShooting : MonoBehaviour
             break;
 		case Weapon.SHOTGUN:
 			playerStats.setShootgun ();
+            playerStats.bullets.text = playerStats.shotgunBullets.ToString();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.85f;
 			// If the Fire1 button is being press and it's time to fire...
-			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets) {
+			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.shotgunBullets > 0) {
 				// ... shoot the gun.
+                playerStats.shotgunBullets--;
 				Shoot ();
 			}
 			break;
@@ -124,10 +147,15 @@ public class PlayerShooting : MonoBehaviour
 			GameObject pipeGO = (GameObject) Instantiate (pipe, transform.position, transform.rotation);
 			Destroy (pipeGO, 0.3f);
 			break;*/
+        case Weapon.GUN:
+            GameObject bulletGO = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+            //GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
+            Destroy(bulletGO, 2);
+            break;
 		case Weapon.RIFLE:
-			GameObject bulletGO = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
+			GameObject RifleBulletGO = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
 		//GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
-			Destroy (bulletGO, 2);
+            Destroy(RifleBulletGO, 2);
 			break;
 		case Weapon.SHOTGUN:
 			GameObject ShotgunBulletGO = (GameObject) Instantiate(ShotgunBullet, transform.position, transform.rotation);

@@ -203,7 +203,7 @@ MonoBehaviour:
   ShotgunBullet: {fileID: 100002, guid: c0d862febd8ab1941bfbb5444fd6248a, type: 2}
   bullet: {fileID: 100000, guid: 76b7fc729ea54a0489f889eec927e8b3, type: 2}
   weapon: 0
-  detectDistance: 8
+  detectDistance: 30
   shootRange: 12
 --- !u!114 &11400004
 MonoBehaviour:

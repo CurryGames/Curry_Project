@@ -35,9 +35,17 @@ public class BarrelExplosion : MonoBehaviour {
 			{
 				if (col.rigidbody != null)
 				{
-					col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier,forceMode);
+                    if (col.tag != "Bullet")
+                    {
+                        col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
+                    }
 				}
 				
+                if(col.tag == "Enemy")
+                {
+                    EnemyStats enemy = col.GetComponent<EnemyStats>();
+                    enemy.GetDamage(250);
+                }
 			}
 			
 			Destroy (gameObject);

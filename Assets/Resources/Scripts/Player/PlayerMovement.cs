@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
             //if (Input.GetKeyDown("escape")) Application.Quit ();
             //if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
             if (Input.GetKey(KeyCode.F1) && !loadingScreen.loadCurrentScreen) loadingScreen.loadCurrentScreen = true;
+            if (Input.GetKey("1")) playerShot.weapon = PlayerShooting.Weapon.GUN;
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
             if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 
@@ -59,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
 		Turning ();
 		
 		// Animate the player.
+        if (h != 0 || v != 0)
+        {
+            playerStats.setRun();
+        }
+
+        else playerStats.setIddle();
 		//Animating (h, v);
 	}
 	
