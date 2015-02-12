@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	private PlayerStats playerStats;
 	public float speed;            // The speed that the player will move at.
+	float throwForce;
 	private PlayerShooting playerShot;
     private LoadingScreen loadingScreen;
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
@@ -15,16 +16,15 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Awake ()
 	{
+		throwForce = 15;
 		// Create a layer mask for the floor layer.
-		floorMask = LayerMask.GetMask ("Floor");
-		
+		floorMask = LayerMask.GetMask ("Floor");		
 		// Set up references.
 		//anim = GetComponent <Animator> ();
 		playerStats = GetComponent<PlayerStats> ();
 		speed = playerStats.speed;
 		playerRigidbody = GetComponent <Rigidbody> ();
-        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
-            GetComponent<LoadingScreen>();
+        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreen>();
 		playerShot = transform.GetComponent<PlayerShooting> ();
 	}
 
@@ -40,13 +40,19 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey("1")) playerShot.weapon = PlayerShooting.Weapon.GUN;
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
             if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
-
+			if (Input.GetKey(KeyCode.Mouse1)) 
+			{	
+				throwForce += 0.18f;
+				if (throwForce >= 30) throwForce = 30;
+			}
+			if (Input.GetKeyUp(KeyCode.Mouse1))
+			{
+				playerShot.ThrowGrenade(throwForce);
+				throwForce = 15;
+			}
         }
-
     }
-	
 
-	
 	void FixedUpdate ()
 	{
 		// Store the input axes.
@@ -64,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerStats.setRun();
         }
-
         else playerStats.setIddle();
 		//Animating (h, v);
 	}

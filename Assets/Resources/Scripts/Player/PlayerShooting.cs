@@ -10,6 +10,7 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject bullet;
 	public GameObject pipe;
     public GameObject chainsaw;
+	public Rigidbody grenade;
     public PlayerStats playerStats;
 	float timer;                                    // A timer to determine when to fire.				
 	Ray shootRay;                                   // A ray from the gun end forwards.
@@ -54,7 +55,7 @@ public class PlayerShooting : MonoBehaviour
                 timer += Time.deltaTime;
                 timeBetweenBullets = 0.45f;
                 // If the Fire1 button is being press and it's time to fire...
-                if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0)
+                if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
                 {
                     // ... shoot the gun.
                     
@@ -165,4 +166,10 @@ public class PlayerShooting : MonoBehaviour
 		}
 	}
 
+	public void ThrowGrenade(float force)
+	{
+		GameObject grenadeGO = (GameObject)Instantiate (grenade, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z + 0.5f), transform.rotation);
+		grenadeGO.rigidbody.velocity = transform.TransformDirection(Vector3.forward * force);
+		Physics.IgnoreCollision (grenadeGO.collider, this.collider);
+	}
 }

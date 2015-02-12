@@ -136,7 +136,7 @@ public class PlayerStats : MonoBehaviour {
         } 
 	}
 
-	void GetDamage(int dmg)
+	public void GetDamage(int dmg)
 	{
 		currentHealth -= dmg;	
 	}

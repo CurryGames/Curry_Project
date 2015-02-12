@@ -7,8 +7,13 @@ public class BarrelExplosion : MonoBehaviour {
 	public float power = 10.0F;
 	public float upwardModifier = 0.0f;
 	public ForceMode forceMode;
-	void Start() {
-		}
+	private float distanceModifier = 0;
+	public GameObject explosionFX;
+	void Start() 
+	{
+		radius = 7.5F;
+
+	}
 
 	/*void Update(){
 		if (Input.GetButtonDown(button)){
@@ -35,7 +40,7 @@ public class BarrelExplosion : MonoBehaviour {
 			{
 				if (col.rigidbody != null)
 				{
-                    if (col.tag != "Bullet")
+                    if (col.tag != "Bullet" && col.tag != "enemyBullet")
                     {
                         col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
                     }
@@ -44,11 +49,20 @@ public class BarrelExplosion : MonoBehaviour {
                 if(col.tag == "Enemy")
                 {
                     EnemyStats enemy = col.GetComponent<EnemyStats>();
+					distanceModifier = 1 - 1/ (radius / Vector3.Distance (enemy.transform.position, transform.position));
                     enemy.GetDamage(250);
                 }
+
+				if(col.tag == "Player")
+				{
+					PlayerStats player = col.GetComponent<PlayerStats>();
+					distanceModifier = 1 - 1/(radius / Vector3.Distance (player.transform.position, transform.position));
+					player.GetDamage((int)(120 * distanceModifier));
+				}
 			}
 			
 			Destroy (gameObject);
+			GameObject FX = (GameObject) Instantiate(explosionFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
 		}
 	}
 

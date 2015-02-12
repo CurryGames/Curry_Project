@@ -28,7 +28,7 @@ public class BulletBehaviourScript : MonoBehaviour {
 		switch (shooter) 
 		{
 			case Shooter.PLAYER: 				// If Player is the one shooting
-       			// Destroy enemy and bullet if collision	
+       				
 			break;
 			case Shooter.ENEMY:					// If enemy is the one shooting
 			break;
