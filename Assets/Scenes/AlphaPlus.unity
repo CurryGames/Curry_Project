@@ -3285,7 +3285,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 191781385}
-  m_Text: YOUR DEAD
+  m_Text: YOU ARE DEAD
   m_OffsetZ: 0
   m_CharacterSize: .300000012
   m_LineSpacing: 1

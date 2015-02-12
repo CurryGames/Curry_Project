@@ -54,7 +54,7 @@ public class Grenade : MonoBehaviour {
 		}
 		
 		Destroy (gameObject);
-		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
+		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
 	}
 }
 
