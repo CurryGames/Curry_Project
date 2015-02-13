@@ -18,8 +18,12 @@ TagManager:
   - loadingText
   - Medicine
   - Legs
-  - shotgunArmor
+  - shotgunAmmo
+  - riffleAmmo
+  - Barrel
+  - 
   - riffleArmor
+  - shotgunArmor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

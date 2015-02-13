@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 427372}
   - 65: {fileID: 6527370}
   m_Layer: 0
-  m_Name: ArmorRifle
+  m_Name: AmmoRifle
   m_TagString: riffleArmor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

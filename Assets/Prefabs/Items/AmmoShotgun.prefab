@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 449196}
   - 65: {fileID: 6549198}
   m_Layer: 0
-  m_Name: ArmorShotgun
+  m_Name: AmmoShotgun
   m_TagString: shotgunArmor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

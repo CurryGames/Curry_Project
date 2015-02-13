@@ -75,16 +75,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &166428
+--- !u!1 &146308
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 466428}
-  - 212: {fileID: 21266430}
-  - 95: {fileID: 9566430}
+  - 4: {fileID: 446308}
+  - 212: {fileID: 21246308}
+  - 95: {fileID: 9546308}
   m_Layer: 0
   m_Name: Trevor
   m_TagString: Untagged
@@ -102,7 +102,7 @@ GameObject:
   - 4: {fileID: 466430}
   - 33: {fileID: 3366430}
   - 23: {fileID: 2366430}
-  - 114: {fileID: 11466430}
+  - 114: {fileID: 11446308}
   m_Layer: 0
   m_Name: Glow
   m_TagString: Untagged
@@ -145,7 +145,7 @@ Transform:
   m_LocalScale: {x: 1.29999995, y: 2.17856193, z: 1.29999995}
   m_Children:
   - {fileID: 400000}
-  - {fileID: 466428}
+  - {fileID: 446308}
   - {fileID: 400006}
   - {fileID: 466430}
   - {fileID: 400002}
@@ -163,12 +163,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400004}
   m_RootOrder: 2
---- !u!4 &466428
+--- !u!4 &446308
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166428}
+  m_GameObject: {fileID: 146308}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: .446892172, z: .0475823544}
   m_LocalScale: {x: 1.91095901, y: 1.73287702, z: .516539812}
@@ -335,13 +335,13 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9566430
+--- !u!95 &9546308
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166428}
+  m_GameObject: {fileID: 146308}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a9e3f2a6dbc1f404f9c176b7e8338dde, type: 2}
@@ -393,6 +393,7 @@ MonoBehaviour:
   bullet: {fileID: 100000, guid: 76cdafb5afc228f49916512773489995, type: 2}
   pipe: {fileID: 0}
   chainsaw: {fileID: 0}
+  grenade: {fileID: 188416, guid: dfc7858c3ae271246bb55ce1e78c2597, type: 2}
   playerStats: {fileID: 0}
   weapon: 0
 --- !u!114 &11400006
@@ -420,7 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godmode: 0
   godSprite: {fileID: 100000}
---- !u!114 &11466430
+--- !u!114 &11446308
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -467,12 +468,12 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: bc968bedb906a92438c13b50a4e5e285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21266430
+--- !u!212 &21246308
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166428}
+  m_GameObject: {fileID: 146308}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
