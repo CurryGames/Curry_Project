@@ -104,17 +104,17 @@ public class PlayerStats : MonoBehaviour {
 
         }
 
-        if ((col.gameObject.tag == "riffleArmor"))
+        if ((col.gameObject.tag == "riffleAmmo"))
         {
             Destroy(col.gameObject);
-            GetArmorRiffle(100);
+            GetAmmoRiffle(100);
 
         }
 
-        if ((col.gameObject.tag == "shotgunArmor"))
+        if ((col.gameObject.tag == "shotgunAmmo"))
         {
             Destroy(col.gameObject);
-            GetArmorShotgun(10);
+            GetAmmoShotgun(10);
 
         }
 
@@ -146,12 +146,12 @@ public class PlayerStats : MonoBehaviour {
         currentHealth += hlth;
     }
 
-    void GetArmorShotgun(int bulletNum)
+    void GetAmmoShotgun(int bulletNum)
     {
         shotgunBullets += bulletNum;
     }
 
-    void GetArmorRiffle(int bulletNum)
+    void GetAmmoRiffle(int bulletNum)
     {
         riffleBullets += bulletNum;
     }

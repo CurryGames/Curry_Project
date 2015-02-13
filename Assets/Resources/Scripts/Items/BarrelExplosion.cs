@@ -60,13 +60,18 @@ public class BarrelExplosion : MonoBehaviour {
 					player.GetDamage((int)(120 * distanceModifier));
 				}
 			}
-			
-			Destroy (gameObject);
-			GameObject FX = (GameObject) Instantiate(explosionFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
+
+			Explode ();
 		}
 	}
 
+	public void Explode()
+	{		
+		Destroy (gameObject);
+		GameObject FX = (GameObject) Instantiate(explosionFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
 	}
+
+}
 
 
 

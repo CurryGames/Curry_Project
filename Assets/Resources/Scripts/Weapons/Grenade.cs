@@ -51,6 +51,13 @@ public class Grenade : MonoBehaviour {
 				distanceModifier = 1 - 1/(radius / Vector3.Distance (player.transform.position, transform.position));
 				player.GetDamage((int)(120 * distanceModifier));
 			}
+
+			if(col.tag == "Barrel")
+			{
+				BarrelExplosion barrel = col.GetComponent<BarrelExplosion>();
+				Debug.Log ("barrel should explode");
+				barrel.Explode();
+			}
 		}
 		
 		Destroy (gameObject);
