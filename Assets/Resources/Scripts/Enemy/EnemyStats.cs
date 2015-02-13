@@ -17,7 +17,9 @@ public class EnemyStats : MonoBehaviour
     public float speedOnChase;
     private PlayerStats playerStats;
     private PlayerShooting playerShooting;
+    public GameObject aim;
     public GameObject enemySprite;
+    public GameObject[] deaths;
     public Color color;
     bool alive = true;
     bool down = true;
@@ -56,6 +58,7 @@ public class EnemyStats : MonoBehaviour
             if (playerShooting.weapon != PlayerShooting.Weapon.CHAINSAW) playerStats.currentBrutality += brutalPoints;
             //GameObject bld= (GameObject)Instantiate(blood.gameObject,transform.position,Quaternion.identity);
             //Destroy(bld,2);
+            Instantiate(deaths[Random.Range(0, deaths.GetLength(0))], transform.position, aim.transform.rotation);
             playerStats.deathNumber++;
             Destroy(gameObject);
         }
