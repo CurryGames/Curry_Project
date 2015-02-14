@@ -1154,7 +1154,7 @@ Transform:
   m_LocalScale: {x: 138.050003, y: 174.800003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
 --- !u!23 &44949400
 Renderer:
   m_ObjectHideFlags: 0
@@ -8897,7 +8897,7 @@ Transform:
   - {fileID: 668109772}
   - {fileID: 796690853}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
 --- !u!1001 &696272807
 Prefab:
   m_ObjectHideFlags: 0
@@ -10898,7 +10898,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 869205878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .75999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2017467177}
@@ -11012,7 +11012,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b63a24395b797c41a1e02f01304ed80, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -11185,8 +11185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa94eb19b4744d40b1087dc4965a59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumFx: 1
-  volumMusic: 1
+  volumFx: .5
+  volumMusic: .5
   on: 1
 --- !u!4 &895604246
 Transform:
@@ -14302,7 +14302,7 @@ Transform:
   - {fileID: 1048777341}
   - {fileID: 1466554378}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 24
 --- !u!65 &1099254208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15911,7 +15911,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1212642263}
   m_LocalRotation: {x: .5, y: -.5, z: .5, w: .5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .75999999, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 1500145274}
@@ -18362,7 +18362,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b63a24395b797c41a1e02f01304ed80, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -22798,11 +22798,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: volumFx
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: volumMusic
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}

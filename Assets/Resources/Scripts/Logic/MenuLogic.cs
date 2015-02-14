@@ -82,11 +82,12 @@ public class MenuLogic : MonoBehaviour {
 			start.SetActive(false);
 			menu.SetActive(false);
 			options.SetActive(true);
-            dataLogic.volumMusic = scrollMusic.value;
-            dataLogic.volumFx = scrollFx.value;
+
 			break;
-			
 		}
+
+        dataLogic.volumMusic = scrollMusic.value;
+        dataLogic.volumFx = scrollFx.value;
 	
 	}
 
