@@ -9,9 +9,16 @@ public class BarrelExplosion : MonoBehaviour {
 	public ForceMode forceMode;
 	private float distanceModifier = 0;
 	public GameObject explosionFX;
+    private DataLogic dataLogic;
+    public AudioClip explosion;
+    AudioSource audiSor;
+
 	void Start() 
 	{
 		radius = 7.5F;
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+        GetComponent<DataLogic>();
+        audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
 
 	}
 
@@ -66,7 +73,8 @@ public class BarrelExplosion : MonoBehaviour {
 	}
 
 	public void Explode()
-	{		
+	{
+        dataLogic.Play(explosion, audiSor, dataLogic.volumFx);
 		Destroy (gameObject);
 		GameObject FX = (GameObject) Instantiate(explosionFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
 	}

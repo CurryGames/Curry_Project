@@ -18,6 +18,9 @@ public class PlayerStats : MonoBehaviour {
 	private PauseLogic pauseLogic;
 	private PlayerMovement playerMov;
     public TextMesh bullets;
+    public AudioClip shootGun;
+    public AudioClip music;
+    public DataLogic dataLogic;
     public int riffleBullets;
     public int shotgunBullets;
 	bool alive = true;
@@ -37,6 +40,8 @@ public class PlayerStats : MonoBehaviour {
 		playerMov = GetComponentInChildren<PlayerMovement> ();
 		interfaz = Camera.main.GetComponent <Interface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<DataLogic>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = 400;
@@ -49,6 +54,8 @@ public class PlayerStats : MonoBehaviour {
 		currentHealth = maxHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        dataLogic.PlayLoop(music, audiSor, dataLogic.volumMusic);
 	
 	}
 	

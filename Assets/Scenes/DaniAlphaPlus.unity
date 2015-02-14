@@ -591,7 +591,7 @@ GameObject:
   - 4: {fileID: 17261770}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1871,7 +1871,7 @@ GameObject:
   - 114: {fileID: 127705841}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1962,7 +1962,7 @@ GameObject:
   - 114: {fileID: 138782768}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3171,7 +3171,7 @@ GameObject:
   - 114: {fileID: 191361465}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3394,7 +3394,7 @@ GameObject:
   - 4: {fileID: 206636203}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5789,7 +5789,7 @@ GameObject:
   - 114: {fileID: 375132287}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6438,7 +6438,7 @@ GameObject:
   - 4: {fileID: 429614394}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6858,7 +6858,7 @@ GameObject:
   - 114: {fileID: 466990614}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10293,7 +10293,7 @@ GameObject:
   - 114: {fileID: 815141680}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10384,7 +10384,7 @@ GameObject:
   - 114: {fileID: 818875547}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10918,7 +10918,7 @@ Transform:
   - {fileID: 1913798063}
   - {fileID: 662086749}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
 --- !u!1 &879113146
 GameObject:
   m_ObjectHideFlags: 0
@@ -10929,7 +10929,7 @@ GameObject:
   - 4: {fileID: 879113147}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11619,7 +11619,7 @@ GameObject:
   - 4: {fileID: 921673833}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14649,7 +14649,7 @@ GameObject:
   - 114: {fileID: 1126668938}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14806,7 +14806,7 @@ GameObject:
   - 4: {fileID: 1140786854}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14823,7 +14823,7 @@ Transform:
   m_Children:
   - {fileID: 1409680191}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
 --- !u!1 &1146762247
 GameObject:
   m_ObjectHideFlags: 0
@@ -16646,7 +16646,7 @@ GameObject:
   - 114: {fileID: 1252026467}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17985,7 +17985,7 @@ GameObject:
   - 4: {fileID: 1366819149}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18423,7 +18423,7 @@ GameObject:
   - 114: {fileID: 1409680187}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20266,7 +20266,7 @@ GameObject:
   - 114: {fileID: 1539116681}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20745,7 +20745,7 @@ GameObject:
   - 4: {fileID: 1575164777}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22481,7 +22481,7 @@ GameObject:
   - 4: {fileID: 1702667408}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22637,7 +22637,7 @@ GameObject:
   - 4: {fileID: 1741454382}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22654,7 +22654,7 @@ Transform:
   m_Children:
   - {fileID: 1252026466}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
 --- !u!1 &1742832710
 GameObject:
   m_ObjectHideFlags: 0
@@ -22926,7 +22926,7 @@ GameObject:
   - 114: {fileID: 1765651890}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23017,7 +23017,7 @@ GameObject:
   - 114: {fileID: 1773323468}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23925,7 +23925,7 @@ GameObject:
   - 4: {fileID: 1835406161}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23957,7 +23957,7 @@ GameObject:
   - 114: {fileID: 1835953910}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25500,7 +25500,7 @@ GameObject:
   - 4: {fileID: 1948236066}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25763,7 +25763,7 @@ GameObject:
   - 4: {fileID: 1961611649}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26416,7 +26416,7 @@ GameObject:
   - 4: {fileID: 2007934598}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27049,7 +27049,7 @@ GameObject:
   - 114: {fileID: 2034016009}
   m_Layer: 0
   m_Name: explodingBarrel
-  m_TagString: Wall
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27944,7 +27944,7 @@ GameObject:
   - 4: {fileID: 2114043535}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

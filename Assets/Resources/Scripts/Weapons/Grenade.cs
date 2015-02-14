@@ -12,12 +12,18 @@ public class Grenade : MonoBehaviour {
 	public float explosionTime;
 	public GameObject grenadeGO;
 	public GameObject grenadeFX;
+    private DataLogic dataLogic;
+    public AudioClip explosion;
+    AudioSource audiSor;
 
 	void Start() 
 	{
 		radius = 3.5F;
 		explosionTime = 1.5f;
-		Invoke ("Explode", explosionTime);
+		Invoke ("Explode", explosionTime);      
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<DataLogic>();
+        audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
 	}
 
 	void Update()
@@ -59,7 +65,8 @@ public class Grenade : MonoBehaviour {
 				barrel.Explode();
 			}
 		}
-		
+        
+        dataLogic.Play(explosion, audiSor, dataLogic.volumFx);
 		Destroy (gameObject);
 		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
 	}

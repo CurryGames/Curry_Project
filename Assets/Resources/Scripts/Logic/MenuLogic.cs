@@ -9,11 +9,14 @@ public class MenuLogic : MonoBehaviour {
 	public State screen;
 	public GameObject start; 
 	public GameObject menu;
-	public Button playButton;
-	public Button optionsButton;
-	public Button exitButton;
+    public AudioClip shoot;
+    public AudioClip music;
+    private AudioSource audioSource;
 	public GameObject options;
 	private LoadingScreen loadingScreen;
+    private DataLogic dataLogic;
+    public Scrollbar scrollMusic;
+    public Scrollbar scrollFx;
     private bool down;
     private float temp;
 
@@ -23,11 +26,19 @@ public class MenuLogic : MonoBehaviour {
 		screen = State.START;
 		loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
 			GetComponent<LoadingScreen>();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<DataLogic>();
+        audioSource = GetComponent<AudioSource>();
         down = false;
+        dataLogic.PlayLoop(music, audioSource, scrollMusic.value);
+        scrollMusic.value = 0.5f;
+        scrollFx.value = 0.5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		switch (screen) {
 	
 		case State.START:
@@ -66,21 +77,44 @@ public class MenuLogic : MonoBehaviour {
 			start.SetActive(false);
 			menu.SetActive(true);
 			options.SetActive(false);
-			playButton.GetComponent<Button>().onClick.AddListener (() => {
-
-				loadingScreen.loadNextScreen = true;
-
-			}
-			);
-			exitButton.GetComponent<Button>().onClick.AddListener (() => { Application.Quit ();});
 			break;
 		case State.OPTIONS:
 			start.SetActive(false);
 			menu.SetActive(false);
 			options.SetActive(true);
+            dataLogic.volumMusic = scrollMusic.value;
+            dataLogic.volumFx = scrollFx.value;
 			break;
 			
 		}
 	
 	}
+
+    public void PlayButton ()
+    {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+		loadingScreen.loadNextScreen = true;
+        dataLogic.Play(shoot, audiSor, scrollFx.value);
+
+	}
+
+    public void OptoinsButton()
+    {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        screen = State.OPTIONS;
+        dataLogic.Play(shoot, audiSor, scrollFx.value);
+    }
+
+    public void BackButton()
+    {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        screen = State.MENU;
+        dataLogic.Play(shoot, audiSor, scrollFx.value);
+    }
+
+    public void ExitButton()
+    {
+
+        Application.Quit();
+    }
 }

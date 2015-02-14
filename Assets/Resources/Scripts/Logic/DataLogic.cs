@@ -9,6 +9,8 @@ public class DataLogic : MonoBehaviour {
 	// VARIABLE CURRENT LEVEL
 	private int currentLevel;
 	private int nextLevel;
+    public float volumFx;
+    public float volumMusic;
     public bool on;
 
 	// SET 
@@ -46,18 +48,33 @@ public class DataLogic : MonoBehaviour {
 	}
 
 	// FUNCION PLAY: REPRODUCE UN SONIDO 
-	/*public void Play(AudioClip audio){
+	public void Play(AudioClip audio, AudioSource audioSource, float volum){
 
 		// AGREGAMOS EL COMPONENTE AUDIOSOURCE AL GAMEOBJECT DATALOGIC
-		AudioSource audioSource = gameObject.AddComponent<AudioSource> ();
+		//AudioSource audioSource = gameObject.AddComponent<AudioSource> ();
 		// CARGAMOS EL CLIP
 		audioSource.clip = audio;
 		// PONEMOS EL VOLUMEN A TOPE
-		audioSource.volume = 1;
+		audioSource.volume = volum;
 		// REPRODUCIMOS EL SONIDO
 		audioSource.Play ();
 		// DESTRUIMOS EL AUDIOSOURCE UNA VEZ ACABADO EL SONIDO
-		Destroy (audioSource, audio.length);
-	}*/
+        Destroy(audioSource, audio.length);
+	}
+
+    public void PlayLoop(AudioClip audio, AudioSource audioSource, float volum)
+    {
+
+        // AGREGAMOS EL COMPONENTE AUDIOSOURCE AL GAMEOBJECT DATALOGIC
+        //AudioSource audioSource = gameObject.AddComponent<AudioSource> ();
+        // CARGAMOS EL CLIP
+        audioSource.clip = audio;
+        audioSource.loop = true;
+        // PONEMOS EL VOLUMEN A TOPE
+        audioSource.volume = volum;
+        // REPRODUCIMOS EL SONIDO
+        audioSource.Play();
+
+    }
 
 }

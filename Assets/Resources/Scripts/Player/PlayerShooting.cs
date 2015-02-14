@@ -12,6 +12,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject chainsaw;
 	public Rigidbody grenade;
     public PlayerStats playerStats;
+    private DataLogic dataLogic;
 	float timer;                                    // A timer to determine when to fire.				
 	Ray shootRay;                                   // A ray from the gun end forwards.
 	RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
@@ -36,6 +37,8 @@ public class PlayerShooting : MonoBehaviour
 		colliderSaw = transform.FindChild ("colliderSaw").GetComponent<BoxCollider> ();
 		colliderSaw.enabled = false;
 		playerStats = GetComponent <PlayerStats> ();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<DataLogic>();
 	}
 	void Update ()
 	{
@@ -58,7 +61,8 @@ public class PlayerShooting : MonoBehaviour
                 if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
                 {
                     // ... shoot the gun.
-                    
+                    AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                    dataLogic.Play(playerStats.shootGun, audiSor, dataLogic.volumFx);
                     Shoot();
                 }
                 // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
