@@ -18,6 +18,7 @@ public class Grenade : MonoBehaviour {
 		radius = 3.5F;
 		explosionTime = 1.5f;
 		Invoke ("Explode", explosionTime);
+		Invoke ("PropExplosion", explosionTime);
 	}
 
 	void Update()
@@ -29,7 +30,7 @@ public class Grenade : MonoBehaviour {
 	void Explode()
 	{
 		foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
-		{
+		{	
 			if (col.rigidbody != null)
 			{
 				if (col.tag != "Bullet" && col.tag != "enemyBullet")
@@ -37,7 +38,7 @@ public class Grenade : MonoBehaviour {
 					col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
 				}
 			}
-			
+
 			if(col.tag == "Enemy")
 			{
 				EnemyStats enemy = col.GetComponent<EnemyStats>();
@@ -55,13 +56,33 @@ public class Grenade : MonoBehaviour {
 			if(col.tag == "Barrel")
 			{
 				BarrelExplosion barrel = col.GetComponent<BarrelExplosion>();
-				Debug.Log ("barrel should explode");
 				barrel.Explode();
 			}
+
+			if(col.tag == "DestructibleProp")
+			{
+				DestructibleProp destProp = col.GetComponent<DestructibleProp>();
+				destProp.GetDestroyed();
+			}
 		}
-		
+	}
+
+	void PropExplosion()
+	{
+		foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
+		{	
+			if (col.rigidbody != null)
+			{
+				if (col.tag == "PropPieces")
+				{
+					col.rigidbody.AddExplosionForce(power, transform.position, radius, 0, forceMode);
+				}
+			}		
+		}
+
 		Destroy (gameObject);
 		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
+		Destroy (FX, 5);
 	}
 }
 
