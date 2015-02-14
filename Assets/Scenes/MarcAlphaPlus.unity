@@ -1154,7 +1154,7 @@ Transform:
   m_LocalScale: {x: 138.050003, y: 174.800003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
 --- !u!23 &44949400
 Renderer:
   m_ObjectHideFlags: 0
@@ -8897,7 +8897,7 @@ Transform:
   - {fileID: 668109772}
   - {fileID: 796690853}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!1001 &696272807
 Prefab:
   m_ObjectHideFlags: 0
@@ -14302,7 +14302,7 @@ Transform:
   - {fileID: 1048777341}
   - {fileID: 1466554378}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
 --- !u!65 &1099254208
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -20,7 +20,8 @@ public class Grenade : MonoBehaviour {
 	{
 		radius = 3.5F;
 		explosionTime = 1.5f;
-		Invoke ("Explode", explosionTime);      
+		Invoke ("Explode", explosionTime);  
+		Invoke ("PropExplosion", explosionTime);
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
         audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
@@ -61,14 +62,34 @@ public class Grenade : MonoBehaviour {
 			if(col.tag == "Barrel")
 			{
 				BarrelExplosion barrel = col.GetComponent<BarrelExplosion>();
-				Debug.Log ("barrel should explode");
 				barrel.Explode();
 			}
+
+			if(col.tag == "DestructibleProp")
+			{
+				DestructibleProp destProp = col.GetComponent<DestructibleProp>();
+				destProp.GetDestroyed();
+			}
 		}
-        
-        dataLogic.Play(explosion, audiSor, dataLogic.volumFx);
+	}
+
+	void PropExplosion()
+	{
+		foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
+		{	
+			if (col.rigidbody != null)
+			{
+				if (col.tag == "PropPieces")
+				{
+					col.rigidbody.AddExplosionForce(power, transform.position, radius, 0, forceMode);
+				}
+			}		
+		}
+		
 		Destroy (gameObject);
 		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
+		dataLogic.Play(explosion, audiSor, dataLogic.volumFx);
+		Destroy (FX, 5);
 	}
 }
 
