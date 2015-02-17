@@ -12,6 +12,7 @@ public class Grenade : MonoBehaviour {
 	public float explosionTime;
 	public GameObject grenadeGO;
 	public GameObject grenadeFX;
+	public GameObject dirtFX;
     private DataLogic dataLogic;
     public AudioClip explosion;
     AudioSource audiSor;
@@ -88,6 +89,7 @@ public class Grenade : MonoBehaviour {
 		
 		Destroy (gameObject);
 		GameObject FX = (GameObject) Instantiate(grenadeFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.Euler( new Vector3(90, 0, 0)));
+		GameObject dirt = (GameObject) Instantiate(dirtFX, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.Euler(new Vector3(transform.rotation.x, Random.Range(0, 360), transform.rotation.z)));
 		dataLogic.Play(explosion, audiSor, dataLogic.volumFx);
 		Destroy (FX, 5);
 	}
