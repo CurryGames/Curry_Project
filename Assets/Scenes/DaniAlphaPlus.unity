@@ -8388,7 +8388,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!1 &640544933
 GameObject:
   m_ObjectHideFlags: 0
@@ -10925,7 +10925,7 @@ Transform:
   - {fileID: 1913798063}
   - {fileID: 662086749}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
 --- !u!1 &879113146
 GameObject:
   m_ObjectHideFlags: 0
@@ -23088,7 +23088,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!65 &1751523551
 BoxCollider:
   m_ObjectHideFlags: 0
