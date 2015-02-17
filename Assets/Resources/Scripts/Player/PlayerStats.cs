@@ -18,7 +18,11 @@ public class PlayerStats : MonoBehaviour {
 	private PauseLogic pauseLogic;
 	private PlayerMovement playerMov;
     public TextMesh bullets;
+    public AudioClip riffle;
+    public AudioClip gun;
+    public AudioClip gunClock;
     public AudioClip shootGun;
+    public AudioClip shootGunClock;
     public AudioClip music;
     public DataLogic dataLogic;
     public int riffleBullets;

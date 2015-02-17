@@ -13,6 +13,8 @@ public class PlayerShooting : MonoBehaviour
 	public Rigidbody grenade;
     public PlayerStats playerStats;
     private DataLogic dataLogic;
+    private float clockGunTimer;
+    private bool clockGun;
 	float timer;                                    // A timer to determine when to fire.				
 	Ray shootRay;                                   // A ray from the gun end forwards.
 	RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
@@ -39,6 +41,7 @@ public class PlayerShooting : MonoBehaviour
 		playerStats = GetComponent <PlayerStats> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
+        clockGun = false;
 	}
 	void Update ()
 	{
@@ -62,9 +65,12 @@ public class PlayerShooting : MonoBehaviour
                 {
                     // ... shoot the gun.
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                    dataLogic.Play(playerStats.shootGun, audiSor, dataLogic.volumFx);
+                    dataLogic.Play(playerStats.gun, audiSor, dataLogic.volumFx);
+                    //clockGun = true;
                     Shoot();
                 }
+
+
                 // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
                 /*if(timer >= timeBetweenBullets * effectsDisplayTime)
             {
@@ -80,6 +86,8 @@ public class PlayerShooting : MonoBehaviour
 					// If the Fire1 button is being press and it's time to fire...
 			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0) {
 								// ... shoot the gun.
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(playerStats.riffle, audiSor, dataLogic.volumFx);
                 playerStats.riffleBullets--;
 				Shoot ();
 			}
@@ -116,9 +124,23 @@ public class PlayerShooting : MonoBehaviour
 			// If the Fire1 button is being press and it's time to fire...
 			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.shotgunBullets > 0) {
 				// ... shoot the gun.
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(playerStats.shootGun, audiSor, dataLogic.volumFx);
                 playerStats.shotgunBullets--;
 				Shoot ();
+                clockGun = true;
 			}
+            if (clockGun)
+            {
+                clockGunTimer += Time.deltaTime;
+                if (clockGunTimer >= 0.4f)
+                {
+                    AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                    dataLogic.Play(playerStats.shootGunClock, audiSor, dataLogic.volumFx);
+                    clockGunTimer = 0;
+                    clockGun = false;
+                }
+            }
 			break;
 		}
 	}

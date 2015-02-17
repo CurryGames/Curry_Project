@@ -20,6 +20,8 @@ public class EnemyStats : MonoBehaviour
     public GameObject aim;
     public GameObject enemySprite;
     public GameObject[] deaths;
+    public AudioClip death;
+    private DataLogic dataLogic;
     public Color color;
     bool alive = true;
     bool down = true;
@@ -32,6 +34,8 @@ public class EnemyStats : MonoBehaviour
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         color = enemySprite.renderer.material.color;
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+        GetComponent<DataLogic>();
 
         speedOnChase = agent.speed;
         speed = 4f;
@@ -59,6 +63,8 @@ public class EnemyStats : MonoBehaviour
             //GameObject bld= (GameObject)Instantiate(blood.gameObject,transform.position,Quaternion.identity);
             //Destroy(bld,2);
             Instantiate(deaths[Random.Range(0, deaths.GetLength(0))], transform.position, aim.transform.rotation);
+            AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(death, audiSor, dataLogic.volumFx);
             playerStats.deathNumber++;
             Destroy(gameObject);
         }

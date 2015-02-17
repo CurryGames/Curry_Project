@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
 	private PlayerShooting playerShot;
     private LoadingScreen loadingScreen;
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
-	//Animator anim;                      // Reference to the animator component.
+	//Animator anim;              
+    private DataLogic dataLogic;
+    // Reference to the animator component.
     bool loadScreen = false;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 	int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
@@ -26,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 		playerRigidbody = GetComponent <Rigidbody> ();
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreen>();
 		playerShot = transform.GetComponent<PlayerShooting> ();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+         GetComponent<DataLogic>();
 	}
 
 	void Update()
@@ -37,7 +41,12 @@ public class PlayerMovement : MonoBehaviour
             //if (Input.GetKeyDown("escape")) Application.Quit ();
             //if (Input.GetKey ("1")) playerShot.weapon = PlayerShooting.Weapon.MELEE;
             if (Input.GetKey(KeyCode.F1) && !loadingScreen.loadCurrentScreen) loadingScreen.loadCurrentScreen = true;
-            if (Input.GetKey("1")) playerShot.weapon = PlayerShooting.Weapon.GUN;
+            if (Input.GetKey("1") && playerShot.weapon != PlayerShooting.Weapon.GUN)
+            {
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(playerStats.gunClock, audiSor, dataLogic.volumFx);
+                playerShot.weapon = PlayerShooting.Weapon.GUN;
+            }
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
             if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 			if (Input.GetKey(KeyCode.Mouse1)) 
