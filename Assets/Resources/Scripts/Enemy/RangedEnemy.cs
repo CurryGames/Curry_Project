@@ -8,19 +8,24 @@ public class RangedEnemy : MonoBehaviour {
 	public GameObject bullet;
 	private GameObject player;
 	private EnemyMoveBehaviour enemyMove;
+    private PlayerStats playerStats;
+    private DataLogic dataLogic;
 	public enum Weapon {RIFLE, SHOTGUN}
 	public Weapon weapon;
 	public float detectDistance = 50f;
 	public float shootRange = 12f;  
 
 	float timer;
-	float dist;
+	public float dist;
 	
 	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindWithTag ("Player");
 		weapon = Weapon.RIFLE;
 		enemyMove = GetComponent<EnemyMoveBehaviour> ();
+        playerStats = player.GetComponent<PlayerStats>();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
+        GetComponent<DataLogic>();
 
 	}
 	
@@ -39,7 +44,12 @@ public class RangedEnemy : MonoBehaviour {
 			case Weapon.RIFLE:
 				timer += Time.deltaTime;
 				timeBetweenBullets = 0.35f;
-				if (timer >= timeBetweenBullets) Shooting ();
+                if (timer >= timeBetweenBullets)
+                {
+                    Shooting();
+                    AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                    dataLogic.Play(playerStats.riffle, audiSor, dataLogic.volumFx);
+                }
 				break;
 			}
 		}

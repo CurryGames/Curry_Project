@@ -21,11 +21,13 @@ TagManager:
   - shotgunAmmo
   - riffleAmmo
   - Barrel
-  - 
-  - riffleArmor
-  - shotgunArmor
+  - EnemyLegs
+  - riffleAmmor
+  - shotgunAmmor
   - DestructibleProp
   - PropPieces
+  - 
+  - riffleArmor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

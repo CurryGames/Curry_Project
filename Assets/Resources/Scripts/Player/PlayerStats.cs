@@ -24,6 +24,8 @@ public class PlayerStats : MonoBehaviour {
     public AudioClip shootGun;
     public AudioClip shootGunClock;
     public AudioClip music;
+    public AudioClip health;
+    public AudioClip ammo;
     public DataLogic dataLogic;
     public int riffleBullets;
     public int shotgunBullets;
@@ -154,16 +156,22 @@ public class PlayerStats : MonoBehaviour {
 
     void GetHealth(int hlth)
     {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        dataLogic.Play(health, audiSor, dataLogic.volumFx);
         currentHealth += hlth;
     }
 
     void GetAmmoShotgun(int bulletNum)
     {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        dataLogic.Play(ammo, audiSor, dataLogic.volumFx);
         shotgunBullets += bulletNum;
     }
 
     void GetAmmoRiffle(int bulletNum)
     {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        dataLogic.Play(ammo, audiSor, dataLogic.volumFx);
         riffleBullets += bulletNum;
     }
 

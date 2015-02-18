@@ -28,7 +28,7 @@ GameObject:
   - 65: {fileID: 6527370}
   m_Layer: 0
   m_Name: AmmoRifle
-  m_TagString: riffleArmor
+  m_TagString: riffleAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 427374}
   - 33: {fileID: 3327372}
-  - 64: {fileID: 6427370}
   - 23: {fileID: 2327372}
   - 114: {fileID: 11427370}
   m_Layer: 0
@@ -143,19 +142,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127374}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &6427370
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127374}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6527370
 BoxCollider:
