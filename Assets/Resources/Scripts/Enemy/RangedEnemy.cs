@@ -21,7 +21,7 @@ public class RangedEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindWithTag ("Player");
-		weapon = Weapon.RIFLE;
+		//weapon = Weapon.RIFLE;
 		enemyMove = GetComponent<EnemyMoveBehaviour> ();
         playerStats = player.GetComponent<PlayerStats>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
@@ -51,6 +51,16 @@ public class RangedEnemy : MonoBehaviour {
                     dataLogic.Play(playerStats.riffle, audiSor, dataLogic.volumFx);
                 }
 				break;
+			case Weapon.SHOTGUN:
+				timer += Time.deltaTime;
+				timeBetweenBullets = 0.85f;
+				if (timer >= timeBetweenBullets)
+				{
+					Shooting();
+					AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
+					dataLogic.Play(playerStats.shootGun, audiSorc, dataLogic.volumFx);
+				}
+				break;
 			}
 		}
 	}
@@ -69,7 +79,7 @@ public class RangedEnemy : MonoBehaviour {
 			Destroy (bulletGO, 2);
 			break;
 		case Weapon.SHOTGUN:
-			GameObject ShotgunBulletGO = (GameObject) Instantiate(ShotgunBullet, transform.position, transform.rotation);
+			GameObject ShotgunBulletGO = (GameObject) Instantiate(ShotgunBullet, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
 			Destroy (ShotgunBulletGO, 2);
 			break;
 			

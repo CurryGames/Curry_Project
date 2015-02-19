@@ -110,6 +110,16 @@ public class PlayerStats : MonoBehaviour {
 			else GetDamage (0);
 		}
 
+		if(col.gameObject.tag == "enemyBulletSHOTGUN")
+		{	
+			Destroy(col.gameObject);
+			if (godMode.godmode == false)
+			{
+				GetDamage(damage);
+			}
+			else GetDamage (0);
+		}
+
         if ((col.gameObject.tag == "Medicine") && (currentHealth < maxHealth))
         {
             Destroy(col.gameObject);

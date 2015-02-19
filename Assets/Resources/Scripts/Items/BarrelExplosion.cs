@@ -40,14 +40,14 @@ public class BarrelExplosion : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Bullet")
+		if (other.tag == "Bullet" || other.tag == "BulletSHOTGUN" || other.tag == "BulletRIFLE")
 		{
 			Destroy (other.gameObject);
 			foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
 			{
 				if (col.rigidbody != null)
 				{
-                    if (col.tag != "Bullet" && col.tag != "enemyBullet")
+					if (col.tag != "Bullet" && col.tag != "enemyBullet" && col.tag !="BulletSHOTGUN" && col.tag !="BulletRIFLE")
                     {
                         col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
                     }

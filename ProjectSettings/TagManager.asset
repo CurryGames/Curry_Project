@@ -26,8 +26,10 @@ TagManager:
   - shotgunAmmor
   - DestructibleProp
   - PropPieces
-  - 
+  - BulletSHOTGUN
   - riffleArmor
+  - BulletRIFLE
+  - enemyBulletSHOTGUN
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -16,7 +16,7 @@ GameObject:
   - 96: {fileID: 9600000}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Bullet
+  m_TagString: enemyBulletSHOTGUN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - 96: {fileID: 9600002}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Bullet
+  m_TagString: enemyBulletSHOTGUN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

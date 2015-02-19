@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject ShotgunBullet;
 	private BoxCollider colliderSaw;
 	public GameObject bullet;
+	public GameObject rifleBullet;
 	public GameObject pipe;
     public GameObject chainsaw;
 	public Rigidbody grenade;
@@ -180,7 +181,7 @@ public class PlayerShooting : MonoBehaviour
             Destroy(bulletGO, 2);
             break;
 		case Weapon.RIFLE:
-			GameObject RifleBulletGO = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
+			GameObject RifleBulletGO = (GameObject)Instantiate (rifleBullet, transform.position, transform.rotation);
 		//GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
             Destroy(RifleBulletGO, 2);
 			break;

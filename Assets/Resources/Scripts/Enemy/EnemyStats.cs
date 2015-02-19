@@ -23,6 +23,7 @@ public class EnemyStats : MonoBehaviour
     public AudioClip death;
     private DataLogic dataLogic;
     public Color color;
+	private Vector3 pushDirection;
     bool alive = true;
     bool down = true;
     bool hit = false;
@@ -89,9 +90,21 @@ public class EnemyStats : MonoBehaviour
         if ((col.gameObject.tag == "Bullet"))
         {
             Destroy(col.gameObject);
-            GetDamage(100);
-			
+            GetDamage(100);			
         }
+
+		if ((col.gameObject.tag == "BulletSHOTGUN"))
+		{
+			Destroy(col.gameObject);
+			GetDamage(140);	
+		} 
+
+		if ((col.gameObject.tag == "BulletRIFLE"))
+		{
+			Destroy(col.gameObject);
+			GetDamage(140);			
+		}
+
         if (col.gameObject.tag == "Chainsaw")
         {
             GetDamage(500);

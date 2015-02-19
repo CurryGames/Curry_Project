@@ -11593,7 +11593,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: wave1.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: m_LocalPosition.x
@@ -11642,7 +11642,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: wave1.Array.data[1]
       value: 
-      objectReference: {fileID: 100000, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
+      objectReference: {fileID: 100000, guid: 7d29679685de3eb439de32f4256a4504, type: 2}
     - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
       propertyPath: maxDeath
       value: 5
@@ -11655,6 +11655,10 @@ Prefab:
       propertyPath: active
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
+      propertyPath: wave1.Array.data[3]
+      value: 
+      objectReference: {fileID: 100000, guid: 7d29679685de3eb439de32f4256a4504, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71bacc931ebc601438fb25799bdf82ca, type: 2}
   m_RootGameObject: {fileID: 1751523548}
@@ -19625,6 +19629,7 @@ MonoBehaviour:
   range: 10
   ShotgunBullet: {fileID: 100002, guid: c13cd15de5a0ce14782e124e4e597311, type: 2}
   bullet: {fileID: 100000, guid: 76cdafb5afc228f49916512773489995, type: 2}
+  rifleBullet: {fileID: 100000, guid: eaf8ae1da5776ba4290cf1130b9844fd, type: 2}
   pipe: {fileID: 0}
   chainsaw: {fileID: 1184490773}
   grenade: {fileID: 188416, guid: dfc7858c3ae271246bb55ce1e78c2597, type: 2}
@@ -22970,8 +22975,9 @@ MonoBehaviour:
   door: {fileID: 1289366143}
   wave1:
   - {fileID: 100000, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
+  - {fileID: 100000, guid: 7d29679685de3eb439de32f4256a4504, type: 2}
   - {fileID: 100000, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
-  - {fileID: 100000, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
+  - {fileID: 100000, guid: 7d29679685de3eb439de32f4256a4504, type: 2}
   wave2: []
   wave3: []
   deathCount: 0

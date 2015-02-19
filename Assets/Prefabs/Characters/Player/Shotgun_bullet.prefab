@@ -16,7 +16,7 @@ GameObject:
   - 96: {fileID: 9600000}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Bullet
+  m_TagString: BulletSHOTGUN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - 96: {fileID: 9600002}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Bullet
+  m_TagString: BulletSHOTGUN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,8 +77,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .12607193, y: .0599993467, z: -1.1326046}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400000}
   - {fileID: 400004}
@@ -201,8 +201,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: .100000001
-  m_StartWidth: .100000001
-  m_EndWidth: .0299999993
+  m_StartWidth: .25
+  m_EndWidth: .100000001
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -242,8 +242,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: .100000001
-  m_StartWidth: .100000001
-  m_EndWidth: .0299999993
+  m_StartWidth: .25
+  m_EndWidth: .100000001
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -273,9 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbe56bf1eebc764fac877aae952cbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBullet: 23
+  speedBullet: 30
   minError: 0
   maxError: 3
+  shooter: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,9 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbe56bf1eebc764fac877aae952cbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBullet: 23
+  speedBullet: 30
   minError: -3
   maxError: 0
+  shooter: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bed6f3d3e2748429e47b7183ff7def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minError: -7
-  maxError: 7
+  minError: -3
+  maxError: 3
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
