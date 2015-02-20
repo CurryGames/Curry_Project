@@ -409,10 +409,10 @@ MonoBehaviour:
   aim: {fileID: 100004}
   enemySprite: {fileID: 100002}
   deaths:
-  - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
-  - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
-  - {fileID: 104030, guid: 5557ce6df2e59724eb8ce499ef8983a3, type: 2}
-  - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
+  - {fileID: 118264, guid: 943848b738dcc654a8b2501d1039715e, type: 2}
+  - {fileID: 118264, guid: 943848b738dcc654a8b2501d1039715e, type: 2}
+  - {fileID: 104030, guid: 7a279c751edb21d489788d9503882148, type: 2}
+  - {fileID: 105726, guid: eeff7120c7261ab408a29b9277787aa6, type: 2}
   death: {fileID: 8300000, guid: 1839ed54de3185b4b8e2c986aedcfaa9, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11423786
