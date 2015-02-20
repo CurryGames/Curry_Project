@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Blood 1
-  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Glow11
+  m_Shader: {fileID: 4800000, guid: 22cff654fe281eb41a37030a078914e7, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,20 +17,12 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c77ccd1ece8f6734398b022ef4491049, type: 3}
+          m_Texture: {fileID: 2800000, guid: e49f7caaf9a61dd4693b3c0b25bc7514, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _InvFade
-        second: 1
+    m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: .211764708}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .367647052, g: 0, b: 0, a: .392156869}
+        second: {r: .0294117928, g: 0, b: 0, a: 1}
