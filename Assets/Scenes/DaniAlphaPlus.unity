@@ -13444,7 +13444,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1048777341}
   - 33: {fileID: 1048777345}
-  - 64: {fileID: 1048777344}
   - 23: {fileID: 1048777343}
   - 114: {fileID: 1048777342}
   m_Layer: 0
@@ -13503,20 +13502,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1048777344
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6427370, guid: fc9141854b765a54eb260e232728a773,
-    type: 2}
-  m_PrefabInternal: {fileID: 1873808607}
-  m_GameObject: {fileID: 1048777340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1048777345
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14276,7 +14261,7 @@ GameObject:
   - 65: {fileID: 1099254208}
   m_Layer: 0
   m_Name: AmmorRiffle
-  m_TagString: riffleArmor
+  m_TagString: riffleAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18770,7 +18755,7 @@ GameObject:
   - 65: {fileID: 1429413155}
   m_Layer: 0
   m_Name: AmmoShotgun
-  m_TagString: shotgunArmor
+  m_TagString: shotgunAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19256,7 +19241,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1488259920}
   - 33: {fileID: 1488259924}
-  - 64: {fileID: 1488259923}
   - 23: {fileID: 1488259922}
   - 114: {fileID: 1488259921}
   m_Layer: 0
@@ -19315,20 +19299,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1488259923
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6449198, guid: 05cd042133020324bb7fbf7d58404c01,
-    type: 2}
-  m_PrefabInternal: {fileID: 2103015951}
-  m_GameObject: {fileID: 1488259919}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1488259924
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19621,6 +19591,7 @@ MonoBehaviour:
   range: 10
   ShotgunBullet: {fileID: 100002, guid: c13cd15de5a0ce14782e124e4e597311, type: 2}
   bullet: {fileID: 100000, guid: 76cdafb5afc228f49916512773489995, type: 2}
+  rifleBullet: {fileID: 0}
   pipe: {fileID: 0}
   chainsaw: {fileID: 1184490773}
   grenade: {fileID: 188416, guid: dfc7858c3ae271246bb55ce1e78c2597, type: 2}
@@ -19676,8 +19647,14 @@ MonoBehaviour:
   GameOverScreen: {fileID: 85706224}
   EndLevelScreen: {fileID: 1659935110}
   bullets: {fileID: 1260101858}
+  riffle: {fileID: 0}
+  gun: {fileID: 0}
+  gunClock: {fileID: 0}
   shootGun: {fileID: 8300000, guid: 13aad1e9a83554a4faa9c2e594def7ef, type: 3}
+  shootGunClock: {fileID: 0}
   music: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
+  health: {fileID: 0}
+  ammo: {fileID: 0}
   dataLogic: {fileID: 895604245}
   riffleBullets: 0
   shotgunBullets: 0
