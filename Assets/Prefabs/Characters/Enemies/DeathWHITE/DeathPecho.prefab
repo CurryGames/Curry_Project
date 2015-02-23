@@ -2550,7 +2550,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 2
+    cnt0: 1
     cnt1: 30
     cnt2: 30
     cnt3: 30
