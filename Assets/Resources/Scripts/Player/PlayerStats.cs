@@ -196,6 +196,12 @@ public class PlayerStats : MonoBehaviour {
 		animation.Play ("Chainsaw");
 	}
 
+    public void setGun()
+    {
+        // REPRODUCIMOS LA ANIMACION DE Chainsaw
+        animation.Play("Gun");
+    }
+
     public void setRun()
     {
         // REPRODUCIMOS LA ANIMACION DE Chainsaw

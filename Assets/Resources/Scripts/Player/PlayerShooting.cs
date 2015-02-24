@@ -12,6 +12,7 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject pipe;
     public GameObject chainsaw;
     public GameObject fire;
+    public GameObject fireShotgun;
 	public Rigidbody grenade;
     public PlayerStats playerStats;
 	public PlayerMovement playerMov;
@@ -59,7 +60,7 @@ public class PlayerShooting : MonoBehaviour
 
 		switch (weapon) {
             case Weapon.GUN:
-                playerStats.setRiffle();
+                playerStats.setGun();
                 playerStats.bullets.text = "Inf.";
                 timer += Time.deltaTime;
                 timeBetweenBullets = 0.45f;
@@ -198,10 +199,17 @@ public class PlayerShooting : MonoBehaviour
 			GameObject RifleBulletGO = (GameObject)Instantiate (rifleBullet, transform.position, transform.rotation);
 		//GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
             Destroy(RifleBulletGO, 2);
+            GameObject frRf = (GameObject)Instantiate(fire, transform.position, transform.rotation);
+            frRf.transform.parent = transform;
+            //GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
+            Destroy(frRf, 0.1f);
 			break;
 		case Weapon.SHOTGUN:
 			GameObject ShotgunBulletGO = (GameObject) Instantiate(ShotgunBullet, transform.position, transform.rotation);
 			Destroy (ShotgunBulletGO, 2);
+            GameObject frS = (GameObject)Instantiate(fireShotgun, transform.position, transform.rotation);
+            frS.transform.parent = transform;
+            Destroy(frS, 0.1f);
 			break;
 				 
 		}
