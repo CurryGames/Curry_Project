@@ -11,6 +11,7 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject rifleBullet;
 	public GameObject pipe;
     public GameObject chainsaw;
+    public GameObject fire;
 	public Rigidbody grenade;
     public PlayerStats playerStats;
 	public PlayerMovement playerMov;
@@ -188,6 +189,10 @@ public class PlayerShooting : MonoBehaviour
             GameObject bulletGO = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
             //GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
             Destroy(bulletGO, 2);
+            GameObject fr = (GameObject)Instantiate(fire, transform.position, transform.rotation);
+            fr.transform.parent = transform;
+            //GameObject bullet = (GameObject) Instantiate(bulletPrefab.gameObject, transform.position, transform.rotation);
+            Destroy(fr, 0.1f);
             break;
 		case Weapon.RIFLE:
 			GameObject RifleBulletGO = (GameObject)Instantiate (rifleBullet, transform.position, transform.rotation);
