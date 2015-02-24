@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 movement;                   // The vector to store the direction of the player's movement.
 	//Animator anim;              
     private DataLogic dataLogic;
+	public bool onCharge;
     // Reference to the animator component.
     bool loadScreen = false;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
@@ -28,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
 		playerRigidbody = GetComponent <Rigidbody> ();
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreen>();
 		playerShot = transform.GetComponent<PlayerShooting> ();
-        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
-         GetComponent<DataLogic>();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
+		onCharge = false;
 	}
 
 	void Update()
@@ -67,15 +68,23 @@ public class PlayerMovement : MonoBehaviour
 		// Store the input axes.
 		float h = Input.GetAxisRaw ("Horizontal");
 		float v = Input.GetAxisRaw ("Vertical");
-		
-		// Move the player around the scene.
-		Move (h, v);
-		
-		// Turn the player to face the mouse cursor.
-		Turning ();
-		
+
+		if (!onCharge)
+		{
+			// Move the player around the scene.
+			Move (h, v);
+			
+			// Turn the player to face the mouse cursor.
+			Turning ();
+		}
+
+		if (onCharge)
+		{
+			playerRigidbody.AddRelativeForce (Vector3.forward * 300);
+		}
+
 		// Animate the player.
-        if (h != 0 || v != 0)
+        if (h != 0 || v != 0 || onCharge)
         {
             playerStats.setRun();
         }
@@ -116,10 +125,10 @@ public class PlayerMovement : MonoBehaviour
 			Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
 			
 			// Set the player's rotation to this new rotation.
-			playerRigidbody.MoveRotation (newRotation);
-
+			playerRigidbody.MoveRotation (newRotation);;
 		}
 	}
+
 	
 	/*void Animating (float h, float v)
 	{

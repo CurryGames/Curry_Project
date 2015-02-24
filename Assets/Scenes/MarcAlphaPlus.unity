@@ -20160,6 +20160,7 @@ MonoBehaviour:
   chainsaw: {fileID: 1184490773}
   grenade: {fileID: 188416, guid: dfc7858c3ae271246bb55ce1e78c2597, type: 2}
   playerStats: {fileID: 0}
+  playerMov: {fileID: 0}
   weapon: 0
 --- !u!114 &1500145276
 MonoBehaviour:
@@ -20174,6 +20175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  onCharge: 0
 --- !u!114 &1500145277
 MonoBehaviour:
   m_ObjectHideFlags: 0

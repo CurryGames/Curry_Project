@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour {
 	public GameObject EndLevelScreen;
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
-	private PlayerMovement playerMov;
     public TextMesh bullets;
     public AudioClip riffle;
     public AudioClip gun;
@@ -43,7 +42,6 @@ public class PlayerStats : MonoBehaviour {
 		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
         animationLegs = GameObject.FindGameObjectWithTag("Legs").GetComponent<Animator>();
-		playerMov = GetComponentInChildren<PlayerMovement> ();
 		interfaz = Camera.main.GetComponent <Interface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
@@ -138,24 +136,18 @@ public class PlayerStats : MonoBehaviour {
         {
             Destroy(col.gameObject);
             GetAmmoShotgun(10);
-
         }
 
         if ((col.tag == "pointB") && onKey)
         {
-
             LevelEnd();
             onKey = false;
-
-
         }
 
         if (col.tag == "Key")
         {
-
             onKey = true;
             Destroy(col.gameObject);
-
         } 
 	}
 

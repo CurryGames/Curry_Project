@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject chainsaw;
 	public Rigidbody grenade;
     public PlayerStats playerStats;
+	public PlayerMovement playerMov;
     private DataLogic dataLogic;
     private float clockGunTimer;
     private bool clockGun;
@@ -40,8 +41,8 @@ public class PlayerShooting : MonoBehaviour
 		colliderSaw = transform.FindChild ("colliderSaw").GetComponent<BoxCollider> ();
 		colliderSaw.enabled = false;
 		playerStats = GetComponent <PlayerStats> ();
-        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
-            GetComponent<DataLogic>();
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
+		playerMov = GetComponent<PlayerMovement> ();
         clockGun = false;
 	}
 	void Update ()
@@ -106,16 +107,24 @@ public class PlayerShooting : MonoBehaviour
 			playerStats.setChainsaw ();
 			playerStats.damage = 1;
 			playerStats.speed = 12;
-			if (playerStats.currentBrutality <= 0)
-            {
-                chainsaw.SetActive(false);
-				colliderSaw.enabled = false;
-                weapon = Weapon.GUN;
-				playerStats.damage = 12;
-                playerStats.speed = 6;
-                playerStats.brutalMode = false;
 
-            }
+			if (Input.GetButton ("Fire1"))
+			{
+				playerMov.onCharge = true;
+			}
+			else playerMov.onCharge = false;
+
+			if (playerStats.currentBrutality <= 0)
+			{
+				chainsaw.SetActive(false);
+				colliderSaw.enabled = false;
+				weapon = Weapon.GUN;
+				playerStats.damage = 12;
+				playerStats.speed = 6;
+				playerStats.brutalMode = false;
+				playerMov.onCharge = false;
+			}
+
             break;
 		case Weapon.SHOTGUN:
 			playerStats.setShootgun ();
