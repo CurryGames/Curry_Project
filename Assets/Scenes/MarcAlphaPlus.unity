@@ -11562,7 +11562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa94eb19b4744d40b1087dc4965a59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumFx: .5
+  volumFx: 1
   volumMusic: .300000012
   on: 1
 --- !u!4 &895604246
@@ -20211,11 +20211,11 @@ MonoBehaviour:
   GameOverScreen: {fileID: 85706224}
   EndLevelScreen: {fileID: 1659935110}
   bullets: {fileID: 1260101858}
-  riffle: {fileID: 8300000, guid: 100d7b4671e3df84388944b096a42bcb, type: 3}
-  gun: {fileID: 8300000, guid: 13aad1e9a83554a4faa9c2e594def7ef, type: 3}
-  gunClock: {fileID: 8300000, guid: 70662462778a5b141a93d3bcf8936c28, type: 3}
-  shootGun: {fileID: 8300000, guid: 6b8d0c030a2525344aab859de9ce3f7c, type: 3}
-  shootGunClock: {fileID: 8300000, guid: 62154c064d393224aa493c3d1c0676cf, type: 3}
+  riffle: {fileID: 8300000, guid: 8a03ba9e9e10d20478aa45da76412a8d, type: 3}
+  gun: {fileID: 8300000, guid: e6c6c8ae1950ae147b9c0717c2519d3e, type: 3}
+  gunClock: {fileID: 8300000, guid: 62a9a36f7cbfe904f8dcb2082b8d1131, type: 3}
+  shootGun: {fileID: 8300000, guid: 9acbcc58258d45045be0459df2f80f9b, type: 3}
+  shootGunClock: {fileID: 8300000, guid: 2d8e32a54e86bb143808ddae1e05a1d0, type: 3}
   music: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
   health: {fileID: 8300000, guid: 48885edad9fcd7549a31828f52a67a6d, type: 3}
   ammo: {fileID: 8300000, guid: 2298a838092ee7f4e9c5edf3dfc7982e, type: 3}
@@ -23394,7 +23394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: volumFx
-      value: .5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: volumMusic
