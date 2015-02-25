@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Spark
+  m_Name: Blood 1
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -17,14 +17,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: b206737170ad3ee4b9625fea088dd86c, type: 3}
+          m_Texture: {fileID: 2800000, guid: 25f183ec59dbc294fa3572caa9a88423, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _InvFade
-        second: .0223214328
+        second: 1
     m_Colors:
       data:
         first:
@@ -33,4 +33,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .617647052, g: .936713934, b: 1, a: .501960814}
+        second: {r: .240862906, g: .323201358, b: .404411793, a: .286274523}
