@@ -190,7 +190,7 @@ MonoBehaviour:
   forceMode: 1
   explosionTime: 1.5
   grenadeGO: {fileID: 188416}
-  grenadeFX: {fileID: 100000, guid: 58c2d1d4c86cfba48acdb8c689a8e72d, type: 2}
+  grenadeFX: {fileID: 100000, guid: e5a6484aa2e0b914189dbb9ab64b25b7, type: 2}
   dirtFX: {fileID: 143668, guid: 8ff93d67f02ac614aa69d95516dc1c92, type: 2}
   explosion: {fileID: 8300000, guid: 422559e52cbef5a4bb1cf22cf1deda55, type: 3}
 --- !u!135 &13535314

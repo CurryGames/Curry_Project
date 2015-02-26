@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestructibleProp : MonoBehaviour {
+public class ShootableProp : MonoBehaviour {
 	
 	public GameObject piece1;
 	

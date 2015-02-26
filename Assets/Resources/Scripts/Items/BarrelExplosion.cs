@@ -66,6 +66,12 @@ public class BarrelExplosion : MonoBehaviour {
 					distanceModifier = 1 - 1/(radius / Vector3.Distance (player.transform.position, transform.position));
 					player.GetDamage((int)(120 * distanceModifier));
 				}
+
+                if (col.tag == "DestructibleProp")
+                {
+                    DestructibleProp destProp = col.GetComponent<DestructibleProp>();
+                    destProp.GetDestroyed();
+                }
 			}
 
 			Explode ();

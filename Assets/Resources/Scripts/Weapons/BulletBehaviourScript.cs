@@ -38,7 +38,14 @@ public class BulletBehaviourScript : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+
+        if(other.tag == "ShootableProp")
+		{
+			ShootableProp destProp = other.GetComponent<ShootableProp>();
+			destProp.GetDestroyed();
+		}
+		}
 		
 	}
 
-}
+
