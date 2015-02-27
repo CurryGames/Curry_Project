@@ -9,6 +9,11 @@ public class DataLogic : MonoBehaviour {
 	// VARIABLE CURRENT LEVEL
 	private int currentLevel;
 	private int nextLevel;
+    public float iniHealth{get; set;}
+    public float iniBrutality;
+    public int iniRiffleAmmo;
+    public int iniShotGunAmmo;
+    public bool riffleActive;
     public float volumFx;
     public float volumMusic;
     public bool on;
@@ -32,6 +37,7 @@ public class DataLogic : MonoBehaviour {
 	void Awake(){
 
 		// EL OBJETO NO SE DESTRUYE ENTRE ESCENAS
+        iniHealth = 256;
 		DontDestroyOnLoad(transform.gameObject);
 
 	}
@@ -40,6 +46,7 @@ public class DataLogic : MonoBehaviour {
 	void Start () {
 		// CARGAMOS EL MENU
         if (!on) Application.LoadLevel("Logo");
+        
 	}
 	
 	// Update is called once per frame

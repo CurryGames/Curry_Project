@@ -12,7 +12,7 @@ public class EnemyStats : MonoBehaviour
     float temp = 0.5f;
     float tempIni = 0.5f;
     float tempHit = 0;
-    int currentHealth;
+    private int currentHealth;
     public float speed;
     public float speedOnChase;
     private PlayerStats playerStats;
@@ -49,7 +49,7 @@ public class EnemyStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerStats.currentHealth == 0) alive = false;
+        if (playerStats.currentHealth == 0) Destroy(this.gameObject);
         if (currentHealth >= maxHealth) currentHealth = maxHealth;
 
         if (currentHealth <= 0)

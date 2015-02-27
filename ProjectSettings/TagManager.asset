@@ -32,6 +32,7 @@ TagManager:
   - enemyBulletSHOTGUN
   - ShootableProp
   - shotgunArmor
+  - ScreenEnding
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

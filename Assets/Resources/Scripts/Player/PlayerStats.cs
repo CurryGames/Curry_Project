@@ -25,7 +25,8 @@ public class PlayerStats : MonoBehaviour {
     public AudioClip music;
     public AudioClip health;
     public AudioClip ammo;
-    public DataLogic dataLogic;
+    private DataLogic dataLogic;
+    private LoadingScreen loadingScreen;
     public int riffleBullets;
     public int shotgunBullets;
 	bool alive = true;
@@ -46,6 +47,8 @@ public class PlayerStats : MonoBehaviour {
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
+        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
+            GetComponent<LoadingScreen>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = 400;
@@ -54,8 +57,8 @@ public class PlayerStats : MonoBehaviour {
         brutalMode = false;
         onKey = false;
 		damage = 12;
-        currentBrutality = 256;
-		currentHealth = maxHealth;
+        currentBrutality = dataLogic.iniBrutality;
+		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
         AudioSource audiSor = gameObject.AddComponent<AudioSource>();
@@ -142,6 +145,12 @@ public class PlayerStats : MonoBehaviour {
         {
             LevelEnd();
             onKey = false;
+        }
+
+        if ((col.tag == "ScreenEnding"))
+        {
+            loadingScreen.loadNextScreen = true;
+            dataLogic.iniHealth = currentHealth;
         }
 
         if (col.tag == "Key")
