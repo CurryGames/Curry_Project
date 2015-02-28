@@ -51,12 +51,12 @@ public class PlayerStats : MonoBehaviour {
             GetComponent<LoadingScreen>();
 		speed = 6f;
 		maxHealth = 256;
-        riffleBullets = 400;
-        shotgunBullets = 20;
+        riffleBullets = dataLogic.iniRiffleAmmo;
+        shotgunBullets = dataLogic.iniShotgunAmmo;
 		levelCleared = false;
         brutalMode = false;
         onKey = false;
-		damage = 12;
+		damage = 6;
         currentBrutality = dataLogic.iniBrutality;
 		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
@@ -128,7 +128,7 @@ public class PlayerStats : MonoBehaviour {
 
         }
 
-        if ((col.gameObject.tag == "riffleAmmo"))
+        if ((col.gameObject.tag == "riffleAmmo") && dataLogic.riffleActive == true)
         {
             Destroy(col.gameObject);
             GetAmmoRiffle(100);
@@ -147,10 +147,11 @@ public class PlayerStats : MonoBehaviour {
             onKey = false;
         }
 
-        if ((col.tag == "ScreenEnding"))
+        if ((col.tag == "ScreenEnding") && brutalMode == false)
         {
             loadingScreen.loadNextScreen = true;
             dataLogic.iniHealth = currentHealth;
+            dataLogic.iniBrutality = currentBrutality;
         }
 
         if (col.tag == "Key")

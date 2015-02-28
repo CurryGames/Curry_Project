@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 playerShot.weapon = PlayerShooting.Weapon.GUN;
             }
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
-            if (Input.GetKey("3")) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
+            if (Input.GetKey("3") && dataLogic.riffleActive == true) playerShot.weapon = PlayerShooting.Weapon.RIFLE;
 			if (Input.GetKey(KeyCode.Mouse1)) 
 			{	
 				throwForce += 0.18f;

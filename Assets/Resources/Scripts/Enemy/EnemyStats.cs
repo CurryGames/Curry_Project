@@ -19,6 +19,7 @@ public class EnemyStats : MonoBehaviour
     private PlayerShooting playerShooting;
     public GameObject aim;
     public GameObject enemySprite;
+    public GameObject blood;
     public GameObject[] deaths;
     public AudioClip death;
     private DataLogic dataLogic;
@@ -90,6 +91,9 @@ public class EnemyStats : MonoBehaviour
         if ((col.gameObject.tag == "Bullet"))
         {
             Destroy(col.gameObject);
+            GameObject bld = (GameObject) Instantiate(blood, transform.position, transform.rotation);
+            bld.transform.parent = transform;
+            Destroy(bld, 1);
             GetDamage(100);			
         }
 
@@ -122,8 +126,8 @@ public class EnemyStats : MonoBehaviour
     {
         if (down)
         {
-            color.g = Mathf.Lerp(1F, 0F, temp / tempIni);
-            color.b = Mathf.Lerp(1F, 0F, temp / tempIni);
+            color.g = Mathf.Lerp(0F, 1F, temp / tempIni);
+            color.b = Mathf.Lerp(0F, 1F, temp / tempIni);
 			enemySprite.renderer.material.color = color;
             temp -= Time.deltaTime;
 
@@ -136,8 +140,8 @@ public class EnemyStats : MonoBehaviour
 
         if (!down)
         {
-            color.g = Mathf.Lerp(1F, 0F, temp / tempIni);
-            color.b = Mathf.Lerp(1F, 0F, temp / tempIni);
+            color.g = Mathf.Lerp(0F, 1F, temp / tempIni);
+            color.b = Mathf.Lerp(0F, 1F, temp / tempIni);
 			enemySprite.renderer.material.color = color;
             temp += Time.deltaTime;
 

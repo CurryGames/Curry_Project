@@ -9,11 +9,11 @@ public class DataLogic : MonoBehaviour {
 	// VARIABLE CURRENT LEVEL
 	private int currentLevel;
 	private int nextLevel;
-    public float iniHealth{get; set;}
-    public float iniBrutality;
-    public int iniRiffleAmmo;
-    public int iniShotGunAmmo;
-    public bool riffleActive;
+    public float iniHealth { get; set; }
+    public float iniBrutality { get; set; }
+    public int iniRiffleAmmo { get; set; }
+    public int iniShotgunAmmo { get; set; }
+    public bool riffleActive { get; set; }
     public float volumFx;
     public float volumMusic;
     public bool on;
@@ -38,6 +38,10 @@ public class DataLogic : MonoBehaviour {
 
 		// EL OBJETO NO SE DESTRUYE ENTRE ESCENAS
         iniHealth = 256;
+        iniBrutality = 0;
+        iniRiffleAmmo = 200;
+        iniShotgunAmmo = 20;
+        riffleActive = true;
 		DontDestroyOnLoad(transform.gameObject);
 
 	}

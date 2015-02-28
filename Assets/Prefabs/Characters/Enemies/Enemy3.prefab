@@ -408,6 +408,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 100004}
   enemySprite: {fileID: 100002}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 943848b738dcc654a8b2501d1039715e, type: 2}
   - {fileID: 118264, guid: 943848b738dcc654a8b2501d1039715e, type: 2}

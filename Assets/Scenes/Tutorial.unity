@@ -8431,10 +8431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa94eb19b4744d40b1087dc4965a59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iniBrutality: 0
-  iniRiffleAmmo: 0
-  iniShotGunAmmo: 0
-  riffleActive: 0
   volumFx: 0
   volumMusic: 0
   on: 1
