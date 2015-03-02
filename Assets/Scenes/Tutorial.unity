@@ -1588,6 +1588,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 1601634028}
   enemySprite: {fileID: 40109270}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -3952,6 +3953,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 715330917}
   enemySprite: {fileID: 1525020839}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -4225,6 +4227,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 523402536}
   enemySprite: {fileID: 1011477717}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -5302,6 +5305,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 954608006}
   enemySprite: {fileID: 1255349015}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -6029,7 +6033,7 @@ Transform:
   m_PrefabInternal: {fileID: 1453549261}
   m_GameObject: {fileID: 539992241}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: .300000012, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: .540997207}
   m_Children: []
   m_Father: {fileID: 364293379}
@@ -6705,6 +6709,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 2033298005}
   enemySprite: {fileID: 1709117372}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -7001,6 +7006,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 187892158}
   enemySprite: {fileID: 1508550764}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -10972,6 +10978,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 473090743}
   enemySprite: {fileID: 570340509}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -11544,6 +11551,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 1721605115}
   enemySprite: {fileID: 88482738}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -15968,6 +15976,10 @@ Prefab:
       propertyPath: m_StoppingDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a29d5868a17e1a149b2e3841d30f7eed, type: 2}
   m_RootGameObject: {fileID: 1717234706}
@@ -18380,6 +18392,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 364293378}
   enemySprite: {fileID: 539992241}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -20481,6 +20494,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 882403333}
   enemySprite: {fileID: 91346961}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -20874,6 +20888,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 927817931}
   enemySprite: {fileID: 1392954932}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
@@ -22371,6 +22386,7 @@ MonoBehaviour:
   speedOnChase: 0
   aim: {fileID: 1401510456}
   enemySprite: {fileID: 147890462}
+  blood: {fileID: 104806, guid: 938d710b2718a174a80d16a1032289c1, type: 2}
   deaths:
   - {fileID: 118264, guid: 8a9a38d0f8e4dc54eb8a99f9dd983d51, type: 2}
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
