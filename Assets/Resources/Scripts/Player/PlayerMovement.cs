@@ -55,8 +55,9 @@ public class PlayerMovement : MonoBehaviour
 				throwForce += 0.18f;
 				if (throwForce >= 30) throwForce = 30;
 			}
-			if (Input.GetKeyUp(KeyCode.Mouse1))
+			if (Input.GetKeyUp(KeyCode.Mouse1) && playerStats.currentGrenades > 0)
 			{
+                playerStats.currentGrenades--;
 				playerShot.ThrowGrenade(throwForce);
 				throwForce = 15;
 			}

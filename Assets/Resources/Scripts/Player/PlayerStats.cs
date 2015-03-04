@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
@@ -11,12 +12,14 @@ public class PlayerStats : MonoBehaviour {
 	public int damage;
     public int currentMunition;
     public int maxMunition;
+	public int currentGrenades;
 	private GodMode godMode;
 	public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
-    public TextMesh bullets;
+    public Text bullets;
+    public Text grenades;
     public TextMesh points;
     public AudioClip riffle;
     public AudioClip gun;
@@ -54,6 +57,7 @@ public class PlayerStats : MonoBehaviour {
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
         shotgunBullets = dataLogic.iniShotgunAmmo;
+		currentGrenades = dataLogic.iniGrenades;
 		levelCleared = false;
         brutalMode = false;
         onKey = false;
@@ -90,6 +94,16 @@ public class PlayerStats : MonoBehaviour {
             shotgunBullets = 0;
         }
 
+        if (currentGrenades >= 3)
+        {
+            currentGrenades = 3;
+        }
+
+        if(currentGrenades <= 0)
+        {
+            currentGrenades = 0;
+        }
+
 		if (!alive)
 		{
 			GameOver ();
@@ -102,6 +116,7 @@ public class PlayerStats : MonoBehaviour {
             LevelEnd();
         }
 
+        grenades.text = currentGrenades.ToString();
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -146,6 +161,17 @@ public class PlayerStats : MonoBehaviour {
             GetAmmoShotgun(10);
         }
 
+        if(col.gameObject.tag == "grenadesBox")
+        {
+            currentGrenades++;
+            Destroy(col.gameObject);
+        }
+
+        if (col.gameObject.tag == "grenadesBoxInfinite")
+        {
+            currentGrenades++;
+        }
+
         if ((col.tag == "pointB") && onKey)
         {
             levelCleared = true;
@@ -168,6 +194,7 @@ public class PlayerStats : MonoBehaviour {
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
             dataLogic.iniShotgunAmmo = shotgunBullets;
+			dataLogic.iniGrenades = currentGrenades;
         }
 
         if (col.tag == "Key")

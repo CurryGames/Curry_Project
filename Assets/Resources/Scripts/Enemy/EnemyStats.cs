@@ -93,7 +93,7 @@ public class EnemyStats : MonoBehaviour
         if ((col.gameObject.tag == "Bullet"))
         {
             Destroy(col.gameObject);
-            GameObject bld = (GameObject) Instantiate(blood, transform.position, transform.rotation);
+            GameObject bld = (GameObject) Instantiate(blood, col.transform.position, col.transform.rotation);
             bld.transform.parent = transform;
             Destroy(bld, 1);
             GetDamage(100);			

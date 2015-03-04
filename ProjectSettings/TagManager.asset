@@ -34,6 +34,8 @@ TagManager:
   - shotgunArmor
   - ScreenEnding
   - levelEnding
+  - grenadesBox
+  - grenadesBoxInfinite
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
