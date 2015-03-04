@@ -176,15 +176,21 @@ public class PlayerStats : MonoBehaviour {
         {
             levelCleared = true;
             onKey = false;
+            dataLogic.iniHealth = currentHealth;
+            dataLogic.iniBrutality = currentBrutality;
+            dataLogic.iniRiffleAmmo = riffleBullets;
+            dataLogic.iniShotgunAmmo = shotgunBullets;
+            dataLogic.iniGrenades = currentGrenades;
         }
 
-        if ((col.tag == "levelEnding"))
+        if ((col.tag == "levelEnding") && brutalMode == false)
         {
             levelCleared = true;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
             dataLogic.iniShotgunAmmo = shotgunBullets;
+            dataLogic.iniGrenades = currentGrenades;
         }
 
         if ((col.tag == "ScreenEnding") && brutalMode == false)
