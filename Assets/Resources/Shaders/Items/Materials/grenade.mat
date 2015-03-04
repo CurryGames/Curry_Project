@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 300px-Sign_first_aid.svg 1
-  m_Shader: {fileID: 4800000, guid: 22cff654fe281eb41a37030a078914e7, type: 3}
+  m_Name: grenade
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,9 +17,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 15d0bcce059365142b1630a217b81ac4, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+          m_Texture: {fileID: 2800000, guid: 010f424a9eec082409350bfe9fe08a9a, type: 3}
+          m_Scale: {x: 1, y: .699999988}
+          m_Offset: {x: 0, y: .100000001}
     m_Floats: {}
     m_Colors:
       data:
