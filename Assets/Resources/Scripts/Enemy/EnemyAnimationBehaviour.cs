@@ -34,20 +34,20 @@ public class EnemyAnimationBehaviour : MonoBehaviour {
 	}
 
 	public void setWalkRight(){
-		animation.Play ("walk");
+		GetComponent<Animation>().Play ("walk");
 		transform.eulerAngles = new Vector3 (0, 90, 0);
 		state = EnemyAnimationStates.WALK_RIGHT;
 	}
 
 	public void setWalkLeft(){
 		transform.eulerAngles = new Vector3 (0, -90, 0);
-		animation.Play ("walk");
+		GetComponent<Animation>().Play ("walk");
 		state = EnemyAnimationStates.WALK_LEFT;
 	}
 
 	public void setIdle(){
 		transform.eulerAngles = new Vector3 (0, -90, 0);
-		animation.Play ("idle");
+		GetComponent<Animation>().Play ("idle");
 		state = EnemyAnimationStates.IDLE;
 	}
 
@@ -60,8 +60,8 @@ public class EnemyAnimationBehaviour : MonoBehaviour {
 	}
 
 	public void addDamageVisual(){
-		Color color = meshEnemy.renderer.material.color;
+		Color color = meshEnemy.GetComponent<Renderer>().material.color;
 		color.r -= 0.1f;
-		meshEnemy.renderer.material.color = color;
+		meshEnemy.GetComponent<Renderer>().material.color = color;
 	}
 }

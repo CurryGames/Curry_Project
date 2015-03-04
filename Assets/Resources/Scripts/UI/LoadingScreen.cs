@@ -19,7 +19,7 @@ public class LoadingScreen : MonoBehaviour {
         temp = tempInit;
         loadCurrentScreen = false;
         loadNextScreen = false;
-        color = renderer.material.color;
+        color = GetComponent<Renderer>().material.color;
         levelLogic = GameObject.FindGameObjectWithTag("LevelLogic").
             GetComponent<LevelLogic>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
@@ -41,7 +41,7 @@ public class LoadingScreen : MonoBehaviour {
 
             case State.FADEOUT:
                 color.a = Mathf.Lerp(1, 0, temp / tempInit);
-                renderer.material.color = color;
+                GetComponent<Renderer>().material.color = color;
                 temp -= Time.deltaTime;
                 if (temp <= 0)
                 {
@@ -60,7 +60,7 @@ public class LoadingScreen : MonoBehaviour {
 
 
                 color.a = Mathf.Lerp(0, 1, temp / tempInit);
-                renderer.material.color = color;
+                GetComponent<Renderer>().material.color = color;
                 temp -= Time.deltaTime;
 
                 if (temp < 0)
@@ -81,7 +81,7 @@ public class LoadingScreen : MonoBehaviour {
         
             case State.FADEOUT:
             color.a = Mathf.Lerp(1, 0, temp / tempInit);
-            renderer.material.color = color;
+            GetComponent<Renderer>().material.color = color;
             temp -= Time.deltaTime;
 			if (temp <= 0) {
                 state = State.LOADING;
@@ -99,7 +99,7 @@ public class LoadingScreen : MonoBehaviour {
 
             
             color.a = Mathf.Lerp(0, 1, temp / tempInit);
-            renderer.material.color = color;
+            GetComponent<Renderer>().material.color = color;
             temp -= Time.deltaTime;  
             if (temp < 0)
             {

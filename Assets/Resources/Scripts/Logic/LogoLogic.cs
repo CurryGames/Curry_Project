@@ -16,7 +16,7 @@ public class LogoLogic : MonoBehaviour {
 		temp = tempInit;
 		down = true;
 		
-		color = renderer.material.color;
+		color = GetComponent<Renderer>().material.color;
 		
 	}
 	
@@ -29,7 +29,7 @@ public class LogoLogic : MonoBehaviour {
 		if (down) {
 			
 			color.a = Mathf.Lerp (1, 0, temp / tempInit);
-			renderer.material.color = color;
+			GetComponent<Renderer>().material.color = color;
 			temp -= Time.deltaTime;
 			if (temp <= 0) {
 				down = false;
@@ -42,7 +42,7 @@ public class LogoLogic : MonoBehaviour {
 		if (!down){
 			
 			color.a = Mathf.Lerp (1, 0, temp / tempInit);
-			renderer.material.color = color;
+			GetComponent<Renderer>().material.color = color;
 			temp += Time.deltaTime;
 			
 			if (temp > tempInit) {

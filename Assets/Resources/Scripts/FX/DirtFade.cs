@@ -16,7 +16,7 @@ public class DirtFade : MonoBehaviour {
 		fadingTime = 5;
 		secondsToFade = 10;
 		temp = fadingTime;
-		color = renderer.material.color;
+		color = GetComponent<Renderer>().material.color;
 		Invoke ("Fading", secondsToFade);
 	}
 	
@@ -26,7 +26,7 @@ public class DirtFade : MonoBehaviour {
 		if (fading)
 		{
 			color.a = Mathf.Lerp (0, 1, temp/fadingTime);
-			renderer.material.color = color;
+			GetComponent<Renderer>().material.color = color;
 			temp -= Time.deltaTime;
 		}
 

@@ -29,7 +29,7 @@ public class LightEffects : MonoBehaviour {
         down = true;
 
 
-        color = renderer.material.color;
+        color = GetComponent<Renderer>().material.color;
 	}
 	
 	// Update is called once per frame
@@ -66,7 +66,7 @@ public class LightEffects : MonoBehaviour {
         {
             //color.a = Random.Range(0.1f, 0.05f);
             color.a = Random.Range(fluMax, fluMim);
-            renderer.material.color = color;
+            GetComponent<Renderer>().material.color = color;
             tempFlu = tempInitFlu;
         } 
     }
@@ -76,7 +76,7 @@ public class LightEffects : MonoBehaviour {
         if (down)
         {
             color.a = Mathf.Lerp(glowMax, glowMim, temp / tempInit);
-            renderer.material.color = color;
+            GetComponent<Renderer>().material.color = color;
             temp -= Time.deltaTime;
 
             if (temp <= 0)
@@ -89,7 +89,7 @@ public class LightEffects : MonoBehaviour {
         if (!down)
         {
             color.a = Mathf.Lerp(glowMax, glowMim, temp / tempInit);
-            renderer.material.color = color;
+            GetComponent<Renderer>().material.color = color;
             temp += Time.deltaTime;
 
             if (temp > tempInit)

@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour {
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
     public TextMesh bullets;
+    public TextMesh points;
     public AudioClip riffle;
     public AudioClip gun;
     public AudioClip gunClock;
@@ -32,7 +33,7 @@ public class PlayerStats : MonoBehaviour {
 	bool alive = true;
     public bool onKey;
     public bool brutalMode;
-	bool levelCleared;
+	public bool levelCleared;
 
 	private Animator animation;
     private Animator animationLegs;
@@ -95,7 +96,11 @@ public class PlayerStats : MonoBehaviour {
 
 		}
 
-		if(levelCleared) if (Input.GetKey (KeyCode.E)) Application.Quit ();
+        if (levelCleared == true)
+        {
+            if (Input.anyKeyDown) loadingScreen.loadNextScreen = true;
+            LevelEnd();
+        }
 
 	}
 
@@ -143,8 +148,17 @@ public class PlayerStats : MonoBehaviour {
 
         if ((col.tag == "pointB") && onKey)
         {
-            LevelEnd();
+            levelCleared = true;
             onKey = false;
+        }
+
+        if ((col.tag == "levelEnding"))
+        {
+            levelCleared = true;
+            dataLogic.iniHealth = currentHealth;
+            dataLogic.iniBrutality = currentBrutality;
+            dataLogic.iniRiffleAmmo = riffleBullets;
+            dataLogic.iniShotgunAmmo = shotgunBullets;
         }
 
         if ((col.tag == "ScreenEnding") && brutalMode == false)
@@ -152,6 +166,8 @@ public class PlayerStats : MonoBehaviour {
             loadingScreen.loadNextScreen = true;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
+            dataLogic.iniRiffleAmmo = riffleBullets;
+            dataLogic.iniShotgunAmmo = shotgunBullets;
         }
 
         if (col.tag == "Key")
@@ -230,6 +246,8 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
+        dataLogic.maxDeathPoints = 0;
+        dataLogic.currentSDeathpoints = 0;
 
 	}
 	public void LevelEnd(){
@@ -238,8 +256,7 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
-		levelCleared = true;
-
+        points.text = dataLogic.currentSDeathpoints.ToString() + "/" + dataLogic.maxDeathPoints.ToString();
 		
 	}
 }

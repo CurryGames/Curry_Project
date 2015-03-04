@@ -45,11 +45,11 @@ public class BarrelExplosion : MonoBehaviour {
 			Destroy (other.gameObject);
 			foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
 			{
-				if (col.rigidbody != null)
+				if (col.GetComponent<Rigidbody>() != null)
 				{
 					if (col.tag != "Bullet" && col.tag != "enemyBullet" && col.tag !="BulletSHOTGUN" && col.tag !="BulletRIFLE")
                     {
-                        col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
+                        col.GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
                     }
 				}
 				

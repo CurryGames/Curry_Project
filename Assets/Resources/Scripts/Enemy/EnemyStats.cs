@@ -35,7 +35,7 @@ public class EnemyStats : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
-        color = enemySprite.renderer.material.color;
+        color = enemySprite.GetComponent<Renderer>().material.color;
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
         GetComponent<DataLogic>();
 
@@ -44,13 +44,14 @@ public class EnemyStats : MonoBehaviour
         maxHealth = 300;
         currentHealth = maxHealth;
         brutalPoints = 40;
+        dataLogic.maxDeathPoints += 100;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerStats.currentHealth == 0) Destroy(this.gameObject);
+        if (playerStats.currentHealth == 0 || playerStats.levelCleared == true) Destroy(this.gameObject);
         if (currentHealth >= maxHealth) currentHealth = maxHealth;
 
         if (currentHealth <= 0)
@@ -68,6 +69,7 @@ public class EnemyStats : MonoBehaviour
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(death, audiSor, dataLogic.volumFx);
             playerStats.deathNumber++;
+            dataLogic.currentSDeathpoints += 100;
             Destroy(gameObject);
         }
 		if (hit) 
@@ -82,7 +84,7 @@ public class EnemyStats : MonoBehaviour
 		else 
 		{
 			color = new Color (1, 1, 1, 1);
-			enemySprite.renderer.material.color = color;
+			enemySprite.GetComponent<Renderer>().material.color = color;
 		}
     }
 
@@ -128,7 +130,7 @@ public class EnemyStats : MonoBehaviour
         {
             color.g = Mathf.Lerp(0F, 1F, temp / tempIni);
             color.b = Mathf.Lerp(0F, 1F, temp / tempIni);
-			enemySprite.renderer.material.color = color;
+			enemySprite.GetComponent<Renderer>().material.color = color;
             temp -= Time.deltaTime;
 
             if (temp <= 0)
@@ -142,7 +144,7 @@ public class EnemyStats : MonoBehaviour
         {
             color.g = Mathf.Lerp(0F, 1F, temp / tempIni);
             color.b = Mathf.Lerp(0F, 1F, temp / tempIni);
-			enemySprite.renderer.material.color = color;
+			enemySprite.GetComponent<Renderer>().material.color = color;
             temp += Time.deltaTime;
 
             if (temp > tempIni)

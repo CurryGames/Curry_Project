@@ -16,7 +16,7 @@ public class SecretRoom : MonoBehaviour {
         visible = false;
         temp = 1f;
         initTemp = 1f;
-        color = plane.renderer.material.color;
+        color = plane.GetComponent<Renderer>().material.color;
         boxCol = GetComponent<BoxCollider>();
 	}
 	
@@ -26,7 +26,7 @@ public class SecretRoom : MonoBehaviour {
 	    if(visible == true)
         {
             color.a = Mathf.Lerp(0F, 1F, temp / initTemp);
-            plane.renderer.material.color = color;
+            plane.GetComponent<Renderer>().material.color = color;
             temp -= Time.deltaTime;
 
             if (temp <= 0)

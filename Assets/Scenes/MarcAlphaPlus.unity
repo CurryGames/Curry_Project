@@ -13724,6 +13724,78 @@ Prefab:
   m_RootGameObject: {fileID: 944080260}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1011215127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100042, guid: a7145b3dfcf15734ba00ab8cf6ce96a6, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1011215128}
+  - 23: {fileID: 1011215130}
+  - 102: {fileID: 1011215129}
+  m_Layer: 0
+  m_Name: Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1011215128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400042, guid: a7145b3dfcf15734ba00ab8cf6ce96a6, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011215127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.52107501, y: -3.55999994, z: -1.57997417}
+  m_LocalScale: {x: .700000048, y: .700000048, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1659935111}
+  m_RootOrder: 4
+--- !u!102 &1011215129
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200016, guid: a7145b3dfcf15734ba00ab8cf6ce96a6,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011215127}
+  m_Text: PRESS e TO EXIT
+  m_OffsetZ: 0
+  m_CharacterSize: .150000006
+  m_LineSpacing: 1
+  m_Anchor: 1
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: aaf267038d4c46442964518c5d531130, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4282335145
+--- !u!23 &1011215130
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300026, guid: a7145b3dfcf15734ba00ab8cf6ce96a6,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011215127}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: aaf267038d4c46442964518c5d531130, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1001 &1030447432
 Prefab:
   m_ObjectHideFlags: 0
@@ -20471,6 +20543,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 85706224}
   EndLevelScreen: {fileID: 1659935110}
   bullets: {fileID: 1260101858}
+  points: {fileID: 1011215129}
   riffle: {fileID: 8300000, guid: 8a03ba9e9e10d20478aa45da76412a8d, type: 3}
   gun: {fileID: 8300000, guid: e6c6c8ae1950ae147b9c0717c2519d3e, type: 3}
   gunClock: {fileID: 8300000, guid: 62a9a36f7cbfe904f8dcb2082b8d1131, type: 3}
@@ -23368,6 +23441,7 @@ Transform:
   - {fileID: 296544496}
   - {fileID: 1607975491}
   - {fileID: 1605440746}
+  - {fileID: 1011215128}
   m_Father: {fileID: 1952453884}
   m_RootOrder: 0
 --- !u!1 &1660188044

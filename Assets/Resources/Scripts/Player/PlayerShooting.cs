@@ -218,7 +218,7 @@ public class PlayerShooting : MonoBehaviour
 	public void ThrowGrenade(float force)
 	{
 		GameObject grenadeGO = (GameObject)Instantiate (grenade, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z + 0.5f), transform.rotation);
-		grenadeGO.rigidbody.velocity = transform.TransformDirection(Vector3.forward * force);
-		Physics.IgnoreCollision (grenadeGO.collider, this.collider);
+		grenadeGO.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * force);
+		Physics.IgnoreCollision (grenadeGO.GetComponent<Collider>(), this.GetComponent<Collider>());
 	}
 }

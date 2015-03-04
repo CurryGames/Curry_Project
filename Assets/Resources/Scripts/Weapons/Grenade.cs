@@ -38,11 +38,11 @@ public class Grenade : MonoBehaviour {
 	{
 		foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
 		{
-			if (col.rigidbody != null)
+			if (col.GetComponent<Rigidbody>() != null)
 			{
 				if (col.tag != "Bullet" && col.tag != "enemyBullet")
 				{
-					col.rigidbody.AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
+					col.GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
 				}
 			}
 			
@@ -78,11 +78,11 @@ public class Grenade : MonoBehaviour {
 	{
 		foreach (Collider col in Physics.OverlapSphere( transform.position, radius))
 		{	
-			if (col.rigidbody != null)
+			if (col.GetComponent<Rigidbody>() != null)
 			{
 				if (col.tag == "PropPieces")
 				{
-					col.rigidbody.AddExplosionForce(power, transform.position, radius, 0, forceMode);
+					col.GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, radius, 0, forceMode);
 				}
 			}		
 		}
