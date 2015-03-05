@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: butaca_doble_roja
-  m_Shader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Glow13
+  m_Shader: {fileID: 4800000, guid: 22cff654fe281eb41a37030a078914e7, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,14 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: e540204ea20e2e542b6c2da64f6ae075, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: e49f7caaf9a61dd4693b3c0b25bc7514, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -32,4 +25,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .647058845, g: .628027678, b: .628027678, a: 1}
+        second: {r: .992647052, g: .899624169, b: .510921299, a: .192156866}
