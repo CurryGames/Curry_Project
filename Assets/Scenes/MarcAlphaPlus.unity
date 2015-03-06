@@ -802,7 +802,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23112491}
   m_LocalRotation: {x: .707106888, y: -3.75442705e-10, z: -2.04659347e-08, w: .707106769}
-  m_LocalPosition: {x: 4.88281727, y: .55055666, z: 21.1856613}
+  m_LocalPosition: {x: 4.88281727, y: 2, z: 21.1856613}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.69987273}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -1131,7 +1131,7 @@ Transform:
   m_GameObject: {fileID: 36915033}
   m_LocalRotation: {x: -.707106888, y: -3.44549517e-05, z: 3.43672982e-05, w: -.707106769}
   m_LocalPosition: {x: 8.55156326, y: .255615234, z: 11.9913998}
-  m_LocalScale: {x: .800000012, y: 4.31986618, z: 10.6638145}
+  m_LocalScale: {x: 2, y: 4.31986618, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 785321461}
   m_RootOrder: 34
@@ -2360,7 +2360,7 @@ Transform:
   m_GameObject: {fileID: 148808509}
   m_LocalRotation: {x: -3.43580359e-05, y: .707106829, z: -.707106829, w: -3.42700005e-05}
   m_LocalPosition: {x: -.488436699, y: .255615234, z: 11.9913998}
-  m_LocalScale: {x: .800000012, y: 4.31986618, z: 10.6638145}
+  m_LocalScale: {x: 2, y: 4.31986618, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 785321461}
   m_RootOrder: 32
@@ -3278,7 +3278,7 @@ Transform:
   m_GameObject: {fileID: 187891045}
   m_LocalRotation: {x: -.500024021, y: .499976039, z: -.499976099, w: -.500023842}
   m_LocalPosition: {x: 3.94156313, y: .255615234, z: 14.6113997}
-  m_LocalScale: {x: .800000012, y: 8.20768929, z: 10.6638145}
+  m_LocalScale: {x: 2, y: 8.20768929, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 785321461}
   m_RootOrder: 33
@@ -4521,7 +4521,7 @@ Transform:
   m_GameObject: {fileID: 261043788}
   m_LocalRotation: {x: -.49997595, y: -.500024199, z: .500024021, w: -.499975979}
   m_LocalPosition: {x: .781563044, y: .255615234, z: 9.63140011}
-  m_LocalScale: {x: .800000012, y: 2.92140388, z: 10.6638145}
+  m_LocalScale: {x: 2, y: 2.92140388, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 785321461}
   m_RootOrder: 35
@@ -6629,7 +6629,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429323694}
   m_LocalRotation: {x: -.499999851, y: -.500000358, z: .500000298, w: -.499999553}
-  m_LocalPosition: {x: 4.73281765, y: .55055666, z: 16.5756626}
+  m_LocalPosition: {x: 4.73281765, y: 2, z: 16.5756626}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.69987273}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -8301,7 +8301,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543533989}
   m_LocalRotation: {x: .500000119, y: -.49999997, z: .499999851, w: .500000119}
-  m_LocalPosition: {x: -3.86718249, y: .55055666, z: 21.3256607}
+  m_LocalPosition: {x: -3.86718249, y: 2, z: 21.3256607}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.69987273}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -11150,7 +11150,7 @@ Transform:
   m_GameObject: {fileID: 804586796}
   m_LocalRotation: {x: -.49997595, y: -.500024199, z: .500024021, w: -.499975979}
   m_LocalPosition: {x: 7.18156338, y: .255615234, z: 9.63140011}
-  m_LocalScale: {x: .800000012, y: 2.92140388, z: 10.6638145}
+  m_LocalScale: {x: 2, y: 2.92140388, z: 10.6638145}
   m_Children: []
   m_Father: {fileID: 785321461}
   m_RootOrder: 36
@@ -12129,6 +12129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa94eb19b4744d40b1087dc4965a59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  riffle: {fileID: 8300000, guid: 8a03ba9e9e10d20478aa45da76412a8d, type: 3}
+  gun: {fileID: 8300000, guid: e6c6c8ae1950ae147b9c0717c2519d3e, type: 3}
+  gunClock: {fileID: 8300000, guid: 62a9a36f7cbfe904f8dcb2082b8d1131, type: 3}
+  shootGun: {fileID: 8300000, guid: 6b8d0c030a2525344aab859de9ce3f7c, type: 3}
+  shootGunClock: {fileID: 8300000, guid: 62154c064d393224aa493c3d1c0676cf, type: 3}
+  music: {fileID: 8300000, guid: d704310fd3b78ae42b1f8217516d284a, type: 3}
+  musicBrutal: {fileID: 0}
+  health: {fileID: 8300000, guid: 48885edad9fcd7549a31828f52a67a6d, type: 3}
+  ammo: {fileID: 8300000, guid: 2298a838092ee7f4e9c5edf3dfc7982e, type: 3}
+  can: {fileID: 8300000, guid: 200c0e1150cfba247b878199be17f209, type: 3}
+  glass: {fileID: 8300000, guid: 777ed0143df467f4381af3ddf9563742, type: 3}
   volumFx: 1
   volumMusic: .300000012
   on: 1
@@ -12792,7 +12803,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 921841600}
   m_LocalRotation: {x: 2.32919405e-07, y: -.707106888, z: .707106709, w: 3.45717268e-07}
-  m_LocalPosition: {x: -3.95718265, y: .55055666, z: 16.6456623}
+  m_LocalPosition: {x: -3.95718265, y: 2, z: 16.6456623}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.69987273}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -13723,7 +13734,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994546232}
   m_LocalRotation: {x: -.499999851, y: -.500000358, z: .500000298, w: -.499999553}
-  m_LocalPosition: {x: 2.10281754, y: .55055666, z: 16.4556618}
+  m_LocalPosition: {x: 2.10281754, y: 2, z: 16.4556618}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.12956643}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -15313,7 +15324,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1079894734}
   m_LocalRotation: {x: -.499999851, y: -.500000358, z: .500000298, w: -.499999553}
-  m_LocalPosition: {x: -1.54718232, y: .55055666, z: 16.4556618}
+  m_LocalPosition: {x: -1.54718232, y: 2, z: 16.4556618}
   m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 3.12956643}
   m_Children: []
   m_Father: {fileID: 2016982783}
@@ -20958,19 +20969,13 @@ MonoBehaviour:
   bullets: {fileID: 2046161633}
   grenades: {fileID: 906944941}
   points: {fileID: 1011215129}
-  riffle: {fileID: 8300000, guid: 8a03ba9e9e10d20478aa45da76412a8d, type: 3}
-  gun: {fileID: 8300000, guid: e6c6c8ae1950ae147b9c0717c2519d3e, type: 3}
-  gunClock: {fileID: 8300000, guid: 62a9a36f7cbfe904f8dcb2082b8d1131, type: 3}
-  shootGun: {fileID: 8300000, guid: 9acbcc58258d45045be0459df2f80f9b, type: 3}
-  shootGunClock: {fileID: 8300000, guid: 2d8e32a54e86bb143808ddae1e05a1d0, type: 3}
-  music: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
-  health: {fileID: 8300000, guid: 48885edad9fcd7549a31828f52a67a6d, type: 3}
-  ammo: {fileID: 8300000, guid: 2298a838092ee7f4e9c5edf3dfc7982e, type: 3}
   riffleBullets: 0
   shotgunBullets: 0
   onKey: 0
   brutalMode: 0
   levelCleared: 0
+  audiSorMusic: {fileID: 0}
+  audiSorBrutal: {fileID: 0}
 --- !u!1001 &1512895952
 Prefab:
   m_ObjectHideFlags: 0
