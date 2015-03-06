@@ -48,7 +48,7 @@ public class RangedEnemy : MonoBehaviour {
                 {
                     Shooting();
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                    dataLogic.Play(playerStats.riffle, audiSor, dataLogic.volumFx);
+                    dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
                 }
 				break;
 			case Weapon.SHOTGUN:
@@ -58,7 +58,7 @@ public class RangedEnemy : MonoBehaviour {
 				{
 					Shooting();
 					AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
-					dataLogic.Play(playerStats.shootGun, audiSorc, dataLogic.volumFx);
+                    dataLogic.Play(dataLogic.shootGun, audiSorc, dataLogic.volumFx);
 				}
 				break;
 			}

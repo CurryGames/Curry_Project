@@ -72,6 +72,18 @@ public class BarrelExplosion : MonoBehaviour {
                     DestructibleProp destProp = col.GetComponent<DestructibleProp>();
                     destProp.GetDestroyed();
                 }
+
+                if (col.tag == "ShootableProp")
+                {
+                    ShootableProp destProp = col.GetComponent<ShootableProp>();
+                    destProp.GetDestroyed();
+                }
+
+                if (col.tag == "Can")
+                {
+                    AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
+                    dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
+                } 
 			}
 
 			Explode ();

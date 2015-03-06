@@ -21,14 +21,6 @@ public class PlayerStats : MonoBehaviour {
     public Text bullets;
     public Text grenades;
     public TextMesh points;
-    public AudioClip riffle;
-    public AudioClip gun;
-    public AudioClip gunClock;
-    public AudioClip shootGun;
-    public AudioClip shootGunClock;
-    public AudioClip music;
-    public AudioClip health;
-    public AudioClip ammo;
     private DataLogic dataLogic;
     private LoadingScreen loadingScreen;
     public int riffleBullets;
@@ -37,6 +29,8 @@ public class PlayerStats : MonoBehaviour {
     public bool onKey;
     public bool brutalMode;
 	public bool levelCleared;
+    public AudioSource audiSorMusic;
+    public AudioSource audiSorBrutal;
 
 	private Animator animation;
     private Animator animationLegs;
@@ -66,9 +60,13 @@ public class PlayerStats : MonoBehaviour {
 		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
-        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-        dataLogic.PlayLoop(music, audiSor, dataLogic.volumMusic);
-	
+        audiSorMusic = gameObject.AddComponent<AudioSource>();
+        audiSorBrutal = gameObject.AddComponent<AudioSource>();
+        
+        dataLogic.PlayLoop(dataLogic.music, audiSorMusic, dataLogic.volumMusic);
+        dataLogic.PlayLoop(dataLogic.musicBrutal, audiSorBrutal, dataLogic.volumMusic);
+        audiSorBrutal.Pause();
+	    
 	}
 	
 	// Update is called once per frame
@@ -207,6 +205,12 @@ public class PlayerStats : MonoBehaviour {
         {
             onKey = true;
             Destroy(col.gameObject);
+        }
+
+        if (col.tag == "Can")
+        {
+            AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
         } 
 	}
 
@@ -218,21 +222,21 @@ public class PlayerStats : MonoBehaviour {
     void GetHealth(int hlth)
     {
         AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-        dataLogic.Play(health, audiSor, dataLogic.volumFx);
+        dataLogic.Play(dataLogic.health, audiSor, dataLogic.volumFx);
         currentHealth += hlth;
     }
 
     void GetAmmoShotgun(int bulletNum)
     {
         AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-        dataLogic.Play(ammo, audiSor, dataLogic.volumFx);
+        dataLogic.Play(dataLogic.ammo, audiSor, dataLogic.volumFx);
         shotgunBullets += bulletNum;
     }
 
     void GetAmmoRiffle(int bulletNum)
     {
         AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-        dataLogic.Play(ammo, audiSor, dataLogic.volumFx);
+        dataLogic.Play(dataLogic.ammo, audiSor, dataLogic.volumFx);
         riffleBullets += bulletNum;
     }
 

@@ -55,7 +55,8 @@ public class PlayerShooting : MonoBehaviour
         {
             weapon = Weapon.CHAINSAW;
             playerStats.brutalMode = true;
-
+            playerStats.audiSorMusic.Pause();
+            playerStats.audiSorBrutal.Play();
         }
 
 		switch (weapon) {
@@ -69,7 +70,7 @@ public class PlayerShooting : MonoBehaviour
                 {
                     // ... shoot the gun.
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                    dataLogic.Play(playerStats.gun, audiSor, dataLogic.volumFx);
+                    dataLogic.Play(dataLogic.gun, audiSor, dataLogic.volumFx);
                     //clockGun = true;
                     Shoot();
                 }
@@ -91,7 +92,7 @@ public class PlayerShooting : MonoBehaviour
 			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0) {
 								// ... shoot the gun.
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                dataLogic.Play(playerStats.riffle, audiSor, dataLogic.volumFx);
+                dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
                 playerStats.riffleBullets--;
 				Shoot ();
 			}
@@ -125,6 +126,8 @@ public class PlayerShooting : MonoBehaviour
 				playerStats.speed = 6;
 				playerStats.brutalMode = false;
 				playerMov.onCharge = false;
+                playerStats.audiSorMusic.Play();
+                playerStats.audiSorBrutal.Pause();
 			}
 
             break;
@@ -137,7 +140,7 @@ public class PlayerShooting : MonoBehaviour
 			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.shotgunBullets > 0) {
 				// ... shoot the gun.
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                dataLogic.Play(playerStats.shootGun, audiSor, dataLogic.volumFx);
+                dataLogic.Play(dataLogic.shootGun, audiSor, dataLogic.volumFx);
                 playerStats.shotgunBullets--;
 				Shoot ();
                 clockGun = true;
@@ -148,7 +151,7 @@ public class PlayerShooting : MonoBehaviour
                 if (clockGunTimer >= 0.4f)
                 {
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                    dataLogic.Play(playerStats.shootGunClock, audiSor, dataLogic.volumFx);
+                    dataLogic.Play(dataLogic.shootGunClock, audiSor, dataLogic.volumFx);
                     clockGunTimer = 0;
                     clockGun = false;
                 }

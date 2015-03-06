@@ -50,7 +50,7 @@ public class Grenade : MonoBehaviour {
 			{
 				EnemyStats enemy = col.GetComponent<EnemyStats>();
 				distanceModifier = 1 - 1/ (radius / Vector3.Distance (enemy.transform.position, transform.position));
-				enemy.GetDamage(250);
+				enemy.GetDamage(300);
 			}
 			
 			if(col.tag == "Player")
@@ -71,6 +71,18 @@ public class Grenade : MonoBehaviour {
 				DestructibleProp destProp = col.GetComponent<DestructibleProp>();
 				destProp.GetDestroyed();
 			}
+
+            if (col.tag == "ShootableProp")
+            {
+                ShootableProp destProp = col.GetComponent<ShootableProp>();
+                destProp.GetDestroyed();
+            }
+
+            if (col.tag == "Can")
+            {
+                AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
+            } 
 		}
 	}
 

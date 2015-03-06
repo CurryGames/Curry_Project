@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey("1") && playerShot.weapon != PlayerShooting.Weapon.GUN)
             {
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-                dataLogic.Play(playerStats.gunClock, audiSor, dataLogic.volumFx);
+                dataLogic.Play(dataLogic.gunClock, audiSor, dataLogic.volumFx);
                 playerShot.weapon = PlayerShooting.Weapon.GUN;
             }
             if (Input.GetKey("2")) playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
