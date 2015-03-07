@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 415808}
   - 33: {fileID: 3315808}
-  - 64: {fileID: 6415808}
   - 23: {fileID: 2315808}
+  - 65: {fileID: 6519108}
   m_Layer: 0
   m_Name: ButacaRoja
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 115808}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.07476997, y: 1.75195003, z: 3.49983907}
+  m_LocalScale: {x: 4.07476997, y: 1.75195098, z: 3.49984097}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,8 +57,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115808}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &6415808
-MeshCollider:
+--- !u!65 &6519108
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -67,9 +67,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: .860000014, y: 1.00000024, z: .200000003}
+  m_Center: {x: 0, y: 0, z: .150000006}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
