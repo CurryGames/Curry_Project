@@ -27,7 +27,13 @@ public class LevelLogic : MonoBehaviour {
 		if (Application.loadedLevel+1 < Application.levelCount)
 			dataLogic.setNextLevel(Application.loadedLevel + 1);
 		else 
-			dataLogic.setNextLevel(1);
+			dataLogic.setNextLevel(2);
+        // ASIGNAMOS EL NIVEL ANTERIOR
+       
+        if (Application.loadedLevel - 1 > 0)
+            dataLogic.setBackLevel(Application.loadedLevel - 1);
+        else
+            dataLogic.setBackLevel(2);
 	}
 	
 	// RELOAD DE CURRENT LEVEL
@@ -40,5 +46,11 @@ public class LevelLogic : MonoBehaviour {
 		// CARGA EL SIGUIENTE NIVEL
 		Application.LoadLevel (dataLogic.getNextLevel ());
 	}
+
+    public void loadBackLevel()
+    {
+        // CARGA EL SIGUIENTE NIVEL
+        Application.LoadLevel(dataLogic.getBackLevel());
+    }
 
 }

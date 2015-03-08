@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private DataLogic dataLogic;
 	public bool onCharge;
     // Reference to the animator component.
-    bool loadScreen = false;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 	int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
 	float camRayLength = 100f;          // The length of the ray from the camera into the scene.

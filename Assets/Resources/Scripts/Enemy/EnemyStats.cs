@@ -19,7 +19,6 @@ public class EnemyStats : MonoBehaviour
     private PlayerShooting playerShooting;
     public GameObject aim;
     public GameObject enemySprite;
-    public GameObject blood;
     public GameObject[] deaths;
     public AudioClip death;
     private DataLogic dataLogic;
@@ -38,13 +37,14 @@ public class EnemyStats : MonoBehaviour
         color = enemySprite.GetComponent<Renderer>().material.color;
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
         GetComponent<DataLogic>();
+        dataLogic.maxDeathPoints += 100;
 
         speedOnChase = agent.speed;
         speed = 4f;
         maxHealth = 300;
         currentHealth = maxHealth;
         brutalPoints = 40;
-        dataLogic.maxDeathPoints += 100;
+        
 
     }
 
@@ -93,9 +93,8 @@ public class EnemyStats : MonoBehaviour
         if ((col.gameObject.tag == "Bullet"))
         {
             Destroy(col.gameObject);
-            GameObject bld = (GameObject) Instantiate(blood, col.transform.position, col.transform.rotation);
-            bld.transform.parent = transform;
-            Destroy(bld, 1);
+            AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(death, audiSor, dataLogic.volumFx);
             GetDamage(100);			
         }
 

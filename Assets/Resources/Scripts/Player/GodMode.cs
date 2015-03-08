@@ -7,18 +7,23 @@ public class GodMode : MonoBehaviour {
 	private BoxCollider playerCollider;
     private PlayerStats playerStats;
 	public GameObject godSprite;
+    private LevelLogic levelLogic;
 
 	// Use this for initialization
 	void Start () {
 		godmode = false;
 		playerCollider = GetComponent <BoxCollider> ();
         playerStats = GetComponent<PlayerStats>();
+        levelLogic = GameObject.FindGameObjectWithTag("LevelLogic").
+            GetComponent<LevelLogic>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         if (Input.GetKeyUp(KeyCode.G)) godmode = !godmode;
+        if (Input.GetKeyUp(KeyCode.N)) levelLogic.loadNextLevel();
+        if (Input.GetKeyUp(KeyCode.B)) levelLogic.loadBackLevel();
 		if (godmode == false) 
 		{
 			//playerCollider.enabled = true;

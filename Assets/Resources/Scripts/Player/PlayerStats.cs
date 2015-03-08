@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour {
 	private PauseLogic pauseLogic;
     public Text bullets;
     public Text grenades;
+    private GameObject keyText;
     public TextMesh points;
     private DataLogic dataLogic;
     private LoadingScreen loadingScreen;
@@ -31,6 +32,7 @@ public class PlayerStats : MonoBehaviour {
 	public bool levelCleared;
     public AudioSource audiSorMusic;
     public AudioSource audiSorBrutal;
+    public AudioSource audiSorChainsaw;
 
 	private Animator animation;
     private Animator animationLegs;
@@ -47,6 +49,8 @@ public class PlayerStats : MonoBehaviour {
             GetComponent<DataLogic>();
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
             GetComponent<LoadingScreen>();
+        keyText = GameObject.FindGameObjectWithTag("keyText");
+        keyText.SetActive(false);
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
@@ -54,19 +58,22 @@ public class PlayerStats : MonoBehaviour {
 		currentGrenades = dataLogic.iniGrenades;
 		levelCleared = false;
         brutalMode = false;
-        onKey = false;
-		damage = 6;
+        damage = 6;
+        dataLogic.currentSDeathpoints = dataLogic.InicurrentSDeathpoints;
+        dataLogic.maxDeathPoints = dataLogic.InimaxDeathPoints;
         currentBrutality = dataLogic.iniBrutality;
 		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
         audiSorMusic = gameObject.AddComponent<AudioSource>();
         audiSorBrutal = gameObject.AddComponent<AudioSource>();
+        audiSorChainsaw = gameObject.AddComponent<AudioSource>();
         
         dataLogic.PlayLoop(dataLogic.music, audiSorMusic, dataLogic.volumMusic);
         dataLogic.PlayLoop(dataLogic.musicBrutal, audiSorBrutal, dataLogic.volumMusic);
+        dataLogic.PlayLoop(dataLogic.chainsaw, audiSorChainsaw, dataLogic.volumFx);
         audiSorBrutal.Pause();
-	    
+        audiSorChainsaw.Pause();
 	}
 	
 	// Update is called once per frame
@@ -168,6 +175,8 @@ public class PlayerStats : MonoBehaviour {
         if (col.gameObject.tag == "grenadesBoxInfinite")
         {
             currentGrenades++;
+            AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.ammo, audiSor, dataLogic.volumFx);
         }
 
         if ((col.tag == "pointB") && onKey)
@@ -194,11 +203,24 @@ public class PlayerStats : MonoBehaviour {
         if ((col.tag == "ScreenEnding") && brutalMode == false)
         {
             loadingScreen.loadNextScreen = true;
+            dataLogic.InicurrentSDeathpoints = dataLogic.currentSDeathpoints;
+            dataLogic.InimaxDeathPoints = dataLogic.maxDeathPoints;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
             dataLogic.iniShotgunAmmo = shotgunBullets;
 			dataLogic.iniGrenades = currentGrenades;
+        }
+
+        if ((col.tag == "keyDoor") && onKey)
+        {
+            onKey = false;
+            Destroy(col.gameObject);
+        }
+
+        if ((col.tag == "keyDoor") && onKey == false)
+        {
+            keyText.SetActive(true);
         }
 
         if (col.tag == "Key")
@@ -213,6 +235,14 @@ public class PlayerStats : MonoBehaviour {
             dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
         } 
 	}
+
+    void OnTriggerExit(Collider col)
+    {
+        if ((col.tag == "keyDoor") && onKey == false)
+        {
+            keyText.SetActive(false);
+        }
+    }
 
 	public void GetDamage(int dmg)
 	{
@@ -283,8 +313,8 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
-        dataLogic.maxDeathPoints = 0;
-        dataLogic.currentSDeathpoints = 0;
+        dataLogic.maxDeathPoints = dataLogic.InimaxDeathPoints;
+        dataLogic.currentSDeathpoints = dataLogic.InicurrentSDeathpoints;
 
 	}
 	public void LevelEnd(){

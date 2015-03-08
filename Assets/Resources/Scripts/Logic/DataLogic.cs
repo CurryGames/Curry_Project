@@ -9,12 +9,15 @@ public class DataLogic : MonoBehaviour {
 	// VARIABLE CURRENT LEVEL
 	private int currentLevel;
 	private int nextLevel;
+    private int lastLevel;
     public float iniHealth { get; set; }
     public float iniBrutality { get; set; }
     public int iniRiffleAmmo { get; set; }
     public int iniShotgunAmmo { get; set; }
     public int maxDeathPoints { get; set; }
     public int currentSDeathpoints { get; set; }
+    public int InimaxDeathPoints { get; set; }
+    public int InicurrentSDeathpoints { get; set; }
 	public int iniGrenades { get; set; }
     public bool riffleActive { get; set; }
     public AudioClip riffle;
@@ -24,10 +27,13 @@ public class DataLogic : MonoBehaviour {
     public AudioClip shootGunClock;
     public AudioClip music;
     public AudioClip musicBrutal;
+    public AudioClip chainsaw;
     public AudioClip health;
     public AudioClip ammo;
     public AudioClip can;
     public AudioClip glass;
+    public AudioClip door;
+    public AudioClip hit;
     public float volumFx;
     public float volumMusic;
     public bool on;
@@ -40,6 +46,11 @@ public class DataLogic : MonoBehaviour {
 	public void setNextLevel(int levelAux){
 		nextLevel = levelAux;
 	}
+
+    public void setBackLevel(int levelAux)
+    {
+        lastLevel = levelAux;
+    }
 	// GET
 	public int getCurrentLevel(){
 		return currentLevel;
@@ -47,6 +58,10 @@ public class DataLogic : MonoBehaviour {
 	public int getNextLevel(){
 		return nextLevel;
 	}
+    public int getBackLevel()
+    {
+        return lastLevel;
+    }
 	// SE EJECUTA ANTES DE QUE EL ESCENARIO SE CARGUE
 	void Awake(){
 

@@ -57,6 +57,7 @@ public class PlayerShooting : MonoBehaviour
             playerStats.brutalMode = true;
             playerStats.audiSorMusic.Pause();
             playerStats.audiSorBrutal.Play();
+            playerStats.audiSorChainsaw.Play();
         }
 
 		switch (weapon) {
@@ -128,6 +129,7 @@ public class PlayerShooting : MonoBehaviour
 				playerMov.onCharge = false;
                 playerStats.audiSorMusic.Play();
                 playerStats.audiSorBrutal.Pause();
+                playerStats.audiSorChainsaw.Pause();
 			}
 
             break;

@@ -13,6 +13,7 @@ public class Spawn : MonoBehaviour {
     public GameObject[] wave2;
     public GameObject[] wave3;
 	private PlayerStats playerStats;
+    private DataLogic dataLogic;
 
 	public int deathCount;
 	public int emiesNumber;
@@ -28,7 +29,7 @@ public class Spawn : MonoBehaviour {
 		currentTime = 2F;
 		deathCount = 0;
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 
 	}
 	
@@ -49,20 +50,22 @@ public class Spawn : MonoBehaviour {
 				currentTime -= Time.deltaTime;
 				if (active) door.SetActive(true);
 
-			if ((currentTime <= 0)  && (emiesNumber < maxEnemies))
+			    if ((currentTime <= 0)  && (emiesNumber < maxEnemies))
                 {
                     Instantiate(wave1[Random.Range(0, wave1.GetLength(0))], transform.position, Quaternion.identity);
                     currentTime = currentTime2;
-					emiesNumber++;
+				    emiesNumber++;
             
                 }
                 
-			if(deathCount >= maxDeath)
-				{
-					state = State.CLEARED;
-					if (active)playerStats.deathNumber = 0;
+			    if(deathCount >= maxDeath)
+			    {
+                    AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                    dataLogic.Play(dataLogic.door, audiSor, dataLogic.volumFx);
+				    state = State.CLEARED;
+				    if (active)playerStats.deathNumber = 0;
 					
-				}
+			    }
                 
                 break;
             case State.CLEARED:
@@ -83,7 +86,8 @@ public class Spawn : MonoBehaviour {
 
             if ((other.tag == "Player") && (state == State.PAUSED))
             {
-
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(dataLogic.door, audiSor, dataLogic.volumFx);
                 state = State.ONPLAY;
 
             }
@@ -94,7 +98,8 @@ public class Spawn : MonoBehaviour {
 
             if ((other.tag == "Player") && (state == State.PAUSED) && (playerStats.onKey == true))
             {
-
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                dataLogic.Play(dataLogic.door, audiSor, dataLogic.volumFx);
                 state = State.ONPLAY;
 
             }
