@@ -35,19 +35,21 @@ public class EnemyStats : MonoBehaviour
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         color = enemySprite.GetComponent<Renderer>().material.color;
-        dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
-        GetComponent<DataLogic>();
-        dataLogic.maxDeathPoints += 100;
 
         speedOnChase = agent.speed;
         speed = 4f;
         maxHealth = 300;
         currentHealth = maxHealth;
         brutalPoints = 40;
-        
 
     }
 
+    void Start()
+    {
+        dataLogic = GameObject.FindGameObjectWithTag("DataLogic"). GetComponent<DataLogic>();
+        dataLogic.maxDeathPoints += 100;
+
+    }
     // Update is called once per frame
     void Update()
     {

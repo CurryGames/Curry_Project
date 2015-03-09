@@ -117,7 +117,12 @@ public class PlayerStats : MonoBehaviour {
 
         if (levelCleared == true)
         {
-            if (Input.anyKeyDown) loadingScreen.loadNextScreen = true;
+            if (Input.anyKeyDown)
+            {
+                loadingScreen.loadNextScreen = true;
+                dataLogic.InicurrentSDeathpoints = 0;
+                dataLogic.InimaxDeathPoints = 0;
+            }
             LevelEnd();
         }
 
