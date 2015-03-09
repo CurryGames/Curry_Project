@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3304520}
   - 23: {fileID: 2304520}
   - 65: {fileID: 6556712}
-  - 54: {fileID: 5405598}
   m_Layer: 0
   m_Name: Tables
   m_TagString: Untagged
@@ -58,21 +57,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104520}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5405598
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104520}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 100
-  m_AngularDrag: 20
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!65 &6556712
 BoxCollider:
   m_ObjectHideFlags: 1
