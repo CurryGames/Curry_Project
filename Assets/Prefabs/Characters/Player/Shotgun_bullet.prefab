@@ -276,6 +276,7 @@ MonoBehaviour:
   speedBullet: 30
   minError: 0
   maxError: 3
+  hitWallFX: {fileID: 178762, guid: d4214273fe28300479f242f8ec0237a8, type: 2}
   shooter: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -291,6 +292,7 @@ MonoBehaviour:
   speedBullet: 30
   minError: -3
   maxError: 0
+  hitWallFX: {fileID: 178762, guid: d4214273fe28300479f242f8ec0237a8, type: 2}
   shooter: 0
 --- !u!114 &11400004
 MonoBehaviour:
