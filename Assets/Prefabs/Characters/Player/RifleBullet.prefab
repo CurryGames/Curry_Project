@@ -158,6 +158,7 @@ MonoBehaviour:
   speedBullet: 35
   minError: -2
   maxError: 2
+  hitWallFX: {fileID: 178762, guid: d4214273fe28300479f242f8ec0237a8, type: 2}
   shooter: 0
 --- !u!135 &13549614
 SphereCollider:

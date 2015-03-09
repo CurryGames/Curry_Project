@@ -7,6 +7,7 @@ public class BulletBehaviourScript : MonoBehaviour {
 	public float minError = 0.5f;
 	public float maxError = 0.5f;
 	public enum Shooter { PLAYER, ENEMY}
+	public GameObject hitWallFX;
 	public Shooter shooter;
 
 	// Use this for initialization
@@ -36,6 +37,8 @@ public class BulletBehaviourScript : MonoBehaviour {
         // Any case, Destroy bullet if collides with Wall
 		if (other.tag == "Wall") 
 		{
+			GameObject hitWall = (GameObject) Instantiate(hitWallFX, transform.position, transform.rotation); 
+			Destroy (hitWall, 0.4f);
 			Destroy (gameObject);
 		}
 
