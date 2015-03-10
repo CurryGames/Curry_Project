@@ -14,10 +14,8 @@ public class DataLogic : MonoBehaviour {
     public float iniBrutality { get; set; }
     public int iniRiffleAmmo { get; set; }
     public int iniShotgunAmmo { get; set; }
-    public int maxDeathPoints { get; set; }
-    public int currentSDeathpoints { get; set; }
-    public int InimaxDeathPoints { get; set; }
-    public int InicurrentSDeathpoints { get; set; }
+    public float  iniTime { get; set; }
+    public float currentTime { get; set; }
 	public int iniGrenades { get; set; }
     public bool riffleActive { get; set; }
     public AudioClip riffle;

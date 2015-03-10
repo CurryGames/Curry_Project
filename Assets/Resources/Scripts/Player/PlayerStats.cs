@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour {
     public bool onKey;
     public bool brutalMode;
 	public bool levelCleared;
+    private bool go;
     public AudioSource audiSorMusic;
     public AudioSource audiSorBrutal;
     public AudioSource audiSorChainsaw;
@@ -58,9 +59,9 @@ public class PlayerStats : MonoBehaviour {
 		currentGrenades = dataLogic.iniGrenades;
 		levelCleared = false;
         brutalMode = false;
+        go = true;
         damage = 6;
-        dataLogic.currentSDeathpoints = dataLogic.InicurrentSDeathpoints;
-        dataLogic.maxDeathPoints = dataLogic.InimaxDeathPoints;
+        dataLogic.currentTime = dataLogic.iniTime;
         currentBrutality = dataLogic.iniBrutality;
 		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
@@ -78,7 +79,9 @@ public class PlayerStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-{
+    {
+        if(go == true) dataLogic.currentTime += Time.deltaTime;
+
 		if (currentHealth >= maxHealth)
 			currentHealth = maxHealth;
         if (currentBrutality >= 256) currentBrutality = 256;
@@ -120,8 +123,7 @@ public class PlayerStats : MonoBehaviour {
             if (Input.anyKeyDown)
             {
                 loadingScreen.loadNextScreen = true;
-                dataLogic.InicurrentSDeathpoints = 0;
-                dataLogic.InimaxDeathPoints = 0;
+                dataLogic.iniTime = 0;
             }
             LevelEnd();
         }
@@ -198,6 +200,7 @@ public class PlayerStats : MonoBehaviour {
         if ((col.tag == "levelEnding") && brutalMode == false)
         {
             levelCleared = true;
+            go = false;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
@@ -208,8 +211,7 @@ public class PlayerStats : MonoBehaviour {
         if ((col.tag == "ScreenEnding") && brutalMode == false)
         {
             loadingScreen.loadNextScreen = true;
-            dataLogic.InicurrentSDeathpoints = dataLogic.currentSDeathpoints;
-            dataLogic.InimaxDeathPoints = dataLogic.maxDeathPoints;
+            dataLogic.iniTime = dataLogic.currentTime;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
@@ -318,8 +320,7 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
-        dataLogic.maxDeathPoints = dataLogic.InimaxDeathPoints;
-        dataLogic.currentSDeathpoints = dataLogic.InicurrentSDeathpoints;
+        dataLogic.currentTime = dataLogic.iniTime;
 
 	}
 	public void LevelEnd(){
@@ -328,7 +329,7 @@ public class PlayerStats : MonoBehaviour {
 		interfaz.enabled = false;
 		//playerMov.enabled = false;
 		pauseLogic.enabled = false;
-        points.text = dataLogic.currentSDeathpoints.ToString() + "/" + dataLogic.maxDeathPoints.ToString();
+        points.text = dataLogic.currentTime.ToString("N2") + "S";
 		
 	}
 }

@@ -47,8 +47,6 @@ public class EnemyStats : MonoBehaviour
     void Start()
     {
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic"). GetComponent<DataLogic>();
-        dataLogic.maxDeathPoints += 100;
-
     }
     // Update is called once per frame
     void Update()
@@ -71,7 +69,6 @@ public class EnemyStats : MonoBehaviour
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(death, audiSor, dataLogic.volumFx);
             playerStats.deathNumber++;
-            dataLogic.currentSDeathpoints += 100;
             Destroy(gameObject);
         }
 		if (hit) 
