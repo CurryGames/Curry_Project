@@ -26,7 +26,7 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		/*
 		if (!chasing)
 		{
 	
@@ -50,7 +50,7 @@ public class EnemyMoveBehaviour : MonoBehaviour {
 			moveDirection.y -= 20 * Time.deltaTime;
 			// move player
 			controller.Move(moveDirection * Time.deltaTime);
-		}
+		}*/
 
 
 	}
