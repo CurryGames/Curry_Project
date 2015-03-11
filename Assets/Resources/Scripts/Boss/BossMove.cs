@@ -5,11 +5,13 @@ public class BossMove : MonoBehaviour {
 
 	private GameObject player;
 	private float shootTimer;
+	private float throwTimer;
 	private BossStats bossStats;
 	public GameObject bulletTWO;
 	public GameObject bulletONE;
+	public GameObject grenade;
 	public float dist;
-	public float shootRange = 15f; 
+	public float shootRange = 18f; 
 	public float timeBetweenBullets;
 	private DataLogic dataLogic;
 	public float statesTimer;
@@ -18,6 +20,7 @@ public class BossMove : MonoBehaviour {
 	// States
 	public bool staticShoot;
 	private bool aimingPlayer;
+	public bool throwingGrenade = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -43,7 +46,8 @@ public class BossMove : MonoBehaviour {
 
 		if (dist <= shootRange)
 		{
-			switch (bossStats.stage){
+			switch (bossStats.stage)
+			{
 			case BossStats.Stage.ONE:
 				if (staticShoot)
 				{
@@ -54,7 +58,7 @@ public class BossMove : MonoBehaviour {
 					{
 						Shooting();
 						AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-						dataLogic.Play(dataLogic.gun, audiSor, dataLogic.volumFx);
+						dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
 					}
 
 					if (statesTimer >= 3) 
@@ -76,19 +80,50 @@ public class BossMove : MonoBehaviour {
 				}
 				break;
 			case BossStats.Stage.TWO:
-				shootTimer += Time.deltaTime;
-				timeBetweenBullets = 0.85f;
-				if (shootTimer >= timeBetweenBullets)
+
+				if (!throwingGrenade)
 				{
-					Shooting();
-					AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
-					dataLogic.Play(dataLogic.shootGun, audiSorc, dataLogic.volumFx);
+					Relocate ();
+					shootTimer += Time.deltaTime;
+					timeBetweenBullets = 0.2f;
+					if (shootTimer >= timeBetweenBullets)
+					{
+						Shooting();
+						AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
+						dataLogic.Play(dataLogic.riffle, audiSorc, dataLogic.volumFx);
+					}
+
+					if (statesTimer >= 3) 
+					{
+						throwingGrenade = true;
+						statesTimer = 0;
+					}
 				}
+				else 
+				{
+					throwTimer += Time.deltaTime;
+
+					if (throwTimer >= 1.5f)
+					{
+						ThrowGrenade(20);
+						throwTimer = 0;
+					}
+
+					if (statesTimer >= 2.5) 
+					{
+						throwingGrenade = false;
+						statesTimer = 0;
+						throwTimer = 0;
+					}
+				}
+				break;
+			case BossStats.Stage.THREE:
+
 				break;
 			}
 		}
-	
 	}
+	
 
 	void Shooting ()
 	{
@@ -101,7 +136,7 @@ public class BossMove : MonoBehaviour {
 			Destroy (bulletGO, 2);
 			break;
 		case BossStats.Stage.TWO:
-			GameObject ShotgunBulletGO = (GameObject) Instantiate(bulletTWO, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
+			GameObject ShotgunBulletGO = (GameObject) Instantiate(bulletONE, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
 			Destroy (ShotgunBulletGO, 2);
 			break;
 			
@@ -110,11 +145,49 @@ public class BossMove : MonoBehaviour {
 
 	void GetDir()
 	{
-		destination = new Vector3 (Random.Range (-4, 4), transform.position.y, Random.Range (-2, 2));
+		float minx, minz, maxz, maxx;
+
+		if (transform.position.x < 0)
+		{
+			minx = -1*(9 + transform.position.x);
+			maxx = -1*(transform.position.x - 9);
+		}
+		else 
+		{
+			minx = -1*(transform.position.x + 9);
+			maxx = 9 - transform.position.x;
+		}
+
+		if (transform.position.z < 0)
+		{
+			maxz = -1*(transform.position.z - 12);
+			minz = -1*(12 + transform.position.z);
+		}
+		else
+		{
+			minz = -1*(transform.position.z + 12);
+			maxz = 12 - transform.position.z;
+		}
+		destination = new Vector3 (transform.position.x + Random.Range (minx, maxx), transform.position.y, transform.position.z + Random.Range (minz, maxz));
 	}
 
 	void Relocate()
 	{
-		transform.position = Vector3.MoveTowards(transform.position, destination, 5 * Time.deltaTime);
+		switch (bossStats.stage)
+		{
+			case BossStats.Stage.ONE:
+			transform.position = Vector3.MoveTowards(transform.position, destination, 9 * Time.deltaTime);
+			break;
+			case BossStats.Stage.TWO:
+			transform.position = Vector3.MoveTowards(transform.position, new Vector3( 0, transform.position.y, 0), 9 * Time.deltaTime);
+		 break;
+		}
+	}
+
+	public void ThrowGrenade(float force)
+	{
+		GameObject grenadeGO = (GameObject)Instantiate (grenade, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z + 0.5f), transform.rotation);
+		grenadeGO.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * force);
+		Physics.IgnoreCollision (grenadeGO.GetComponent<Collider>(), this.GetComponent<Collider>());
 	}
 }

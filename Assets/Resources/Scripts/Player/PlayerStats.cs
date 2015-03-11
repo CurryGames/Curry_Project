@@ -133,6 +133,8 @@ public class PlayerStats : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
 	{
+		Debug.Log("COLISION: "+col);
+
 		if(col.gameObject.tag == "enemyBullet")
 		{	
 			Destroy(col.gameObject);

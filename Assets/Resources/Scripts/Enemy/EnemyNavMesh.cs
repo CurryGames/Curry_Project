@@ -28,6 +28,7 @@ public class EnemyNavMesh : MonoBehaviour {
 	{
         if (enemyMove.chasing)
         {
+			if(target!=null)
             agent.SetDestination(target.transform.position);
         }
 

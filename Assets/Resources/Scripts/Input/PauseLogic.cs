@@ -11,8 +11,9 @@ public class PauseLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        pause.SetActive(false);
+		if (pause != null) {
+			pause.SetActive (false);
+		}
 		playerShot = GameObject.FindGameObjectWithTag("Player").
 			GetComponent<PlayerShooting>();
 	}
@@ -32,9 +33,11 @@ public class PauseLogic : MonoBehaviour {
 
         else if (!Pause)
         {
+			if(pause!=null){
             pause.SetActive(false);
 			playerShot.enabled = true;
             Time.timeScale = 1;
+			}
         }
 	}
 
