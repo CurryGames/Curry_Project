@@ -19,6 +19,7 @@ public class EnemyStats : MonoBehaviour
     private PlayerShooting playerShooting;
     public GameObject aim;
     public GameObject enemySprite;
+    public GameObject blood;
     public GameObject[] deaths;
     public AudioClip death;
     private DataLogic dataLogic;
@@ -93,24 +94,30 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(col.gameObject);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
-            dataLogic.Play(death, audiSor, dataLogic.volumFx);
+            dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
             GetDamage(100);			
         }
 
 		if ((col.gameObject.tag == "BulletSHOTGUN"))
 		{
 			Destroy(col.gameObject);
+            AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
 			GetDamage(140);	
 		} 
 
 		if ((col.gameObject.tag == "BulletRIFLE"))
 		{
 			Destroy(col.gameObject);
+            AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
 			GetDamage(140);			
 		}
 
         if (col.gameObject.tag == "Chainsaw")
         {
+            AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
             GetDamage(500);
         }
     }
@@ -119,6 +126,7 @@ public class EnemyStats : MonoBehaviour
     public void GetDamage(int dmg)
     {
         currentHealth -= dmg;
+        GameObject bld= (GameObject)Instantiate(blood.gameObject,transform.position,Quaternion.identity);
         if (hit == false) hit = true;
     }
 

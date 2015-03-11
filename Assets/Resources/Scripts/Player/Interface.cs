@@ -10,9 +10,6 @@ public class Interface : MonoBehaviour {
     // foreground image that is 256 x 32
     public Texture2D fgImage;
 	public Texture2D fgBrutalityImage;
-    public Texture2D sane;
-    public Texture2D insane;
-    public Texture2D brutal;
     private Texture2D life;
     public Texture2D key;
 
@@ -34,19 +31,13 @@ public class Interface : MonoBehaviour {
 		playerEnergy = playerStats.currentHealth;
 		playerBrutality = playerStats.currentBrutality;
         onkey = playerStats.onKey;
-        if (!playerStats.brutalMode)
-        {
-            if (playerEnergy >= playerStats.maxHealth / 3) life = sane;
-            else life = insane;
-        }
-        else if (playerStats.brutalMode) life = brutal;
 	}
 
     void OnGUI()
     {
         // Create one Group to contain both images
         // Adjust the first 2 coordinates to place it somewhere else on-screen
-		GUI.BeginGroup(new Rect(64, 0, 256, 32));
+		GUI.BeginGroup(new Rect(0, 0, 256, 32));
 
         // Draw the background image
 		GUI.Box(new Rect(0, 0, 256, 32), bgImage);
@@ -65,7 +56,7 @@ public class Interface : MonoBehaviour {
         GUI.EndGroup();
 
 
-		GUI.BeginGroup(new Rect(64, 32, 256, 32));
+		GUI.BeginGroup(new Rect(0, 32, 256, 32));
 		
 		// Draw the background image
 		GUI.Box(new Rect(0, 0, 256, 32), bgImage);
@@ -83,7 +74,6 @@ public class Interface : MonoBehaviour {
 		
 		GUI.EndGroup();
 
-        GUI.Box(new Rect(0, 0, 64, 64), life);
         if (onkey) GUI.Box(new Rect(0, 64, 32, 32), key);
 	}
 

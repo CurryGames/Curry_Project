@@ -26,11 +26,14 @@ public class PlayerStats : MonoBehaviour {
     private LoadingScreen loadingScreen;
     public int riffleBullets;
     public int shotgunBullets;
-	bool alive = true;
+
+	private bool alive = true;
     public bool onKey;
     public bool brutalMode;
 	public bool levelCleared;
     private bool go;
+
+    private float keyCounter;
     public AudioSource audiSorMusic;
     public AudioSource audiSorBrutal;
     public AudioSource audiSorChainsaw;
@@ -114,13 +117,20 @@ public class PlayerStats : MonoBehaviour {
 
 		if (!alive)
 		{
-			GameOver ();
+            keyCounter += Time.deltaTime;
+            if (Input.anyKeyDown && keyCounter >= 2f)
+            {
+                loadingScreen.loadCurrentScreen = true;
+                dataLogic.iniTime = 0;
+            }
+            GameOver();
 
 		}
 
         if (levelCleared == true)
         {
-            if (Input.anyKeyDown)
+            keyCounter += Time.deltaTime;
+            if (Input.anyKeyDown && keyCounter >= 2f)
             {
                 loadingScreen.loadNextScreen = true;
                 dataLogic.iniTime = 0;
@@ -133,7 +143,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
 	{
-		Debug.Log("COLISION: "+col);
+		//Debug.Log("COLISION: "+col);
 
 		if(col.gameObject.tag == "enemyBullet")
 		{	

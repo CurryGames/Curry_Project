@@ -68,7 +68,7 @@ public class DataLogic : MonoBehaviour {
         iniBrutality = 0;
         iniRiffleAmmo = 200;
         iniShotgunAmmo = 20;
-        riffleActive = true;
+        riffleActive = false;
 		DontDestroyOnLoad(transform.gameObject);
 
 	}
