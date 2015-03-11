@@ -26,14 +26,7 @@ public class BulletBehaviourScript : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider other){
 
-		switch (shooter) 
-		{
-			case Shooter.PLAYER: 				// If Player is the one shooting
-       				
-			break;
-			case Shooter.ENEMY:					// If enemy is the one shooting
-			break;
-		}
+
         // Any case, Destroy bullet if collides with Wall
 		if (other.tag == "Wall") 
 		{

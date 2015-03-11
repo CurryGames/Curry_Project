@@ -15,7 +15,7 @@ GameObject:
   - 96: {fileID: 9600000}
   - 54: {fileID: 5400000}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: BossBulletONE
   m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.19427729, z: 1.82740879}
-  m_LocalScale: {x: .0599999987, y: .0599999987, z: .230617821}
+  m_LocalPosition: {x: 0, y: .00300000003, z: 0}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .550000012}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,8 +96,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: .100000001
-  m_StartWidth: .100000001
-  m_EndWidth: .0299999993
+  m_StartWidth: .25
+  m_EndWidth: .0599999987
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbe56bf1eebc764fac877aae952cbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBullet: 23
-  minError: -7
-  maxError: 7
+  speedBullet: 28
+  minError: -3
+  maxError: 3
   hitWallFX: {fileID: 178762, guid: d4214273fe28300479f242f8ec0237a8, type: 2}
   shooter: 0
 --- !u!135 &13500000
