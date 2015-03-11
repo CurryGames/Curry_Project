@@ -43,7 +43,7 @@ public class RangedEnemy : MonoBehaviour {
 			switch (weapon){
 			case Weapon.RIFLE:
 				timer += Time.deltaTime;
-				timeBetweenBullets = 0.35f;
+				timeBetweenBullets = 0.55f;
                 if (timer >= timeBetweenBullets)
                 {
                     Shooting();
@@ -53,7 +53,7 @@ public class RangedEnemy : MonoBehaviour {
 				break;
 			case Weapon.SHOTGUN:
 				timer += Time.deltaTime;
-				timeBetweenBullets = 0.85f;
+				timeBetweenBullets = 1f;
 				if (timer >= timeBetweenBullets)
 				{
 					Shooting();

@@ -156,7 +156,7 @@ public class PlayerStats : MonoBehaviour {
         if ((col.gameObject.tag == "Medicine") && (currentHealth < maxHealth))
         {
             Destroy(col.gameObject);
-            GetHealth(50);
+            GetHealth(100);
 
         }
 

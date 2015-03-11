@@ -19,6 +19,7 @@ public class EnemyNavMesh : MonoBehaviour {
         animationLegs = legs.GetComponent<Animator>();
         enemyRang = GetComponent<RangedEnemy>();
 		target = GameObject.FindGameObjectWithTag ("Player");
+        setIddle();
 		//agent.speed = enemyStats.speed;		
 	}
 
@@ -33,13 +34,14 @@ public class EnemyNavMesh : MonoBehaviour {
         else if (!enemyMove.chasing)
         {
             agent.Stop(true);
+            
         }
 
         if (enemyRang.dist <= agent.stoppingDistance)
         {
             setIddle();
         }
-        else
+        else if (enemyRang.dist > agent.stoppingDistance && enemyMove.chasing == true)
         {
             setRun();
         }
