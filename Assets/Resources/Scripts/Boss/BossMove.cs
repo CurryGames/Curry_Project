@@ -7,18 +7,18 @@ public class BossMove : MonoBehaviour {
 	private float shootTimer;
 	private float throwTimer;
 	private BossStats bossStats;
-	public GameObject bulletTWO;
+	public GameObject rocket;
 	public GameObject bulletONE;
 	public GameObject grenade;
 	public float dist;
-	public float shootRange = 18f; 
+	public float shootRange = 25f; 
 	public float timeBetweenBullets;
 	private DataLogic dataLogic;
 	public float statesTimer;
 	Vector3 destination;
 
 	// States
-	public bool staticShoot;
+	public bool staticShoot = false;
 	private bool aimingPlayer;
 	public bool throwingGrenade = false;
 
@@ -51,14 +51,14 @@ public class BossMove : MonoBehaviour {
 			case BossStats.Stage.ONE:
 				if (staticShoot)
 				{
+					shootRange = 45f;
 					shootTimer += Time.deltaTime;
-					timeBetweenBullets = 0.35f;
-
+					timeBetweenBullets = 0.1f;
 					if (shootTimer >= timeBetweenBullets)
 					{
 						Shooting();
-						AudioSource audiSor = gameObject.AddComponent<AudioSource>();
-						dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
+						AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
+						dataLogic.Play(dataLogic.riffle, audiSorc, dataLogic.volumFx);
 					}
 
 					if (statesTimer >= 3) 
@@ -81,16 +81,25 @@ public class BossMove : MonoBehaviour {
 				break;
 			case BossStats.Stage.TWO:
 
-				if (!throwingGrenade)
+				if (transform.position != new Vector3( 0, transform.position.y, 0)) Relocate ();
+				shootTimer += Time.deltaTime;
+				timeBetweenBullets = 2f;
+				if (shootTimer >= timeBetweenBullets)
 				{
-					Relocate ();
+					Shooting();
+					AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
+					dataLogic.Play(dataLogic.shootGun, audiSorc, dataLogic.volumFx);
+				}
+
+				/*if (throwingGrenade)
+				{
 					shootTimer += Time.deltaTime;
-					timeBetweenBullets = 0.2f;
+					timeBetweenBullets = 2f;
 					if (shootTimer >= timeBetweenBullets)
 					{
 						Shooting();
 						AudioSource audiSorc = gameObject.AddComponent<AudioSource>();
-						dataLogic.Play(dataLogic.riffle, audiSorc, dataLogic.volumFx);
+						dataLogic.Play(dataLogic.shootGun, audiSorc, dataLogic.volumFx);
 					}
 
 					if (statesTimer >= 3) 
@@ -101,6 +110,7 @@ public class BossMove : MonoBehaviour {
 				}
 				else 
 				{
+					Relocate ();
 					throwTimer += Time.deltaTime;
 
 					if (throwTimer >= 1.5f)
@@ -115,7 +125,7 @@ public class BossMove : MonoBehaviour {
 						statesTimer = 0;
 						throwTimer = 0;
 					}
-				}
+				}*/
 				break;
 			case BossStats.Stage.THREE:
 
@@ -136,8 +146,8 @@ public class BossMove : MonoBehaviour {
 			Destroy (bulletGO, 2);
 			break;
 		case BossStats.Stage.TWO:
-			GameObject ShotgunBulletGO = (GameObject) Instantiate(bulletONE, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
-			Destroy (ShotgunBulletGO, 2);
+			GameObject rocketGO = (GameObject) Instantiate(rocket, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
+			Destroy (rocketGO, 4);
 			break;
 			
 		}
