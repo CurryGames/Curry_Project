@@ -136,19 +136,11 @@ public class BossMove : MonoBehaviour {
 				if (onCharge)
 				{
 					aimingPlayer = false;
-<<<<<<< HEAD
 					bossRB.AddRelativeForce (Vector3.forward * 500);
 				}
 				else if (stunt)
 				{
 					//transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-=======
-					bossRB.AddRelativeForce (Vector3.forward * 300);
-					transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-				}
-				else if (stunt)
-				{
->>>>>>> origin/develop
 					stunTimer += Time.deltaTime;
 					if (stunTimer >= 2.5) 
 					{
@@ -161,7 +153,6 @@ public class BossMove : MonoBehaviour {
 				else 
 				{	
 					Relocate ();
-<<<<<<< HEAD
 					transform.rotation = Quaternion.LookRotation(destination - transform.position);
 					if (statesTimer > 3)
 					{
@@ -169,13 +160,6 @@ public class BossMove : MonoBehaviour {
 						onCharge = true;
 						statesTimer = 0;
 						GetDir ();
-=======
-					aimingPlayer = true;
-					if (statesTimer > 3)
-					{
-						onCharge = true;
-						statesTimer = 0;
->>>>>>> origin/develop
 					}
 				}
 				
@@ -189,16 +173,11 @@ public class BossMove : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider col)
 	{
-<<<<<<< HEAD
 		if (col.tag == "Wall" && bossStats.stage == BossStats.Stage.THREE && onCharge)
-=======
-		if (col.tag == "Wall" && bossStats.stage == BossStats.Stage.THREE)
->>>>>>> origin/develop
 		{
 			onCharge = false;
 			stunt = true;
 		}
-<<<<<<< HEAD
 	}
 
 	void OnCollisionEnter(Collision col)
@@ -207,10 +186,6 @@ public class BossMove : MonoBehaviour {
 		{
 			PlayerStats playerStats = col.gameObject.GetComponent<PlayerStats>();
 			playerStats.GetDamage(120);
-=======
-		if (col.tag == "Player" && bossStats.stage == BossStats.Stage.THREE)
-		{
->>>>>>> origin/develop
 			onCharge = false;
 		}
 	}
