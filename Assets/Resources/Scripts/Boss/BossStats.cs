@@ -8,6 +8,9 @@ public class BossStats : MonoBehaviour {
 	public int maxHealthTWO;
 	public int maxHealthTHREE;
 	public int currentHealth;
+    public GameObject blood;
+    public GameObject death;
+    private PlayerStats playerStats;
 	public bool speed;
 	bool down = true;
 	bool hit = false;
@@ -22,6 +25,7 @@ public class BossStats : MonoBehaviour {
 		stage = Stage.ONE;
 		currentHealth = maxHealthONE;
 		dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 	
 	}
 	
@@ -53,6 +57,11 @@ public class BossStats : MonoBehaviour {
 		 break;
 
 		case Stage.DEAD:
+         playerStats.levelCleared = true;
+         GameObject dead = (GameObject)Instantiate(death.gameObject, transform.position, Quaternion.identity);
+                AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
+         Destroy(this.gameObject);
 		break;
 		
 
@@ -68,7 +77,7 @@ public class BossStats : MonoBehaviour {
 		if ((col.gameObject.tag == "Bullet"))
 		{
 			Destroy(col.gameObject);
-			AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            
 			//dataLogic.Play(death, audiSor, dataLogic.volumFx);
 			GetDamage(100);			
 		}
@@ -98,6 +107,9 @@ public class BossStats : MonoBehaviour {
 	public void GetDamage(int dmg)
 	{
 		currentHealth -= dmg;
+        GameObject bld = (GameObject)Instantiate(blood.gameObject, transform.position, Quaternion.identity);
+        AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+        dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
 		if (hit == false) hit = true;
 	}
 

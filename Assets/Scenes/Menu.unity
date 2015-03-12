@@ -379,7 +379,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5588fbea0269a4f469dc8aee106f464a, type: 2}
       propertyPath: on
@@ -1858,7 +1858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1577622488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,6 +1885,9 @@ MonoBehaviour:
   glass: {fileID: 8300000, guid: 777ed0143df467f4381af3ddf9563742, type: 3}
   door: {fileID: 8300000, guid: f64e8e7d444b8574287d1c59345ced4c, type: 3}
   hit: {fileID: 8300000, guid: 5c39dce5c09aabe4fb80518c16b011a8, type: 3}
+  bossMusic: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
+  heart: {fileID: 8300000, guid: 48d097c212cf6de4aa76a9c90be4dd35, type: 3}
+  death: {fileID: 8300000, guid: 1839ed54de3185b4b8e2c986aedcfaa9, type: 3}
   volumFx: .300000012
   volumMusic: .300000012
   on: 1

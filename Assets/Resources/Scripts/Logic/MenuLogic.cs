@@ -70,7 +70,9 @@ public class MenuLogic : MonoBehaviour {
 			options.SetActive(false);
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
-				screen = State.MENU;
+                AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                screen = State.MENU;
+                dataLogic.Play(shoot, audiSor, scrollFx.value);
 			}
 			break;
 		case State.MENU:

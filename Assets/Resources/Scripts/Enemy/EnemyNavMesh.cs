@@ -9,6 +9,7 @@ public class EnemyNavMesh : MonoBehaviour {
 	private EnemyMoveBehaviour enemyMove;
     private RangedEnemy enemyRang;
 	private EnemyStats enemyStats;
+    
     private Animator animationLegs;
 
 

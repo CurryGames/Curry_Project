@@ -17,6 +17,7 @@ public class BossMove : MonoBehaviour {
 	private DataLogic dataLogic;
 	public float statesTimer;
 	private Rigidbody bossRB;
+
 	Vector3 destination;
 
 	// States
@@ -34,6 +35,8 @@ public class BossMove : MonoBehaviour {
 		bossStats.stage = BossStats.Stage.ONE;
 		dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 		bossRB = GetComponent<Rigidbody> ();
+
+
 		statesTimer = 0;
 
 	
@@ -86,7 +89,7 @@ public class BossMove : MonoBehaviour {
 				break;
 			case BossStats.Stage.TWO:
 
-				if (transform.position != new Vector3( 0, transform.position.y, 0)) Relocate ();
+                if (transform.position != new Vector3(0, transform.position.y, 0)) Relocate();
 				shootTimer += Time.deltaTime;
 				timeBetweenBullets = 2f;
 				if (shootTimer >= timeBetweenBullets)
@@ -242,12 +245,15 @@ public class BossMove : MonoBehaviour {
 		{
 			case BossStats.Stage.ONE:
 			transform.position = Vector3.MoveTowards(transform.position, destination, 9 * Time.deltaTime);
+
 			break;
 			case BossStats.Stage.TWO:
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3( 0, transform.position.y, 0), 9 * Time.deltaTime);
+
 		 	break;
 			case BossStats.Stage.THREE:
 			transform.position = Vector3.MoveTowards(transform.position, destination, 9 * Time.deltaTime);
+
 			break;
 		}
 	}
@@ -258,4 +264,18 @@ public class BossMove : MonoBehaviour {
 		grenadeGO.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * force);
 		Physics.IgnoreCollision (grenadeGO.GetComponent<Collider>(), this.GetComponent<Collider>());
 	}
+
+
+    /*
+    public void setRun()
+    {
+        bossAnim.Play("BossRun");
+    }
+
+    public void setIddle()
+    {
+        bossAnim.Play("BossIddle");
+    }*/
+
+
 }

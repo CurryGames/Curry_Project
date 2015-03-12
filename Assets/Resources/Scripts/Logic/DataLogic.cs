@@ -32,6 +32,9 @@ public class DataLogic : MonoBehaviour {
     public AudioClip glass;
     public AudioClip door;
     public AudioClip hit;
+    public AudioClip bossMusic;
+    public AudioClip heart;
+    public AudioClip death;
     public float volumFx;
     public float volumMusic;
     public bool on;
@@ -77,6 +80,7 @@ public class DataLogic : MonoBehaviour {
 	void Start () {
 		// CARGAMOS EL MENU
         if (!on) Application.LoadLevel("Logo");
+        Screen.SetResolution(1280, 720, true);
         
 	}
 	

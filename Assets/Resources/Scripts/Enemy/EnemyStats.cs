@@ -21,7 +21,7 @@ public class EnemyStats : MonoBehaviour
     public GameObject enemySprite;
     public GameObject blood;
     public GameObject[] deaths;
-    public AudioClip death;
+    //public AudioClip death;
     private DataLogic dataLogic;
     public Color color;
 	private Vector3 pushDirection;
@@ -68,7 +68,7 @@ public class EnemyStats : MonoBehaviour
             //Destroy(bld,2);
             Instantiate(deaths[Random.Range(0, deaths.GetLength(0))], transform.position, aim.transform.rotation);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
-            dataLogic.Play(death, audiSor, dataLogic.volumFx);
+            dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
             playerStats.deathNumber++;
             Destroy(gameObject);
         }

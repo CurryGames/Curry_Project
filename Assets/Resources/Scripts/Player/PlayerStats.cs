@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour {
     public int shotgunBullets;
 
 	private bool alive = true;
+    public bool onBoss;
     public bool onKey;
     public bool brutalMode;
 	public bool levelCleared;
@@ -73,7 +74,8 @@ public class PlayerStats : MonoBehaviour {
         audiSorBrutal = gameObject.AddComponent<AudioSource>();
         audiSorChainsaw = gameObject.AddComponent<AudioSource>();
         
-        dataLogic.PlayLoop(dataLogic.music, audiSorMusic, dataLogic.volumMusic);
+        if(onBoss == false) dataLogic.PlayLoop(dataLogic.music, audiSorMusic, dataLogic.volumMusic);
+        else dataLogic.PlayLoop(dataLogic.heart, audiSorMusic, dataLogic.volumMusic);
         dataLogic.PlayLoop(dataLogic.musicBrutal, audiSorBrutal, dataLogic.volumMusic);
         dataLogic.PlayLoop(dataLogic.chainsaw, audiSorChainsaw, dataLogic.volumFx);
         audiSorBrutal.Pause();
@@ -130,6 +132,7 @@ public class PlayerStats : MonoBehaviour {
         if (levelCleared == true)
         {
             keyCounter += Time.deltaTime;
+            go = false;
             if (Input.anyKeyDown && keyCounter >= 2f)
             {
                 loadingScreen.loadNextScreen = true;
@@ -188,6 +191,8 @@ public class PlayerStats : MonoBehaviour {
         if(col.gameObject.tag == "grenadesBox")
         {
             currentGrenades++;
+            AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.ammo, audiSor, dataLogic.volumFx);
             Destroy(col.gameObject);
         }
 
@@ -213,6 +218,7 @@ public class PlayerStats : MonoBehaviour {
         {
             levelCleared = true;
             go = false;
+            if (dataLogic.riffleActive == false) dataLogic.riffleActive = true;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
             dataLogic.iniRiffleAmmo = riffleBullets;
@@ -231,10 +237,24 @@ public class PlayerStats : MonoBehaviour {
 			dataLogic.iniGrenades = currentGrenades;
         }
 
+        if ((col.tag == "ScreenEndingKey") && brutalMode == false && onKey)
+        {
+            loadingScreen.loadNextScreen = true;
+            dataLogic.iniTime = dataLogic.currentTime;
+            dataLogic.iniHealth = currentHealth;
+            dataLogic.iniBrutality = currentBrutality;
+            dataLogic.iniRiffleAmmo = riffleBullets;
+            dataLogic.iniShotgunAmmo = shotgunBullets;
+            dataLogic.iniGrenades = currentGrenades;
+        }
+
         if ((col.tag == "keyDoor") && onKey)
         {
-            onKey = false;
+            keyText.SetActive(false);
+            AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.door, audiSor, dataLogic.volumFx);
             Destroy(col.gameObject);
+            onKey = false;
         }
 
         if ((col.tag == "keyDoor") && onKey == false)
@@ -245,6 +265,8 @@ public class PlayerStats : MonoBehaviour {
         if (col.tag == "Key")
         {
             onKey = true;
+            AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.ammo, audiSor, dataLogic.volumFx);
             Destroy(col.gameObject);
         }
 
@@ -252,6 +274,14 @@ public class PlayerStats : MonoBehaviour {
         {
             AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
+        }
+
+        if (col.tag == "BossStage" && onBoss == true)
+        {
+            audiSorMusic.Stop();
+            AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
+            dataLogic.PlayLoop(dataLogic.bossMusic, audiSor, dataLogic.volumMusic);
+            onBoss = false;
         } 
 	}
 

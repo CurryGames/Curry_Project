@@ -55,9 +55,12 @@ public class PlayerShooting : MonoBehaviour
         {
             weapon = Weapon.CHAINSAW;
             playerStats.brutalMode = true;
-            playerStats.audiSorMusic.Pause();
-            playerStats.audiSorBrutal.Play();
-            playerStats.audiSorChainsaw.Play();
+            if (playerStats.onBoss == false)
+            {
+                playerStats.audiSorMusic.Pause();
+                playerStats.audiSorBrutal.Play();
+                playerStats.audiSorChainsaw.Play();
+            }
         }
 
 		switch (weapon) {
@@ -127,9 +130,12 @@ public class PlayerShooting : MonoBehaviour
 				playerStats.speed = 6;
 				playerStats.brutalMode = false;
 				playerMov.onCharge = false;
-                playerStats.audiSorMusic.Play();
-                playerStats.audiSorBrutal.Pause();
-                playerStats.audiSorChainsaw.Pause();
+                if (playerStats.onBoss == false)
+                {
+                    playerStats.audiSorMusic.Play();
+                    playerStats.audiSorBrutal.Pause();
+                    playerStats.audiSorChainsaw.Pause();
+                }
 			}
 
             break;
