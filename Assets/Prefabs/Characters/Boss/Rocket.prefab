@@ -255,7 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionFX: {fileID: 163112, guid: 92770c97790bc5b4c8c45df677dea723, type: 2}
-  speed: 12
+  camera: {fileID: 0}
+  speed: 14
   speedMod: .400000006
   radius: 5
   power: 200

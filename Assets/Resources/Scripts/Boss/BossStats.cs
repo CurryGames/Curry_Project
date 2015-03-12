@@ -13,7 +13,7 @@ public class BossStats : MonoBehaviour {
 	bool hit = false;
 	private DataLogic dataLogic;
 	public Color color;
-
+	
 	public enum Stage { ONE, TWO, THREE, DEAD}
 	public Stage stage;
 
@@ -53,6 +53,7 @@ public class BossStats : MonoBehaviour {
 		 break;
 
 		case Stage.DEAD:
+		break;
 		
 
 		
