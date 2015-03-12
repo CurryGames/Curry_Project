@@ -6,6 +6,7 @@ public class BossMove : MonoBehaviour {
 	private GameObject player;
 	private float shootTimer;
 	private float throwTimer;
+	private float stunTimer;
 	private BossStats bossStats;
 	public GameObject rocket;
 	public GameObject bulletONE;
@@ -15,12 +16,15 @@ public class BossMove : MonoBehaviour {
 	public float timeBetweenBullets;
 	private DataLogic dataLogic;
 	public float statesTimer;
+	private Rigidbody bossRB;
 	Vector3 destination;
 
 	// States
 	public bool staticShoot = false;
 	private bool aimingPlayer;
 	public bool throwingGrenade = false;
+	public bool onCharge = false;
+	public bool stunt = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -29,6 +33,7 @@ public class BossMove : MonoBehaviour {
 		bossStats = GetComponent<BossStats> ();
 		bossStats.stage = BossStats.Stage.ONE;
 		dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
+		bossRB = GetComponent<Rigidbody> ();
 		statesTimer = 0;
 	
 	}
@@ -128,12 +133,52 @@ public class BossMove : MonoBehaviour {
 				}*/
 				break;
 			case BossStats.Stage.THREE:
+				if (onCharge)
+				{
+					aimingPlayer = false;
+					bossRB.AddRelativeForce (Vector3.forward * 300);
+					transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+				}
+				else if (stunt)
+				{
+					stunTimer += Time.deltaTime;
+					if (stunTimer >= 2.5) 
+					{
+						stunt = false;
+						stunTimer = 0;
+						statesTimer = 0;
+						GetDir ();
+					}
+				}
+				else 
+				{	
+					Relocate ();
+					aimingPlayer = true;
+					if (statesTimer > 3)
+					{
+						onCharge = true;
+						statesTimer = 0;
+					}
+				}
+				
 
 				break;
 			}
 		}
 	}
 	
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "Wall" && bossStats.stage == BossStats.Stage.THREE)
+		{
+			onCharge = false;
+			stunt = true;
+		}
+		if (col.tag == "Player" && bossStats.stage == BossStats.Stage.THREE)
+		{
+			onCharge = false;
+		}
+	}
 
 	void Shooting ()
 	{
@@ -190,7 +235,10 @@ public class BossMove : MonoBehaviour {
 			break;
 			case BossStats.Stage.TWO:
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3( 0, transform.position.y, 0), 9 * Time.deltaTime);
-		 break;
+		 	break;
+			case BossStats.Stage.THREE:
+			transform.position = Vector3.MoveTowards(transform.position, destination, 9 * Time.deltaTime);
+			break;
 		}
 	}
 
