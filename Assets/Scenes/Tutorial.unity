@@ -7814,7 +7814,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 427319127}
-  m_Text: lanzar granadas
+  m_Text: THROW GRENADES
   m_OffsetZ: 0
   m_CharacterSize: .400000006
   m_LineSpacing: 1

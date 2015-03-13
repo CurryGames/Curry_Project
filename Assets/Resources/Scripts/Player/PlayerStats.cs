@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour {
 		if (currentHealth >= maxHealth)
 			currentHealth = maxHealth;
         if (currentBrutality >= 256) currentBrutality = 256;
-		if (Input.GetKeyDown (KeyCode.E)) Application.Quit ();
+		//if (Input.GetKeyDown (KeyCode.E)) Application.Quit ();
 		if (currentHealth <= 0) 
 		{
 			currentHealth = 0;
