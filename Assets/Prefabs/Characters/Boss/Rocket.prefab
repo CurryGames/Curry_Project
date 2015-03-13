@@ -262,6 +262,7 @@ MonoBehaviour:
   power: 200
   upwardModifier: 0
   forceMode: 0
+  explosionSound: {fileID: 8300000, guid: 422559e52cbef5a4bb1cf22cf1deda55, type: 3}
 --- !u!198 &19820242
 ParticleSystem:
   m_ObjectHideFlags: 1

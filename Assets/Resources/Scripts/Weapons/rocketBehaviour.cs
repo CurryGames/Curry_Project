@@ -13,11 +13,14 @@ public class rocketBehaviour : MonoBehaviour {
 	public ForceMode forceMode;
 	private float distanceModifier = 0;
 	private DataLogic dataLogic;
+	public AudioClip explosionSound;
+	AudioSource audiSor;
 
 	// Use this for initialization
 	void Start () {
 		dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 		camera = Camera.main.GetComponent <ShakeCamera>();
+		audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,7 @@ public class rocketBehaviour : MonoBehaviour {
 		if (other.tag == "Wall" || other.tag == "Player") 
 		{	
 			GameObject explosion = (GameObject) Instantiate(explosionFX, transform.position, transform.rotation); 
+			dataLogic.Play(explosionSound, audiSor, dataLogic.volumFx);
 			Explode();
 			Shake ();
 			Destroy (this.gameObject);

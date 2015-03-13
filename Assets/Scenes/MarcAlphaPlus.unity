@@ -3183,6 +3183,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 14.1999998
       objectReference: {fileID: 0}
+    - target: {fileID: 138376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11438376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 151253f2f17b26b41823e269312d1681, type: 2}
@@ -13381,6 +13385,9 @@ MonoBehaviour:
   glass: {fileID: 8300000, guid: 777ed0143df467f4381af3ddf9563742, type: 3}
   door: {fileID: 8300000, guid: f64e8e7d444b8574287d1c59345ced4c, type: 3}
   hit: {fileID: 8300000, guid: 5c39dce5c09aabe4fb80518c16b011a8, type: 3}
+  bossMusic: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
+  heart: {fileID: 8300000, guid: 48d097c212cf6de4aa76a9c90be4dd35, type: 3}
+  death: {fileID: 8300000, guid: 1839ed54de3185b4b8e2c986aedcfaa9, type: 3}
   volumFx: .5
   volumMusic: .300000012
   on: 1
@@ -14637,6 +14644,10 @@ Prefab:
     - target: {fileID: 438376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
       propertyPath: m_LocalScale.y
       value: 65.9998932
+      objectReference: {fileID: 0}
+    - target: {fileID: 138376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 151253f2f17b26b41823e269312d1681, type: 2}
@@ -22440,7 +22451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1494003071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22687,6 +22698,7 @@ MonoBehaviour:
   points: {fileID: 1011215129}
   riffleBullets: 0
   shotgunBullets: 0
+  onBoss: 0
   onKey: 0
   brutalMode: 0
   levelCleared: 0
@@ -28059,6 +28071,10 @@ Prefab:
     - target: {fileID: 438376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
       propertyPath: m_LocalScale.x
       value: 15.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 138376, guid: 151253f2f17b26b41823e269312d1681, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11438376, guid: 151253f2f17b26b41823e269312d1681, type: 2}

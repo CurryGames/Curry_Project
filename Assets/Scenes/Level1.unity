@@ -440,7 +440,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 5
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -12637,6 +12637,10 @@ Prefab:
       propertyPath: m_TagString
       value: DestructibleProp
       objectReference: {fileID: 0}
+    - target: {fileID: 5429108, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
+      propertyPath: m_AngularDrag
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
   m_RootGameObject: {fileID: 1156604307}
@@ -12667,7 +12671,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 525451114}
   m_LocalRotation: {x: .5, y: .5, z: -.5, w: .5}
-  m_LocalPosition: {x: 0, y: 2.5, z: 12.3000002}
+  m_LocalPosition: {x: 0, y: 2.5, z: -.0799999982}
   m_LocalScale: {x: 1, y: 1.00195694, z: 10}
   m_Children: []
   m_Father: {fileID: 1393727255}
@@ -16419,6 +16423,10 @@ Prefab:
     - target: {fileID: 428046, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429108, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
+      propertyPath: m_AngularDrag
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
@@ -24140,6 +24148,10 @@ Prefab:
       propertyPath: m_Drag
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5429108, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
+      propertyPath: m_AngularDrag
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
@@ -24731,6 +24743,10 @@ Prefab:
     - target: {fileID: 128046, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
       propertyPath: m_TagString
       value: DestructibleProp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429108, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
+      propertyPath: m_AngularDrag
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae5ea02eb113ec4daf97ad23e93bd47, type: 2}
@@ -25705,7 +25721,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124165631}
   m_LocalRotation: {x: .5, y: .5, z: -.5, w: .5}
-  m_LocalPosition: {x: -.209999993, y: 2.5, z: 0}
+  m_LocalPosition: {x: .00999999978, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1.00195694, z: 10}
   m_Children: []
   m_Father: {fileID: 1941214690}
@@ -26817,7 +26833,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 5
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -30613,7 +30629,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393727254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .280000001, y: 0, z: -4.30000019}
+  m_LocalPosition: {x: .280000001, y: 0, z: 4.1500001}
   m_LocalScale: {x: 6, y: 1, z: .679999292}
   m_Children:
   - {fileID: 525451115}
@@ -31021,7 +31037,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 4
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -41748,7 +41764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1941214689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.97000027, y: 0, z: -4.34000015}
+  m_LocalPosition: {x: 7.3499999, y: 0, z: -4.34000015}
   m_LocalScale: {x: 7.984375, y: 1, z: .679998994}
   m_Children:
   - {fileID: 1124165632}
@@ -45586,7 +45602,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 5
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0

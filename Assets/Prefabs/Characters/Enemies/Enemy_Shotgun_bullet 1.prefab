@@ -276,7 +276,8 @@ MonoBehaviour:
   speedBullet: 23
   minError: 0
   maxError: 3
-  shooter: 1
+  hitWallFX: {fileID: 0}
+  shooter: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +292,8 @@ MonoBehaviour:
   speedBullet: 23
   minError: -3
   maxError: 0
-  shooter: 1
+  hitWallFX: {fileID: 0}
+  shooter: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

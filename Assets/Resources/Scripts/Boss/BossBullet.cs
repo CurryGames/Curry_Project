@@ -11,7 +11,7 @@ public class BossBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform.Translate (0, 0.5f, 0.4f);
+		transform.Translate (0, 0.0f, 0.4f);
 		transform.Rotate (new Vector3 (0f, Random.Range (minError, maxError), 0f));
 	}
 	
