@@ -108,8 +108,16 @@ public class PlayerShooting : MonoBehaviour
 								}*/
 			break;
         case Weapon.CHAINSAW:
-            chainsaw.SetActive(true);
-			colliderSaw.enabled = true;
+            if (playerStats.currentHealth > 0)
+            {
+                chainsaw.SetActive(true);
+                colliderSaw.enabled = true;
+            }
+            else
+            {
+                chainsaw.SetActive(false);
+                colliderSaw.enabled = false;
+            }
 			playerStats.currentBrutality -= 20 * Time.deltaTime;
 			playerStats.setChainsaw ();
 			playerStats.damage = 1;

@@ -30,6 +30,10 @@ public class MenuLogic : MonoBehaviour {
             GetComponent<DataLogic>();
         audioSource = GetComponent<AudioSource>();
         down = false;
+        dataLogic.iniHealth = 256;
+        dataLogic.iniBrutality = 0;
+        dataLogic.iniRiffleAmmo = 200;
+        dataLogic.iniShotgunAmmo = 20;
         dataLogic.PlayLoop(music, audioSource, scrollMusic.value);
         scrollMusic.value = 0.5f;
         scrollFx.value = 0.5f;

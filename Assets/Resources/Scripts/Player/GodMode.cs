@@ -20,7 +20,7 @@ public class GodMode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+/*
         if (Input.GetKeyUp(KeyCode.G)) godmode = !godmode;
         if (Input.GetKeyUp(KeyCode.N)) levelLogic.loadNextLevel();
         if (Input.GetKeyUp(KeyCode.B)) levelLogic.loadBackLevel();
@@ -39,7 +39,7 @@ public class GodMode : MonoBehaviour {
 		}
 
         if (Input.GetKeyUp(KeyCode.J)) playerCollider.enabled = !playerCollider.enabled;
-
+        */
 	
 	}
 }

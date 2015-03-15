@@ -80,7 +80,7 @@ public class DataLogic : MonoBehaviour {
 	void Start () {
 		// CARGAMOS EL MENU
         if (!on) Application.LoadLevel("Logo");
-        Screen.SetResolution(1280, 720, true);
+        Screen.SetResolution(1280, 720, true, 60);
         
 	}
 	

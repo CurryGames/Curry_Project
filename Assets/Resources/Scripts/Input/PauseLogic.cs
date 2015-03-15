@@ -8,6 +8,8 @@ public class PauseLogic : MonoBehaviour {
     public bool Pause = false;
     public GameObject pause;
 	private PlayerShooting playerShot;
+    private LoadingScreen loadingScreen;
+
 
 	// Use this for initialization
 	void Start () {
@@ -16,13 +18,17 @@ public class PauseLogic : MonoBehaviour {
 		}
 		playerShot = GameObject.FindGameObjectWithTag("Player").
 			GetComponent<PlayerShooting>();
+        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
+            GetComponent<LoadingScreen>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.Escape))
-						Pause = !Pause;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause = !Pause;
+        }
         
         if (Pause)
         {
@@ -48,7 +54,10 @@ public class PauseLogic : MonoBehaviour {
 
 	public void	ExitButton()
     { 
-        Application.Quit ();
+        //Application.Quit ();
+        loadingScreen.loadMenu = true;
+        Pause = false;
+        
     }
 
     

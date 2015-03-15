@@ -8,6 +8,7 @@ public class LoadingScreen : MonoBehaviour {
     public float temp;
     public bool loadCurrentScreen;
     public bool loadNextScreen;
+    public bool loadMenu;
     private LevelLogic levelLogic;
     private DataLogic dataLogic;
     public float tempInit = 1f;
@@ -33,6 +34,7 @@ public class LoadingScreen : MonoBehaviour {
         
         if (loadCurrentScreen) loadingCurrentLevel();
         if (loadNextScreen) loadingNexttLevel();
+        if (loadMenu) loadingMenu();
 	}
     public void loadingCurrentLevel()
     {
@@ -113,10 +115,50 @@ public class LoadingScreen : MonoBehaviour {
         }
     }
 
+    public void loadingMenu()
+    {
+        switch (state)
+        {
+
+            case State.FADEOUT:
+                color.a = Mathf.Lerp(1, 0, temp / tempInit);
+                GetComponent<Renderer>().material.color = color;
+                temp -= Time.deltaTime;
+                if (temp <= 0)
+                {
+                    state = State.LOADING;
+                    temp = 0;
+                    Debug.Log("your level is loading");
+                }
+                break;
+
+            case State.LOADING:
+
+                Application.LoadLevel(2);
+
+                break;
+            case State.FADEIN:
+
+
+                color.a = Mathf.Lerp(0, 1, temp / tempInit);
+                GetComponent<Renderer>().material.color = color;
+                temp -= Time.deltaTime;
+                if (temp < 0)
+                {
+
+                    state = State.FADEOUT;
+                    loadMenu = false;
+                    temp = tempInit;
+                    //Destroy(this.gameObject);
+                }
+                break;
+        }
+    }
+
     void OnLevelWasLoaded(int level)
     {
 
-        if ((level == dataLogic.getCurrentLevel()) || (level == dataLogic.getNextLevel()))
+        if ((level == dataLogic.getCurrentLevel()) || (level == dataLogic.getNextLevel()) || (level == 2))
         {
             temp = tempInit;
             state = State.FADEIN;
