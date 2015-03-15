@@ -35,6 +35,8 @@ public class DataLogic : MonoBehaviour {
     public AudioClip bossMusic;
     public AudioClip heart;
     public AudioClip death;
+
+    private int sreenShot;
     public float volumFx;
     public float volumMusic;
     public bool on;
@@ -67,6 +69,7 @@ public class DataLogic : MonoBehaviour {
 	void Awake(){
 
 		// EL OBJETO NO SE DESTRUYE ENTRE ESCENAS
+        sreenShot = 0;
         iniHealth = 256;
         iniBrutality = 0;
         iniRiffleAmmo = 200;
@@ -86,7 +89,11 @@ public class DataLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.CaptureScreenshot("ScreenShoot" + sreenShot.ToString("000"));
+            sreenShot++;
+        }
 	}
 
 	// FUNCION PLAY: REPRODUCE UN SONIDO 
