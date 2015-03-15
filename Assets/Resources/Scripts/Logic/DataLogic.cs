@@ -91,7 +91,7 @@ public class DataLogic : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Application.CaptureScreenshot("ScreenShoot" + sreenShot.ToString("000"));
+            Application.CaptureScreenshot("ScreenShoot" + sreenShot.ToString("000") + ".png");
             sreenShot++;
         }
 	}
