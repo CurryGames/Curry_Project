@@ -70,7 +70,7 @@ public class PlayerShooting : MonoBehaviour
                 timer += Time.deltaTime;
                 timeBetweenBullets = 0.45f;
                 // If the Fire1 button is being press and it's time to fire...
-                if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
+			if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && (playerStats.currentHealth > 0))
                 {
                     // ... shoot the gun.
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
@@ -93,7 +93,7 @@ public class PlayerShooting : MonoBehaviour
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.15f;
 					// If the Fire1 button is being press and it's time to fire...
-			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0) {
+			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.riffleBullets > 0 && (playerStats.currentHealth > 0)) {
 								// ... shoot the gun.
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
                 dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
@@ -153,7 +153,7 @@ public class PlayerShooting : MonoBehaviour
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.85f;
 			// If the Fire1 button is being press and it's time to fire...
-			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.shotgunBullets > 0) {
+			if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && playerStats.shotgunBullets > 0 && (playerStats.currentHealth > 0)) {
 				// ... shoot the gun.
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
                 dataLogic.Play(dataLogic.shootGun, audiSor, dataLogic.volumFx);
