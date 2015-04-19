@@ -5,6 +5,7 @@ public class EnemyStats : MonoBehaviour
 {
 
     private NavMeshAgent agent;
+    public enum Death { SHOOTEDGUN, EXPLOITED, SHOOTEDSHOTGUN, CARVED }
 
     public int maxHealth;
     //public Transform blood;
@@ -17,10 +18,12 @@ public class EnemyStats : MonoBehaviour
     public float speedOnChase;
     private PlayerStats playerStats;
     private PlayerShooting playerShooting;
+    public Death death;
     public GameObject aim;
     public GameObject enemySprite;
     public GameObject blood;
-    public GameObject[] deaths;
+    public GameObject[] deathshotedGun;
+    public GameObject deathExploited;
     //public AudioClip death;
     private DataLogic dataLogic;
     public Color color;
@@ -63,10 +66,25 @@ public class EnemyStats : MonoBehaviour
 
         if (!alive)
         {
+            switch (death)
+            {
+
+                case Death.SHOOTEDGUN:
+                    Instantiate(deathshotedGun[Random.Range(0, deathshotedGun.GetLength(0))], transform.position, aim.transform.rotation);
+                    break;
+                case Death.SHOOTEDSHOTGUN:
+                    Instantiate(deathshotedGun[Random.Range(0, deathshotedGun.GetLength(0))], transform.position, aim.transform.rotation);
+                    break;
+                case Death.EXPLOITED:
+                    Instantiate(deathExploited, transform.position, aim.transform.rotation);
+                    break;
+                case Death.CARVED:
+                    Instantiate(deathshotedGun[Random.Range(0, deathshotedGun.GetLength(0))], transform.position, aim.transform.rotation);
+                    break;
+            }
             if (playerShooting.weapon != PlayerShooting.Weapon.CHAINSAW) playerStats.currentBrutality += brutalPoints;
             //GameObject bld= (GameObject)Instantiate(blood.gameObject,transform.position,Quaternion.identity);
             //Destroy(bld,2);
-            Instantiate(deaths[Random.Range(0, deaths.GetLength(0))], transform.position, aim.transform.rotation);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
             playerStats.deathNumber++;
@@ -94,6 +112,7 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(col.gameObject);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            death = Death.SHOOTEDGUN;
             dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
             GetDamage(100);			
         }
@@ -102,6 +121,7 @@ public class EnemyStats : MonoBehaviour
 		{
 			Destroy(col.gameObject);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            death = Death.SHOOTEDSHOTGUN;
             dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
 			GetDamage(140);	
 		} 
@@ -110,6 +130,7 @@ public class EnemyStats : MonoBehaviour
 		{
 			Destroy(col.gameObject);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            death = Death.SHOOTEDGUN;
             dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
 			GetDamage(140);			
 		}
@@ -117,6 +138,7 @@ public class EnemyStats : MonoBehaviour
         if (col.gameObject.tag == "Chainsaw")
         {
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
+            death = Death.CARVED;
             dataLogic.Play(dataLogic.hit, audiSor, dataLogic.volumFx);
             GetDamage(500);
         }

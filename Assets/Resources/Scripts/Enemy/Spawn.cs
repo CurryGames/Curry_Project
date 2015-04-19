@@ -68,15 +68,12 @@ public class Spawn : MonoBehaviour {
 			    }
                 
                 break;
-            case State.CLEARED:
+                case State.CLEARED:
 				
-				deathCount = 0;
-				if (active)door.SetActive(false);
-                break;
-        }
-
-
-
+				    deathCount = 0;
+				    if (active)door.SetActive(false);
+                    break;
+            }
 		}
 
 	void OnTriggerEnter(Collider other) {

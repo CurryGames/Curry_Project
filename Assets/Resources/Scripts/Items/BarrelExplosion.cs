@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BarrelExplosion : MonoBehaviour {
 	
-	public float radius = 5.0F;
+	public float radius = 7.5f;
 	public float power = 10.0F;
 	public float upwardModifier = 0.0f;
 	public ForceMode forceMode;
@@ -15,7 +15,7 @@ public class BarrelExplosion : MonoBehaviour {
 
 	void Start() 
 	{
-		radius = 7.5F;
+		//radius = 7.5F;
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
         GetComponent<DataLogic>();
         audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
@@ -57,6 +57,7 @@ public class BarrelExplosion : MonoBehaviour {
                 {
                     EnemyStats enemy = col.GetComponent<EnemyStats>();
 					distanceModifier = 1 - 1/ (radius / Vector3.Distance (enemy.transform.position, transform.position));
+                    enemy.death = EnemyStats.Death.EXPLOITED;
                     enemy.GetDamage(250);
                 }
 

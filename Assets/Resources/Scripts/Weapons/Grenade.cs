@@ -19,7 +19,7 @@ public class Grenade : MonoBehaviour {
 
 	void Start() 
 	{
-		radius = 3.5F;
+		radius = 6.5F;
 		explosionTime = 1.5f;
 		Invoke ("Explode", explosionTime);  
 		Invoke ("PropExplosion", explosionTime);
@@ -40,7 +40,7 @@ public class Grenade : MonoBehaviour {
 		{
 			if (col.GetComponent<Rigidbody>() != null)
 			{
-				if (col.tag != "Bullet" && col.tag != "enemyBullet")
+				if (col.tag != "Bullet" || col.tag != "enemyBullet")
 				{
 					col.GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, radius, upwardModifier, forceMode);
 				}
@@ -50,6 +50,7 @@ public class Grenade : MonoBehaviour {
 			{
 				EnemyStats enemy = col.GetComponent<EnemyStats>();
 				distanceModifier = 1 - 1/ (radius / Vector3.Distance (enemy.transform.position, transform.position));
+                enemy.death = EnemyStats.Death.EXPLOITED;
 				enemy.GetDamage(300);
 			}
 			
