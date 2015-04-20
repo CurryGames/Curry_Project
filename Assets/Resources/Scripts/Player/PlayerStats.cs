@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour {
 	private GodMode godMode;
 	public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
+    public Slider HealthBar;
+    public Slider BrutalityBar;
 	private Interface interfaz;
 	private PauseLogic pauseLogic;
     public Text bullets;
@@ -67,7 +69,7 @@ public class PlayerStats : MonoBehaviour {
         damage = 6;
         dataLogic.currentTime = dataLogic.iniTime;
         currentBrutality = dataLogic.iniBrutality;
-		currentHealth = dataLogic.iniHealth;
+		//currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
         audiSorMusic = gameObject.AddComponent<AudioSource>();
@@ -85,6 +87,9 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(HealthBar != null)HealthBar.value = currentHealth / maxHealth;
+        if (BrutalityBar != null) BrutalityBar.value = currentBrutality / 256;
+
         if(go == true) dataLogic.currentTime += Time.deltaTime;
 
 		if (currentHealth >= maxHealth)
