@@ -30,12 +30,12 @@ public class EnemyNavMesh : MonoBehaviour {
         if (enemyMove.chasing)
         {
 			if(target!=null)
-            agent.SetDestination(target.transform.position);
+            agent.SetDestination(new Vector3 (target.transform.position.x, target.transform.position.y, target.transform.position.z));
         }
 
         else if (!enemyMove.chasing)
         {
-            agent.Stop(true);
+            agent.Stop();
             
         }
 
