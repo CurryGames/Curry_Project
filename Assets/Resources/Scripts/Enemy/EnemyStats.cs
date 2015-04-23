@@ -87,6 +87,10 @@ public class EnemyStats : MonoBehaviour
             //Destroy(bld,2);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
+            playerStats.score += 100 * playerStats.multiply;
+            playerStats.onCombo = true;
+            playerStats.multiply++;
+            playerStats.multiplyTemp = 0.0f;
             playerStats.deathNumber++;
             Destroy(gameObject);
         }

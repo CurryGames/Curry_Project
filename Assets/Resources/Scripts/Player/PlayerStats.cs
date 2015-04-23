@@ -28,6 +28,13 @@ public class PlayerStats : MonoBehaviour {
     private LoadingScreen loadingScreen;
     public int riffleBullets;
     public int shotgunBullets;
+    public int score;
+    public int multiply;
+    public float multiplyTemp;
+    public bool onCombo;
+
+    private Text scoreText;
+    private Text multiplyText;
 
 	private bool alive = true;
     public bool onBoss;
@@ -58,6 +65,8 @@ public class PlayerStats : MonoBehaviour {
             GetComponent<LoadingScreen>();
         keyText = GameObject.FindGameObjectWithTag("keyText");
         keyText.SetActive(false);
+        scoreText = GameObject.FindGameObjectWithTag("scoreText").GetComponent <Text>();
+        multiplyText = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<Text>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
@@ -67,6 +76,7 @@ public class PlayerStats : MonoBehaviour {
         brutalMode = false;
         go = true;
         damage = 6;
+        multiply = 1;
         dataLogic.currentTime = dataLogic.iniTime;
         currentBrutality = dataLogic.iniBrutality;
 		//currentHealth = dataLogic.iniHealth;
@@ -87,15 +97,32 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(HealthBar != null)HealthBar.value = currentHealth / maxHealth;
+        if (scoreText != null)scoreText.text = score.ToString();
+
+        if (HealthBar != null)HealthBar.value = currentHealth / maxHealth;
         if (BrutalityBar != null) BrutalityBar.value = currentBrutality / 256;
 
-        if(go == true) dataLogic.currentTime += Time.deltaTime;
+        if (go == true) dataLogic.currentTime += Time.deltaTime;
 
-		if (currentHealth >= maxHealth)
-			currentHealth = maxHealth;
+		if (currentHealth >= maxHealth) currentHealth = maxHealth;
         if (currentBrutality >= 256) currentBrutality = 256;
 		//if (Input.GetKeyDown (KeyCode.E)) Application.Quit ();
+
+        if (onCombo == true) 
+        {
+            if (multiplyText != null) multiplyText.text = "X" + multiply.ToString();
+            multiplyTemp += Time.deltaTime;
+
+            if (multiplyTemp >= 5.0f)
+            {
+                onCombo = false;
+                multiply = 1;
+            }
+        }
+
+        else if (multiplyText != null) multiplyText.text = "";
+
+
 		if (currentHealth <= 0) 
 		{
 			currentHealth = 0;

@@ -47,7 +47,7 @@ public class MenuLogic : MonoBehaviour {
         scrollMusic.value = 0.5f;
         scrollFx.value = 0.5f;
 		fullScr.isOn = Screen.fullScreen;
-        currentTemp = Random.Range(2.0f, 10.0f);
+        currentTemp = Random.Range(10.0f, 20.0f);
 		hd.Select ();
 	}
 	
@@ -108,7 +108,7 @@ public class MenuLogic : MonoBehaviour {
         {
             GameObject lght = (GameObject)Instantiate(lightning, transform.position, transform.rotation);
             Destroy(lght, 0.6f);
-            currentTemp = Random.Range (2.0f, 10.0f);
+            currentTemp = Random.Range (10.0f, 20.0f);
         }
 
         dataLogic.volumMusic = scrollMusic.value;
