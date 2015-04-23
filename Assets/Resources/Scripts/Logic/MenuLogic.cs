@@ -5,8 +5,10 @@ using System.Collections;
 public class MenuLogic : MonoBehaviour {
 
 	public enum State {START, MENU, OPTIONS}
+	public enum ScrResolution { HD, UXGA, FULLHD }
 
 	public State screen;
+	public ScrResolution scrResolution;
 	public GameObject start; 
 	public GameObject menu;
     public AudioClip shoot;
@@ -17,6 +19,12 @@ public class MenuLogic : MonoBehaviour {
     private DataLogic dataLogic;
     public Scrollbar scrollMusic;
     public Scrollbar scrollFx;
+    private float currentTemp;
+    public GameObject lightning;
+	public Button hd;
+	public Button cuatrotecios;
+	public Button fullhd;
+	public Toggle fullScr;
     private bool down;
     private float temp;
 
@@ -24,6 +32,7 @@ public class MenuLogic : MonoBehaviour {
 	void Start () 
     {
 		screen = State.START;
+		scrResolution = ScrResolution.HD;
 		loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
 			GetComponent<LoadingScreen>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
@@ -37,6 +46,9 @@ public class MenuLogic : MonoBehaviour {
         dataLogic.PlayLoop(music, audioSource, scrollMusic.value);
         scrollMusic.value = 0.5f;
         scrollFx.value = 0.5f;
+		fullScr.isOn = Screen.fullScreen;
+        currentTemp = Random.Range(2.0f, 10.0f);
+		hd.Select ();
 	}
 	
 	// Update is called once per frame
@@ -88,13 +100,20 @@ public class MenuLogic : MonoBehaviour {
 			start.SetActive(false);
 			menu.SetActive(false);
 			options.SetActive(true);
-
-			break;
+            break;
 		}
+
+        currentTemp -= Time.deltaTime;
+        if(currentTemp <= 0)
+        {
+            GameObject lght = (GameObject)Instantiate(lightning, transform.position, transform.rotation);
+            Destroy(lght, 0.6f);
+            currentTemp = Random.Range (2.0f, 10.0f);
+        }
 
         dataLogic.volumMusic = scrollMusic.value;
         dataLogic.volumFx = scrollFx.value;
-	
+		Screen.fullScreen = fullScr.isOn;
 	}
 
     public void PlayButton ()
@@ -124,4 +143,20 @@ public class MenuLogic : MonoBehaviour {
 
         Application.Quit();
     }
+
+	public void HDButton ()
+	{
+		Screen.SetResolution (1280, 720, fullScr);
+		hd.Select();
+	}
+	public void UXGAButton ()
+	{
+		Screen.SetResolution (1600, 1200, fullScr);
+        cuatrotecios.Select();
+	}
+	public void FULLHDButton ()
+	{
+        Screen.SetResolution(1920, 1080, fullScr);
+		fullhd.Select();
+	}
 }

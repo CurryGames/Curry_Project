@@ -77,14 +77,14 @@ public class DataLogic : MonoBehaviour {
         riffleActive = false;
         QualitySettings.antiAliasing = 0;
 		DontDestroyOnLoad(transform.gameObject);
-
+        Screen.SetResolution(1280, 720, true, 60);
 	}
 
 	// Use this for initialization
 	void Start () {
 		// CARGAMOS EL MENU
         if (!on) Application.LoadLevel("Logo");
-        Screen.SetResolution(1280, 720, true, 60);
+        
         
 	}
 	
