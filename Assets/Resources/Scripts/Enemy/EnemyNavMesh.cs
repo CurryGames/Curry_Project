@@ -46,7 +46,6 @@ public class EnemyNavMesh : MonoBehaviour
 
             if (target != null)
             {
-                Debug.Log("CHASING");
                 agent.Resume();
                 agent.SetDestination(target.transform.position);
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
@@ -55,14 +54,12 @@ public class EnemyNavMesh : MonoBehaviour
         }
         else
         {
-            Debug.Log("STOP");
             agent.Stop();
 
         }
 
         if (enemyRang.dist <= agent.stoppingDistance)
         {
-            Debug.Log("IDDLE");
             setIddle();
         }
         else if (enemyRang.dist > agent.stoppingDistance && chasing == true)
