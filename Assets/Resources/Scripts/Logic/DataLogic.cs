@@ -35,6 +35,8 @@ public class DataLogic : MonoBehaviour {
     public AudioClip bossMusic;
     public AudioClip heart;
     public AudioClip death;
+    public AudioClip thunder;
+
 
     private int sreenShot;
     public float volumFx;

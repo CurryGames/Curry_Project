@@ -26,6 +26,7 @@ public class PlayerStats : MonoBehaviour {
     public TextMesh points;
     private DataLogic dataLogic;
     private LoadingScreen loadingScreen;
+    //public ShakeUI shakeUI;
     public int riffleBullets;
     public int shotgunBullets;
     public int score;
@@ -67,6 +68,7 @@ public class PlayerStats : MonoBehaviour {
         keyText.SetActive(false);
         scoreText = GameObject.FindGameObjectWithTag("scoreText").GetComponent <Text>();
         multiplyText = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<Text>();
+        //shakeUI = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<ShakeUI>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
@@ -117,6 +119,7 @@ public class PlayerStats : MonoBehaviour {
             {
                 onCombo = false;
                 multiply = 1;
+                //shakeUI.endShake = true;
             }
         }
 

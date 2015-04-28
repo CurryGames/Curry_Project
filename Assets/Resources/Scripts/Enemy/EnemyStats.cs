@@ -91,6 +91,13 @@ public class EnemyStats : MonoBehaviour
             playerStats.onCombo = true;
             playerStats.multiply++;
             playerStats.multiplyTemp = 0.0f;
+            /*playerStats.shakeUI.startShake = true;
+            if (playerStats.shakeUI.isShaking != true)
+            {
+                playerStats.shakeUI.startShake = true;
+                playerStats.shakeUI.shakingForce = 0.1F;
+                //playerStats.shakeUI.shakeDecay = 0.003F;
+            }*/
             playerStats.deathNumber++;
             Destroy(gameObject);
         }

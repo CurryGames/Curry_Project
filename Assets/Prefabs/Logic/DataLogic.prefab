@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11408712}
   m_Layer: 0
   m_Name: DataLogic
   m_TagString: DataLogic
@@ -23,12 +23,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -237.699997, y: 0, z: -50.2999992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11400000
+--- !u!114 &11408712
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   riffle: {fileID: 8300000, guid: 8a03ba9e9e10d20478aa45da76412a8d, type: 3}
   gun: {fileID: 8300000, guid: e6c6c8ae1950ae147b9c0717c2519d3e, type: 3}
   gunClock: {fileID: 8300000, guid: 62a9a36f7cbfe904f8dcb2082b8d1131, type: 3}
-  shootGun: {fileID: 8300000, guid: 6b8d0c030a2525344aab859de9ce3f7c, type: 3}
-  shootGunClock: {fileID: 8300000, guid: 62154c064d393224aa493c3d1c0676cf, type: 3}
+  shootGun: {fileID: 8300000, guid: 9acbcc58258d45045be0459df2f80f9b, type: 3}
+  shootGunClock: {fileID: 8300000, guid: 2d8e32a54e86bb143808ddae1e05a1d0, type: 3}
   music: {fileID: 8300000, guid: d704310fd3b78ae42b1f8217516d284a, type: 3}
-  musicBrutal: {fileID: 8300000, guid: ccb578dbc67519048bcbe1e545033653, type: 3}
+  musicBrutal: {fileID: 8300000, guid: 5d794df163cc2ba469ee1d5dd5d82285, type: 3}
   chainsaw: {fileID: 8300000, guid: 1bb64d76c0c9f3e4a8ba45b8ab8f7d31, type: 3}
   health: {fileID: 8300000, guid: 48885edad9fcd7549a31828f52a67a6d, type: 3}
   ammo: {fileID: 8300000, guid: 2298a838092ee7f4e9c5edf3dfc7982e, type: 3}
@@ -53,11 +53,12 @@ MonoBehaviour:
   glass: {fileID: 8300000, guid: 777ed0143df467f4381af3ddf9563742, type: 3}
   door: {fileID: 8300000, guid: f64e8e7d444b8574287d1c59345ced4c, type: 3}
   hit: {fileID: 8300000, guid: 5c39dce5c09aabe4fb80518c16b011a8, type: 3}
-  bossMusic: {fileID: 8300000, guid: 528f450cd4988104dad42beff78f2fc1, type: 3}
+  bossMusic: {fileID: 8300000, guid: d704310fd3b78ae42b1f8217516d284a, type: 3}
   heart: {fileID: 8300000, guid: 48d097c212cf6de4aa76a9c90be4dd35, type: 3}
   death: {fileID: 8300000, guid: 1839ed54de3185b4b8e2c986aedcfaa9, type: 3}
-  volumFx: .300000012
-  volumMusic: .300000012
+  thunder: {fileID: 8300000, guid: 47afffcee522e774b995665c69810515, type: 3}
+  volumFx: 0
+  volumMusic: 0
   on: 1
 --- !u!1001 &100100000
 Prefab:
@@ -70,4 +71,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

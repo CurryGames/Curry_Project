@@ -43,11 +43,11 @@ public class MenuLogic : MonoBehaviour {
         dataLogic.iniBrutality = 0;
         dataLogic.iniRiffleAmmo = 200;
         dataLogic.iniShotgunAmmo = 20;
-        dataLogic.PlayLoop(music, audioSource, scrollMusic.value);
+        //dataLogic.PlayLoop(music, audioSource, dataLogic.volumMusic);
         scrollMusic.value = 0.5f;
         scrollFx.value = 0.5f;
 		fullScr.isOn = Screen.fullScreen;
-        currentTemp = Random.Range(10.0f, 20.0f);
+        currentTemp = 5.0f;
 		hd.Select ();
 	}
 	
@@ -107,6 +107,8 @@ public class MenuLogic : MonoBehaviour {
         if(currentTemp <= 0)
         {
             GameObject lght = (GameObject)Instantiate(lightning, transform.position, transform.rotation);
+            AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+            dataLogic.Play(dataLogic.thunder, audiSor, dataLogic.volumFx);
             Destroy(lght, 0.6f);
             currentTemp = Random.Range (10.0f, 20.0f);
         }
