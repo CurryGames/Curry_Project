@@ -65,8 +65,8 @@ public class PlayerStats : MonoBehaviour {
             GetComponent<LoadingScreen>();
         keyText = GameObject.FindGameObjectWithTag("keyText");
         keyText.SetActive(false);
-        scoreText = GameObject.FindGameObjectWithTag("scoreText").GetComponent <Text>();
-        multiplyText = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<Text>();
+        //scoreText = GameObject.FindGameObjectWithTag("scoreText").GetComponent <Text>();
+        //multiplyText = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<Text>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
