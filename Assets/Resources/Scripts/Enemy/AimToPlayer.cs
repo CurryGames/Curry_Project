@@ -20,7 +20,7 @@ public class AimToPlayer : MonoBehaviour {
 	{
 		if (enemyMove.chasing) 
 		{	
-			transform.rotation = Quaternion.LookRotation(player.transform.position - enemyMove.transform.position);
+			//transform.rotation = Quaternion.LookRotation(player.transform.position - enemyMove.transform.position);
 
 			//TODO: APPLY LERP
 			//transform.rotation = Quaternion.Lerp(enemyMove.transform.position, (player.transform.position - enemyMove.transform.position), Time.deltaTime * 1);

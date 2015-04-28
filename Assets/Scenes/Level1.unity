@@ -10540,7 +10540,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -40.5200005
+      value: -42.0800018
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10548,7 +10548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.69999981
+      value: 11.8100004
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10556,7 +10556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .622992575
+      value: .158306405
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.z
@@ -10564,7 +10564,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .782227755
+      value: .987390041
       objectReference: {fileID: 0}
     - target: {fileID: 462146, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_RootOrder
@@ -10572,19 +10572,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406580, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .373150736
+      value: .373150766
       objectReference: {fileID: 0}
     - target: {fileID: 406580, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .600631893
+      value: .600631952
       objectReference: {fileID: 0}
     - target: {fileID: 406580, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -.600631714
+      value: -.600631773
       objectReference: {fileID: 0}
     - target: {fileID: 406580, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .373150647
+      value: .373150676
       objectReference: {fileID: 0}
     - target: {fileID: 106588, guid: e5fe1bef2b00b4d47a768cff28119e7a, type: 2}
       propertyPath: m_StaticEditorFlags

@@ -21,9 +21,10 @@ public class EnemyNavMesh : MonoBehaviour
         enemyMove = GetComponent<EnemyMoveBehaviour>();
         //animationLegs = legs.GetComponent<Animator>();
         enemyRang = GetComponent<RangedEnemy>();
-        //target = GameObject.FindGameObjectWithTag ("Player");
+        target = GameObject.FindGameObjectWithTag ("Player");
         setIddle();
-        //agent.speed = enemyStats.speed;		
+        //agent.speed = enemyStats.speed;	
+
     }
 
     // Update is called once per frame
