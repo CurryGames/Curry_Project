@@ -21,9 +21,10 @@ public class EnemyNavMesh : MonoBehaviour
         enemyMove = GetComponent<EnemyMoveBehaviour>();
         //animationLegs = legs.GetComponent<Animator>();
         enemyRang = GetComponent<RangedEnemy>();
-        //target = GameObject.FindGameObjectWithTag ("Player");
+        target = GameObject.FindGameObjectWithTag ("Player");
         setIddle();
-        //agent.speed = enemyStats.speed;		
+        //agent.speed = enemyStats.speed;	
+
     }
 
     // Update is called once per frame
@@ -46,7 +47,6 @@ public class EnemyNavMesh : MonoBehaviour
 
             if (target != null)
             {
-                Debug.Log("CHASING");
                 agent.Resume();
                 agent.SetDestination(target.transform.position);
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
@@ -55,14 +55,12 @@ public class EnemyNavMesh : MonoBehaviour
         }
         else
         {
-            Debug.Log("STOP");
             agent.Stop();
 
         }
 
         if (enemyRang.dist <= agent.stoppingDistance)
         {
-            Debug.Log("IDDLE");
             setIddle();
         }
         else if (enemyRang.dist > agent.stoppingDistance && chasing == true)
