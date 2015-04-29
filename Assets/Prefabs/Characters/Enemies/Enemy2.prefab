@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 105726, guid: 5095c3a97632e4342a058d4940fa238c, type: 2}
   - {fileID: 104030, guid: 5557ce6df2e59724eb8ce499ef8983a3, type: 2}
   deathExploited: {fileID: 178578, guid: 7f5ff377777cdfb45bcf02350dd4ea8a, type: 2}
+  puntuationText: {fileID: 174928, guid: 1be67c8d0cf63ce4d9a7c2f6b169276c, type: 2}
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11423784
 MonoBehaviour:

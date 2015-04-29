@@ -24,8 +24,10 @@ public class EnemyStats : MonoBehaviour
     public GameObject blood;
     public GameObject[] deathshotedGun;
     public GameObject deathExploited;
+	public GameObject puntuationText;
     //public AudioClip death;
     private DataLogic dataLogic;
+	private int puntuation;
     public Color color;
 	private Vector3 pushDirection;
     bool alive = true;
@@ -87,10 +89,15 @@ public class EnemyStats : MonoBehaviour
             //Destroy(bld,2);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
-            playerStats.score += 100 * playerStats.multiply;
+			puntuation =  100 * playerStats.multiply;
+            playerStats.score += puntuation;
             playerStats.onCombo = true;
             playerStats.multiply++;
             playerStats.multiplyTemp = 0.0f;
+			GameObject pText = (GameObject)Instantiate(puntuationText, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), Quaternion.Euler(new Vector3 (90, 0, 0)));
+			TextMesh punText = pText.GetComponent <TextMesh>();
+			punText.text = puntuation.ToString();
+			Destroy(pText, 1.5f);
             /*playerStats.shakeUI.startShake = true;
             if (playerStats.shakeUI.isShaking != true)
             {
