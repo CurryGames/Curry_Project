@@ -13,16 +13,19 @@ public class EnemyNavMesh : MonoBehaviour
     private EnemyStats enemyStats;
     public bool chasing;
     private Animator animationLegs;
+	NavMeshHit hit;
 
 
     void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
         enemyMove = GetComponent<EnemyMoveBehaviour>();
         //animationLegs = legs.GetComponent<Animator>();
         enemyRang = GetComponent<RangedEnemy>();
         target = GameObject.FindGameObjectWithTag ("Player");
         setIddle();
+
         //agent.speed = enemyStats.speed;	
 
     }
@@ -50,8 +53,10 @@ public class EnemyNavMesh : MonoBehaviour
                 agent.Resume();
                 agent.SetDestination(target.transform.position);
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
-
             }
+
+			if (agent.Raycast(target.transform.position, out hit))  Debug.Log("NOT VISIBLE");
+
         }
         else
         {
