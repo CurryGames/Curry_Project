@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .75, y: 1.84843838, z: 1}
+  m_LocalScale: {x: .5625, y: 3.41672444, z: 1}
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 0}
@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 118264, guid: 943848b738dcc654a8b2501d1039715e, type: 2}
   - {fileID: 104030, guid: 7a279c751edb21d489788d9503882148, type: 2}
   deathExploited: {fileID: 162034, guid: b626c67b6f18a4746937af2c079a0ec1, type: 2}
+  puntuationText: {fileID: 174928, guid: 1be67c8d0cf63ce4d9a7c2f6b169276c, type: 2}
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11423786
 MonoBehaviour:
