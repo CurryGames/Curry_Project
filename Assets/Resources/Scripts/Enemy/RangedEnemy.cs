@@ -42,7 +42,7 @@ public class RangedEnemy : MonoBehaviour
         if (dist <= detectDistance)
             enemyMove.chasing = true;
 
-        if ((dist <= shootRange) && (enemyMove.chasing))
+        if ((dist <= shootRange) && (enemyMove.chasing) && enemyMove.OnSight())
         {
             switch (weapon)
             {

@@ -55,8 +55,8 @@ public class EnemyNavMesh : MonoBehaviour
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
             }
 
-			if (agent.Raycast(target.transform.position, out hit))  Debug.Log("NOT VISIBLE");
-
+			if (!OnSight ()) agent.stoppingDistance = 0.5f;
+			else agent.stoppingDistance = 8;
         }
         else
         {
@@ -72,6 +72,8 @@ public class EnemyNavMesh : MonoBehaviour
         {
             setRun();
         }
+
+
     }
 
     public void setRun()
@@ -83,4 +85,14 @@ public class EnemyNavMesh : MonoBehaviour
     {
         // animationLegs.Play("EnemyIdle");
     }
+
+	public bool OnSight()
+	{
+		if (agent.Raycast (target.transform.position, out hit)) 
+		{
+			Debug.Log ("NOT VISIBLE");
+			return false;
+		} 
+		else return true;
+	}
 }
