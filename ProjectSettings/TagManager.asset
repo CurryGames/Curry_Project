@@ -45,6 +45,11 @@ TagManager:
   - BossStage
   - scoreText
   - multiplyText
+  - gunUI
+  - shotgunUI
+  - riffleUI
+  - BulletText
+  - GrenadesText
   layers:
   - Default
   - TransparentFX

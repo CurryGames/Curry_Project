@@ -48,9 +48,11 @@ public class PlayerStats : MonoBehaviour {
     public AudioSource audiSorMusic;
     public AudioSource audiSorBrutal;
     public AudioSource audiSorChainsaw;
+    public MultiplySize multiplyAnim;
 
 	private Animator animation;
     private Animator animationLegs;
+    private AchievementManager achievementManager;
 
 	// Use this for initialization
 	void Awake () 
@@ -68,7 +70,11 @@ public class PlayerStats : MonoBehaviour {
         keyText.SetActive(false);
         scoreText = GameObject.FindGameObjectWithTag("scoreText").GetComponent <Text>();
         multiplyText = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<Text>();
-        //shakeUI = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<ShakeUI>();
+        achievementManager = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<AchievementManager>();
+        multiplyAnim = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<MultiplySize>();
+        bullets = GameObject.FindGameObjectWithTag("BulletText").GetComponent<Text>();
+        grenades = GameObject.FindGameObjectWithTag("GrenadesText").GetComponent<Text>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
@@ -114,11 +120,13 @@ public class PlayerStats : MonoBehaviour {
         {
             if (multiplyText != null) multiplyText.text = "X" + multiply.ToString();
             multiplyTemp += Time.deltaTime;
+            multiplyAnim.animActive = true;
 
             if (multiplyTemp >= 5.0f)
             {
                 onCombo = false;
                 multiply = 1;
+                multiplyAnim.animActive = false;
                 //shakeUI.endShake = true;
             }
         }
@@ -308,6 +316,7 @@ public class PlayerStats : MonoBehaviour {
         if (col.tag == "Can")
         {
             AudioSource audiSor = col.gameObject.AddComponent<AudioSource>();
+            achievementManager.AddProgressToAchievement("Messi", 1.0f);
             dataLogic.Play(dataLogic.can, audiSor, dataLogic.volumFx);
         }
 

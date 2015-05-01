@@ -98,13 +98,12 @@ public class EnemyStats : MonoBehaviour
 			TextMesh punText = pText.GetComponent <TextMesh>();
 			punText.text = puntuation.ToString();
 			Destroy(pText, 1.5f);
-            /*playerStats.shakeUI.startShake = true;
-            if (playerStats.shakeUI.isShaking != true)
+
+            if (playerStats.multiplyAnim.animActive == true)
             {
-                playerStats.shakeUI.startShake = true;
-                playerStats.shakeUI.shakingForce = 0.1F;
-                //playerStats.shakeUI.shakeDecay = 0.003F;
-            }*/
+                playerStats.multiplyAnim.ResetAnim();
+                
+            }
             playerStats.deathNumber++;
             Destroy(gameObject);
         }

@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject chainsaw;
     public GameObject fire;
     public GameObject fireShotgun;
+    public GameObject gunUI, shotgunUI, riffleUI;
 	public Rigidbody grenade;
     public PlayerStats playerStats;
 	public PlayerMovement playerMov;
@@ -45,6 +46,9 @@ public class PlayerShooting : MonoBehaviour
 		playerStats = GetComponent <PlayerStats> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 		playerMov = GetComponent<PlayerMovement> ();
+        gunUI = GameObject.FindGameObjectWithTag("gunUI");
+        shotgunUI = GameObject.FindGameObjectWithTag("shotgunUI");
+        riffleUI = GameObject.FindGameObjectWithTag("riffleUI");
         clockGun = false;
 	}
 	void Update ()
@@ -66,6 +70,9 @@ public class PlayerShooting : MonoBehaviour
 		switch (weapon) {
             case Weapon.GUN:
                 playerStats.setGun();
+                gunUI.SetActive(true);
+                shotgunUI.SetActive(false);
+                riffleUI.SetActive(false);
                 playerStats.bullets.text = "Inf.";
                 timer += Time.deltaTime;
                 timeBetweenBullets = 0.45f;
@@ -89,6 +96,9 @@ public class PlayerShooting : MonoBehaviour
                 break;
 		case Weapon.RIFLE:
 			playerStats.setRiffle ();
+                gunUI.SetActive(false);
+                shotgunUI.SetActive(false);
+                riffleUI.SetActive(true);
             playerStats.bullets.text = playerStats.riffleBullets.ToString();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.15f;
@@ -149,6 +159,9 @@ public class PlayerShooting : MonoBehaviour
             break;
 		case Weapon.SHOTGUN:
 			playerStats.setShootgun ();
+            gunUI.SetActive(false);
+            shotgunUI.SetActive(true);
+            riffleUI.SetActive(false);
             playerStats.bullets.text = playerStats.shotgunBullets.ToString();
 			timer += Time.deltaTime;
 			timeBetweenBullets = 0.85f;
