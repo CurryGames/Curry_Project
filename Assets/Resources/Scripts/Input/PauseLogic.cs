@@ -7,7 +7,7 @@ public class PauseLogic : MonoBehaviour {
 
     public bool Pause = false;
     public GameObject pause;
-	private PlayerShooting playerShot;
+	//private PlayerShooting playerShot;
     private LoadingScreen loadingScreen;
 
 
@@ -16,8 +16,8 @@ public class PauseLogic : MonoBehaviour {
 		if (pause != null) {
 			pause.SetActive (false);
 		}
-		playerShot = GameObject.FindGameObjectWithTag("Player").
-			GetComponent<PlayerShooting>();
+		/*playerShot = GameObject.FindGameObjectWithTag("Player").
+			GetComponent<PlayerShooting>();*/
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").
             GetComponent<LoadingScreen>();
 	}
@@ -33,7 +33,7 @@ public class PauseLogic : MonoBehaviour {
         if (Pause)
         {
             pause.SetActive(true);
-			playerShot.enabled = false;
+			//playerShot.enabled = false;
             Time.timeScale = 0;
         }
 
@@ -41,7 +41,7 @@ public class PauseLogic : MonoBehaviour {
         {
 			if(pause!=null){
             pause.SetActive(false);
-			playerShot.enabled = true;
+			//playerShot.enabled = true;
             Time.timeScale = 1;
 			}
         }

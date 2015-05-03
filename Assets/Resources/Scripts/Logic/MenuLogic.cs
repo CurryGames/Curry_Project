@@ -13,7 +13,6 @@ public class MenuLogic : MonoBehaviour {
 	public GameObject menu;
     public AudioClip shoot;
     public AudioClip music;
-    private AudioSource audioSource;
 	public GameObject options;
 	private LoadingScreen loadingScreen;
     private DataLogic dataLogic;
@@ -37,7 +36,6 @@ public class MenuLogic : MonoBehaviour {
 			GetComponent<LoadingScreen>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
-        audioSource = GetComponent<AudioSource>();
         down = false;
         dataLogic.iniHealth = 256;
         dataLogic.iniBrutality = 0;

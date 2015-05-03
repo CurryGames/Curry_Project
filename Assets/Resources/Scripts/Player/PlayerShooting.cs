@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject fireShotgun;
     public GameObject gunUI, shotgunUI, riffleUI;
 	public Rigidbody grenade;
+    private ShakeCamera camera;
     public PlayerStats playerStats;
 	public PlayerMovement playerMov;
     private DataLogic dataLogic;
@@ -46,6 +47,7 @@ public class PlayerShooting : MonoBehaviour
 		playerStats = GetComponent <PlayerStats> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 		playerMov = GetComponent<PlayerMovement> ();
+        camera = Camera.main.GetComponent<ShakeCamera>();
         gunUI = GameObject.FindGameObjectWithTag("gunUI");
         shotgunUI = GameObject.FindGameObjectWithTag("shotgunUI");
         riffleUI = GameObject.FindGameObjectWithTag("riffleUI");
@@ -77,13 +79,14 @@ public class PlayerShooting : MonoBehaviour
                 timer += Time.deltaTime;
                 timeBetweenBullets = 0.45f;
                 // If the Fire1 button is being press and it's time to fire...
-			if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && (playerStats.currentHealth > 0))
+			    if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && (playerStats.currentHealth > 0))
                 {
                     // ... shoot the gun.
                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
                     dataLogic.Play(dataLogic.gun, audiSor, dataLogic.volumFx);
                     //clockGun = true;
                     Shoot();
+                    Shake();
                 }
 
 
@@ -109,6 +112,7 @@ public class PlayerShooting : MonoBehaviour
                 dataLogic.Play(dataLogic.riffle, audiSor, dataLogic.volumFx);
                 playerStats.riffleBullets--;
 				Shoot ();
+                Shake();
 			}
 									// If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
 									/*if(timer >= timeBetweenBullets * effectsDisplayTime)
@@ -173,6 +177,7 @@ public class PlayerShooting : MonoBehaviour
                 playerStats.shotgunBullets--;
 				Shoot ();
                 clockGun = true;
+                Shake();
 			}
             if (clockGun)
             {
@@ -253,4 +258,13 @@ public class PlayerShooting : MonoBehaviour
 		grenadeGO.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * force);
 		Physics.IgnoreCollision (grenadeGO.GetComponent<Collider>(), this.GetComponent<Collider>());
 	}
+
+    public void Shake()
+    {
+
+        camera.shakingForce = 0.1F;
+        camera.shakeDecay = 0.05F;
+        camera.startShake = true;
+        
+    }
 }

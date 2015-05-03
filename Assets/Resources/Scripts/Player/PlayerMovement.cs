@@ -60,6 +60,37 @@ public class PlayerMovement : MonoBehaviour
 				playerShot.ThrowGrenade(throwForce);
 				throwForce = 15;
 			}
+
+             if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
+             {
+                 if (playerShot.weapon == PlayerShooting.Weapon.GUN)
+                 {
+                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                     dataLogic.Play(dataLogic.gunClock, audiSor, dataLogic.volumFx);
+                     playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
+                 }
+                 if (playerShot.weapon == PlayerShooting.Weapon.SHOTGUN && dataLogic.riffleActive == true)
+                 {
+                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                     dataLogic.Play(dataLogic.gunClock, audiSor, dataLogic.volumFx);
+                     playerShot.weapon = PlayerShooting.Weapon.RIFLE;
+                 }
+             }
+             else if (Input.GetAxis("Mouse ScrollWheel") < 0) // back
+             {
+                 if (playerShot.weapon == PlayerShooting.Weapon.SHOTGUN)
+                 {
+                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                     dataLogic.Play(dataLogic.gunClock, audiSor, dataLogic.volumFx);
+                     playerShot.weapon = PlayerShooting.Weapon.GUN;
+                 }
+                 if (playerShot.weapon == PlayerShooting.Weapon.RIFLE)
+                 {
+                     AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+                     dataLogic.Play(dataLogic.gunClock, audiSor, dataLogic.volumFx);
+                     playerShot.weapon = PlayerShooting.Weapon.SHOTGUN;
+                 }
+             }
         }
     }
 

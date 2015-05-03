@@ -18,7 +18,6 @@ public class PlayerStats : MonoBehaviour {
 	public GameObject EndLevelScreen;
     public Slider HealthBar;
     public Slider BrutalityBar;
-	private Interface interfaz;
 	private PauseLogic pauseLogic;
     public Text bullets;
     public Text grenades;
@@ -60,7 +59,6 @@ public class PlayerStats : MonoBehaviour {
 		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
         animationLegs = GameObject.FindGameObjectWithTag("Legs").GetComponent<Animator>();
-		interfaz = Camera.main.GetComponent <Interface>();
 		pauseLogic = GameObject.FindGameObjectWithTag ("pause").GetComponent<PauseLogic> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
@@ -167,6 +165,7 @@ public class PlayerStats : MonoBehaviour {
             {
                 loadingScreen.loadCurrentScreen = true;
                 dataLogic.iniTime = 0;
+                pauseLogic.enabled = true;
             }
             GameOver();
 
@@ -180,6 +179,7 @@ public class PlayerStats : MonoBehaviour {
             {
                 loadingScreen.loadNextScreen = true;
                 dataLogic.iniTime = 0;
+                pauseLogic.enabled = true;
             }
             LevelEnd();
         }
@@ -403,18 +403,16 @@ public class PlayerStats : MonoBehaviour {
 	public void GameOver(){
 
 		GameOverScreen.SetActive (true);
-		interfaz.enabled = false;
 		//playerMov.enabled = false;
-		pauseLogic.enabled = false;
+		//pauseLogic.enabled = false;
         dataLogic.currentTime = dataLogic.iniTime;
 
 	}
 	public void LevelEnd(){
 		
 		EndLevelScreen.SetActive (true);
-		interfaz.enabled = false;
 		//playerMov.enabled = false;
-		pauseLogic.enabled = false;
+		//pauseLogic.enabled = false;
         points.text = dataLogic.currentTime.ToString("N2") + "S";
 		
 	}

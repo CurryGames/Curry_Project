@@ -1226,7 +1226,7 @@ RectTransform:
   m_Children:
   - {fileID: 1102370354}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4175,7 +4175,7 @@ Transform:
   m_LocalScale: {x: 7.11000013, y: 1, z: 2.3900001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!1001 &373784623
 Prefab:
   m_ObjectHideFlags: 0
@@ -5399,7 +5399,7 @@ Transform:
   - {fileID: 1469664081}
   - {fileID: 673841539}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &474711340
 GameObject:
   m_ObjectHideFlags: 0
@@ -6961,6 +6961,22 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2144967699}
+    - target: {fileID: 22441922, guid: a89721ebddde19a4f868e7a0afc270b6, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441922, guid: a89721ebddde19a4f868e7a0afc270b6, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466920, guid: a89721ebddde19a4f868e7a0afc270b6, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466920, guid: a89721ebddde19a4f868e7a0afc270b6, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a89721ebddde19a4f868e7a0afc270b6, type: 2}
   m_IsPrefabParent: 0
@@ -7925,7 +7941,7 @@ Transform:
   - {fileID: 1488712754}
   - {fileID: 609083631}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &801115909
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,7 +8615,7 @@ Transform:
   - {fileID: 1159878597}
   - {fileID: 2087515591}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &891062688
 GameObject:
   m_ObjectHideFlags: 0
@@ -13052,7 +13068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &1239454446
 GameObject:
   m_ObjectHideFlags: 0
@@ -15139,7 +15155,7 @@ Transform:
   - {fileID: 881633296}
   - {fileID: 1252179826}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1500145275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15161,6 +15177,9 @@ MonoBehaviour:
   chainsaw: {fileID: 1184490773}
   fire: {fileID: 103950, guid: 97f630f0553bd554fb80fb114454ea00, type: 2}
   fireShotgun: {fileID: 103950, guid: d81464da9ae62e74185d89a185e95087, type: 2}
+  gunUI: {fileID: 0}
+  shotgunUI: {fileID: 0}
+  riffleUI: {fileID: 0}
   grenade: {fileID: 188416, guid: dfc7858c3ae271246bb55ce1e78c2597, type: 2}
   playerStats: {fileID: 0}
   playerMov: {fileID: 0}
@@ -15234,6 +15253,7 @@ MonoBehaviour:
   audiSorMusic: {fileID: 0}
   audiSorBrutal: {fileID: 0}
   audiSorChainsaw: {fileID: 0}
+  multiplyAnim: {fileID: 0}
 --- !u!1001 &1512895952
 Prefab:
   m_ObjectHideFlags: 0
@@ -17097,7 +17117,7 @@ Transform:
   - {fileID: 94831041}
   - {fileID: 1522888435}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!4 &1623385694 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 71196ab40eacc9f4ebcbe856b8624b63, type: 2}
@@ -18613,7 +18633,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1001 &1836083878
 Prefab:
   m_ObjectHideFlags: 0
@@ -20676,7 +20696,7 @@ Transform:
   - {fileID: 1517912229}
   - {fileID: 2082719550}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &2017330408
 GameObject:
   m_ObjectHideFlags: 0
@@ -21994,6 +22014,7 @@ GameObject:
   - 114: {fileID: 2144967695}
   - 114: {fileID: 2144967694}
   - 114: {fileID: 2144967693}
+  - 114: {fileID: 2144967696}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -22059,6 +22080,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1500145274}
   smoothing: 5
+--- !u!114 &2144967696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144967691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27aee04f7bab06f4abe1dce5ac6fda21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startShake: 0
+  endShake: 0
+  isShaking: 0
+  shakingForce: 0
+  shakeDecay: 0
 --- !u!92 &2144967697
 Behaviour:
   m_ObjectHideFlags: 0
