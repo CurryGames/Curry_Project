@@ -5,10 +5,10 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
 
 	public float maxHealth;
-	public float currentHealth;
+    public float currentHealth { get; set; }
 	public float speed;
-	public float currentBrutality;
-	public int deathNumber;
+    public float currentBrutality { get; set; }
+    public int deathNumber { get; set; }
 	public int damage;
     public int currentMunition;
     public int maxMunition;
@@ -26,12 +26,12 @@ public class PlayerStats : MonoBehaviour {
     private DataLogic dataLogic;
     private LoadingScreen loadingScreen;
     //public ShakeUI shakeUI;
-    public int riffleBullets;
-    public int shotgunBullets;
-    public int score;
-    public int multiply;
-    public float multiplyTemp;
-    public bool onCombo;
+    public int riffleBullets { get; set; }
+    public int shotgunBullets { get; set; }
+    public int score { get; set; }
+    public int multiply { get; set; }
+    public float multiplyTemp { get; set; }
+    public bool onCombo { get; set; }
 
     private Text scoreText;
     private Text multiplyText;
@@ -54,7 +54,7 @@ public class PlayerStats : MonoBehaviour {
     private AchievementManager achievementManager;
 
 	// Use this for initialization
-	void Awake () 
+	void Start () 
 	{
 		godMode = GetComponent<GodMode> (); 
 		animation = GetComponentInChildren<Animator> ();
@@ -85,7 +85,7 @@ public class PlayerStats : MonoBehaviour {
         multiply = 1;
         dataLogic.currentTime = dataLogic.iniTime;
         currentBrutality = dataLogic.iniBrutality;
-		//currentHealth = dataLogic.iniHealth;
+		currentHealth = dataLogic.iniHealth;
 		GameOverScreen.SetActive (false);
 		EndLevelScreen.SetActive (false);
         audiSorMusic = gameObject.AddComponent<AudioSource>();
@@ -108,7 +108,7 @@ public class PlayerStats : MonoBehaviour {
         if (HealthBar != null)HealthBar.value = currentHealth / maxHealth;
         if (BrutalityBar != null) BrutalityBar.value = currentBrutality / 256;
 
-        if (go == true) dataLogic.currentTime += Time.deltaTime;
+        if (go == true) dataLogic.currentTime = score;
 
 		if (currentHealth >= maxHealth) currentHealth = maxHealth;
         if (currentBrutality >= 256) currentBrutality = 256;
@@ -118,13 +118,13 @@ public class PlayerStats : MonoBehaviour {
         {
             if (multiplyText != null) multiplyText.text = "X" + multiply.ToString();
             multiplyTemp += Time.deltaTime;
-            multiplyAnim.animActive = true;
+            if (multiplyAnim != null) multiplyAnim.animActive = true;
 
             if (multiplyTemp >= 5.0f)
             {
                 onCombo = false;
                 multiply = 1;
-                multiplyAnim.animActive = false;
+                if (multiplyAnim != null) multiplyAnim.animActive = false;
                 //shakeUI.endShake = true;
             }
         }
@@ -413,7 +413,7 @@ public class PlayerStats : MonoBehaviour {
 		EndLevelScreen.SetActive (true);
 		//playerMov.enabled = false;
 		//pauseLogic.enabled = false;
-        points.text = dataLogic.currentTime.ToString("N2") + "S";
+        points.text = dataLogic.currentTime.ToString();
 		
 	}
 }

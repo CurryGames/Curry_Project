@@ -158,7 +158,7 @@ public class LoadingScreen : MonoBehaviour {
     void OnLevelWasLoaded(int level)
     {
 
-        if ((level == dataLogic.getCurrentLevel()) || (level == dataLogic.getNextLevel()) || (level == 2))
+        if ((level == Application.loadedLevel))
         {
             temp = tempInit;
             state = State.FADEIN;

@@ -4,13 +4,14 @@ using System.Collections;
 
 public class MenuLogic : MonoBehaviour {
 
-	public enum State {START, MENU, OPTIONS}
+	public enum State {START, MENU, OPTIONS, ACHIEVEMENTS}
 	public enum ScrResolution { HD, UXGA, FULLHD }
 
 	public State screen;
 	public ScrResolution scrResolution;
 	public GameObject start; 
 	public GameObject menu;
+    public GameObject backButon;
     public AudioClip shoot;
     public AudioClip music;
 	public GameObject options;
@@ -19,6 +20,7 @@ public class MenuLogic : MonoBehaviour {
     public Scrollbar scrollMusic;
     public Scrollbar scrollFx;
     private float currentTemp;
+    private AchievementManager achManager;
     public GameObject lightning;
 	public Button hd;
 	public Button cuatrotecios;
@@ -36,6 +38,8 @@ public class MenuLogic : MonoBehaviour {
 			GetComponent<LoadingScreen>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
+        achManager = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<AchievementManager>();
         down = false;
         dataLogic.iniHealth = 256;
         dataLogic.iniBrutality = 0;
@@ -93,11 +97,33 @@ public class MenuLogic : MonoBehaviour {
 			start.SetActive(false);
 			menu.SetActive(true);
 			options.SetActive(false);
+            backButon.SetActive(false);
+            achManager.onMenu = false;
 			break;
 		case State.OPTIONS:
 			start.SetActive(false);
 			menu.SetActive(false);
 			options.SetActive(true);
+            switch (scrResolution)
+            {
+
+                case ScrResolution.HD:
+                    hd.Select();
+                    break;
+                case ScrResolution.FULLHD:
+                    cuatrotecios.Select();
+                    break;
+                case ScrResolution.UXGA:
+                    fullhd.Select();
+                    break;
+            }
+            break;
+        case State.ACHIEVEMENTS:
+            start.SetActive(false);
+			menu.SetActive(false);
+			options.SetActive(false);
+            backButon.SetActive(true);
+            achManager.onMenu = true;
             break;
 		}
 
@@ -138,6 +164,13 @@ public class MenuLogic : MonoBehaviour {
         dataLogic.Play(shoot, audiSor, scrollFx.value);
     }
 
+    public void AchievementButton()
+    {
+        AudioSource audiSor = gameObject.AddComponent<AudioSource>();
+        screen = State.ACHIEVEMENTS;
+        dataLogic.Play(shoot, audiSor, scrollFx.value);
+    }
+
     public void ExitButton()
     {
 
@@ -147,16 +180,18 @@ public class MenuLogic : MonoBehaviour {
 	public void HDButton ()
 	{
 		Screen.SetResolution (1280, 720, fullScr);
-		hd.Select();
+        scrResolution = ScrResolution.HD;
+
 	}
 	public void UXGAButton ()
 	{
 		Screen.SetResolution (1600, 1200, fullScr);
-        cuatrotecios.Select();
+        scrResolution = ScrResolution.UXGA;
+
 	}
 	public void FULLHDButton ()
 	{
         Screen.SetResolution(1920, 1080, fullScr);
-		fullhd.Select();
+        scrResolution = ScrResolution.FULLHD;
 	}
 }

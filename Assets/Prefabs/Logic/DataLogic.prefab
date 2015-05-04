@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -237.740005, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,14 +80,35 @@ MonoBehaviour:
     RewardPoints: 0
     TargetProgress: 10
     Secret: 0
-    popUp: {fileID: 0}
+    showPop: 0
+    currentTime: 2
+    Earned: 0
+  - Name: Strike
+    Description: Kill 5 enemies with one grenade
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 5
+    Secret: 0
+    showPop: 0
+    currentTime: 2
+    Earned: 0
+  - Name: Blooshed!
+    Description: Complete Bloodshed
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 1
+    Secret: 0
+    showPop: 0
+    currentTime: 2
     Earned: 0
   EarnedSound: {fileID: 8300000, guid: ba46af9178a1b9948a04548232c17990, type: 3}
   GUIStyleAchievementEarned:
     m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -99,7 +120,7 @@ MonoBehaviour:
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_OnNormal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: .435294151, g: .435294151, b: .435294151, a: 1}
     m_OnHover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -129,7 +150,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 0
     m_FontStyle: 0
     m_Alignment: 0
@@ -146,7 +167,7 @@ MonoBehaviour:
     m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -158,7 +179,7 @@ MonoBehaviour:
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_OnNormal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: .433823526, g: .433823526, b: .433823526, a: 1}
     m_OnHover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -188,7 +209,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: cec97db1631fde740b3717a418a8c476, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 0
     m_FontStyle: 0
     m_Alignment: 0
@@ -201,6 +222,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  onMenu: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

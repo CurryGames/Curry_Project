@@ -99,10 +99,11 @@ public class EnemyStats : MonoBehaviour
 			punText.text = puntuation.ToString();
 			Destroy(pText, 1.5f);
 
-            if (playerStats.multiplyAnim.animActive == true)
+            if (playerStats.multiplyAnim.animActive == true && playerStats.multiplyAnim != null)
             {
-                playerStats.multiplyAnim.ResetAnim(); 
+                playerStats.multiplyAnim.ResetAnim();
             }
+
             playerStats.deathNumber++;
             Destroy(gameObject);
         }
