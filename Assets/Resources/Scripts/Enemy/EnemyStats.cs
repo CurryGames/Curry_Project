@@ -101,8 +101,7 @@ public class EnemyStats : MonoBehaviour
 
             if (playerStats.multiplyAnim.animActive == true)
             {
-                playerStats.multiplyAnim.ResetAnim();
-                
+                playerStats.multiplyAnim.ResetAnim(); 
             }
             playerStats.deathNumber++;
             Destroy(gameObject);
