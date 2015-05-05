@@ -15,13 +15,20 @@ public class Achievement
     public int RewardPoints;
     public float TargetProgress;
     public bool Secret;
-    public bool showPop = false;
-    public float currentTime = 2.0f;
+    
     
 
     [HideInInspector]
     public bool Earned = false;
+    public bool showPop = false;
+    public float currentTime = 0.0f;
+    public float currentTime2 = 0.0f;
+    public float timeDelay = 3.0f;
+    public float maxTime = 5.0f;
+    public float posX;
+
     private float currentProgress = 0.0f;
+    
 
 
 	// Returns true if this progress added results in the Achievement being earned.
@@ -120,6 +127,8 @@ public class AchievementManager : MonoBehaviour
 
     private int currentRewardPoints = 0;
     private int potentialRewardPoints = 0;
+    private float finalPosX = 0.0f;
+    private float initialPosX = -250.0f;
     private bool showArchievementMenu = false;
     private Vector2 achievementScrollviewLocation = Vector2.zero;
 
@@ -136,11 +145,27 @@ public class AchievementManager : MonoBehaviour
         {
             if(Achievements[i].showPop == true)
             {
-                Achievements[i].currentTime -= Time.deltaTime;
-                if(Achievements[i].currentTime <= 0)
+                Achievements[i].currentTime += Time.deltaTime;
+                Achievements[i].timeDelay -= Time.deltaTime;
+
+                if (Achievements[i].currentTime <= 1)
+                {
+                    Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime, initialPosX, (finalPosX - initialPosX), 1.0f);
+                    
+                }
+                else if (Achievements[i].currentTime >= Achievements[i].maxTime)
                 {
                     Achievements[i].showPop = false;
+
                 }
+
+                if (Achievements[i].timeDelay <= 0)
+                {
+                    Achievements[i].currentTime2 += Time.deltaTime;
+                    if (Achievements[i].currentTime2 <= 1) Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime2, finalPosX, (initialPosX - finalPosX), 1.0f);
+                }
+
+                
             }
         }
     }
@@ -253,10 +278,9 @@ public class AchievementManager : MonoBehaviour
         {
             if (achievement.showPop)
             {
-                Rect position = new Rect(0, Screen.height - 75, 200, 75.0f);
+                Rect position = new Rect(achievement.posX, Screen.height - 75, 200, 75.0f);
                 achievement.OnGUI(position, GUIStyleAchievementEarned, GUIStyleAchievementNotEarned);
             }
-            
         }
     }
 }

@@ -14,17 +14,20 @@ public class PlayerStats : MonoBehaviour {
     public int maxMunition;
 	public int currentGrenades;
 	private GodMode godMode;
-	public GameObject GameOverScreen;
+	//public GameObject GameOverScreen;
 	public GameObject EndLevelScreen;
+    public GameObject scoreMessage;
+    public GameObject unlockMessage;
     public Slider HealthBar;
     public Slider BrutalityBar;
 	private PauseLogic pauseLogic;
     public Text bullets;
     public Text grenades;
     private GameObject keyText;
-    public TextMesh points;
+    private TextMesh points;
     private DataLogic dataLogic;
     private LoadingScreen loadingScreen;
+    private PlayerMovement playerMov;
     //public ShakeUI shakeUI;
     public int riffleBullets { get; set; }
     public int shotgunBullets { get; set; }
@@ -32,6 +35,11 @@ public class PlayerStats : MonoBehaviour {
     public int multiply { get; set; }
     public float multiplyTemp { get; set; }
     public bool onCombo { get; set; }
+    private int counter = 0;
+    private float counterScore = 0;
+    private int calculateScore;
+    public GameObject gameOverScreen;
+    private GameObject scrMsm;
 
     private Text scoreText;
     private Text multiplyText;
@@ -73,6 +81,7 @@ public class PlayerStats : MonoBehaviour {
         multiplyAnim = GameObject.FindGameObjectWithTag("multiplyText").GetComponent<MultiplySize>();
         bullets = GameObject.FindGameObjectWithTag("BulletText").GetComponent<Text>();
         grenades = GameObject.FindGameObjectWithTag("GrenadesText").GetComponent<Text>();
+        playerMov = GetComponent<PlayerMovement>();
 		speed = 6f;
 		maxHealth = 256;
         riffleBullets = dataLogic.iniRiffleAmmo;
@@ -86,8 +95,8 @@ public class PlayerStats : MonoBehaviour {
         dataLogic.currentTime = dataLogic.iniTime;
         currentBrutality = dataLogic.iniBrutality;
 		currentHealth = dataLogic.iniHealth;
-		GameOverScreen.SetActive (false);
-		EndLevelScreen.SetActive (false);
+		//GameOverScreen.SetActive (false);
+		//EndLevelScreen.SetActive (false);
         audiSorMusic = gameObject.AddComponent<AudioSource>();
         audiSorBrutal = gameObject.AddComponent<AudioSource>();
         audiSorChainsaw = gameObject.AddComponent<AudioSource>();
@@ -132,10 +141,11 @@ public class PlayerStats : MonoBehaviour {
         else if (multiplyText != null) multiplyText.text = "";
 
 
-		if (currentHealth <= 0) 
+        if (currentHealth <= 0 && alive) 
 		{
 			currentHealth = 0;
-			alive = false;
+            GameOver();
+			
 		}
 
         if (riffleBullets <= 0)
@@ -156,6 +166,7 @@ public class PlayerStats : MonoBehaviour {
         if(currentGrenades <= 0)
         {
             currentGrenades = 0;
+            
         }
 
 		if (!alive)
@@ -167,22 +178,50 @@ public class PlayerStats : MonoBehaviour {
                 dataLogic.iniTime = 0;
                 pauseLogic.enabled = true;
             }
-            GameOver();
+            
 
 		}
 
         if (levelCleared == true)
         {
-            keyCounter += Time.deltaTime;
             go = false;
-            if (Input.anyKeyDown && keyCounter >= 2f)
+            keyCounter += Time.deltaTime;
+            if (scoreMessage != null)
             {
-                loadingScreen.loadNextScreen = true;
-                dataLogic.iniTime = 0;
-                pauseLogic.enabled = true;
+                counterScore += Time.deltaTime;
+                if (counterScore < 2.5f)
+                {
+                    calculateScore = (int)Easing.Linear(counterScore, 0, score, 2.5f);
+                    
+                }
+                points.text = calculateScore.ToString() + "/" + dataLogic.unlockRifle.ToString();
+                
+                if (Input.anyKeyDown && calculateScore == score)
+                {
+                    loadingScreen.loadNextScreen = true;
+                    dataLogic.iniTime = 0;
+                    pauseLogic.enabled = true;
+                }
+                //else calculateScore = score;
+
+                if (calculateScore >= dataLogic.unlockRifle && counter < 1) 
+                {
+                    Instantiate(unlockMessage, Camera.main.transform.position, Quaternion.Euler(new Vector3(90,0,0)));
+                    counter++;
+                }
+                
             }
-            LevelEnd();
+            else
+            {
+                if (Input.anyKeyDown && keyCounter >= 2f)
+                {
+                    loadingScreen.loadNextScreen = true;
+                    dataLogic.iniTime = 0;
+                    pauseLogic.enabled = true;
+                }
+            }
         }
+        
 
         grenades.text = currentGrenades.ToString();
 	}
@@ -260,7 +299,14 @@ public class PlayerStats : MonoBehaviour {
         if ((col.tag == "levelEnding") && brutalMode == false)
         {
             levelCleared = true;
+            LevelEnd();
+            setIddle();
             go = false;
+            if (scoreMessage != null)
+            {
+                scrMsm = (GameObject)Instantiate(scoreMessage, new Vector3(Camera.main.transform.position.x, 55, Camera.main.transform.position.z), Quaternion.Euler(new Vector3(90, 0, 0)));
+                points = scrMsm.GetComponent<TextMesh>();
+            }
             if (dataLogic.riffleActive == false) dataLogic.riffleActive = true;
             dataLogic.iniHealth = currentHealth;
             dataLogic.iniBrutality = currentBrutality;
@@ -402,18 +448,25 @@ public class PlayerStats : MonoBehaviour {
 
 	public void GameOver(){
 
-		GameOverScreen.SetActive (true);
+		//GameOverScreen.SetActive (true);
+        alive = false;
+        playerMov.enabled = false;
 		//playerMov.enabled = false;
 		//pauseLogic.enabled = false;
         dataLogic.currentTime = dataLogic.iniTime;
+        GameObject gOS = (GameObject)Instantiate(gameOverScreen, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(90, 0, 0)));
+        gOS.transform.parent = Camera.main.transform;
+        //gOS.transform.position = new Vector3(0, 0, 0);
 
 	}
 	public void LevelEnd(){
 		
-		EndLevelScreen.SetActive (true);
+		//EndLevelScreen.SetActive (true);
+        playerMov.enabled = false;
+        GameObject gOS = (GameObject)Instantiate(EndLevelScreen, Camera.main.transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
 		//playerMov.enabled = false;
 		//pauseLogic.enabled = false;
-        points.text = dataLogic.currentTime.ToString();
+        //points.text = dataLogic.currentTime.ToString();
 		
 	}
 }

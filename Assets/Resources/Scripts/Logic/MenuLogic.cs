@@ -86,6 +86,7 @@ public class MenuLogic : MonoBehaviour {
 
 			menu.SetActive(false);
 			options.SetActive(false);
+            backButon.SetActive(false);
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
                 AudioSource audiSor = gameObject.AddComponent<AudioSource>();
