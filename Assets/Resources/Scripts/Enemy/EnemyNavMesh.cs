@@ -103,7 +103,7 @@ public class EnemyNavMesh : MonoBehaviour
 		{
 			Debug.Log ("NOT VISIBLE");
 			return false;
-		} 
+		}
 		else return true;
 	}
 
