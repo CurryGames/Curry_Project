@@ -11,6 +11,8 @@ public class EnemyNavMesh : MonoBehaviour
     private EnemyMoveBehaviour enemyMove;
     private RangedEnemy enemyRang;
     private EnemyStats enemyStats;
+	public enum EnemyType { SPAWN, IDDLE, PATROL, IMMOBILE}
+	public EnemyType enemyType;
 	private float rotationSpeed;
     public bool chasing;
     private Animator animationLegs;
