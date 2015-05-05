@@ -53,6 +53,7 @@ public class EnemyNavMesh : MonoBehaviour
             {
                 
                 agent.SetDestination(target.transform.position);
+				agent.Resume();
 
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
             }
@@ -60,7 +61,7 @@ public class EnemyNavMesh : MonoBehaviour
 			if (!OnSight ())
 			{
 				agent.stoppingDistance = 0.5f;
-				agent.Resume();
+
 			}
 			else 
 			{
