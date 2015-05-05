@@ -29,7 +29,7 @@ public class RangedEnemy : MonoBehaviour
         playerStats = player.GetComponent<PlayerStats>();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
         GetComponent<DataLogic>();
-		Physics.IgnoreLayerCollision(9, 9, true);
+		//Physics.IgnoreLayerCollision(9, 9, true);
     }
 
     // Update is called once per frame
