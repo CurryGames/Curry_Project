@@ -136,7 +136,15 @@ public class AchievementManager : MonoBehaviour
 	{
 	    ValidateAchievements();
         UpdateRewardPointTotals();
-        
+        Application.targetFrameRate = 60;
+
+        for (int i = 0; i < Achievements.GetLength(0); i++)
+        {
+            Achievements[i].currentTime = 0.0f;
+            Achievements[i].currentTime2 = 0.0f;
+            Achievements[i].timeDelay = 3.0f * 60;
+            Achievements[i].maxTime = 5.0f * 60;
+        }
 	}
 
     void Update()
@@ -145,12 +153,12 @@ public class AchievementManager : MonoBehaviour
         {
             if(Achievements[i].showPop == true)
             {
-                Achievements[i].currentTime += Time.deltaTime;
-                Achievements[i].timeDelay -= Time.deltaTime;
+                Achievements[i].currentTime ++;
+                Achievements[i].timeDelay --;
 
-                if (Achievements[i].currentTime <= 1)
+                if (Achievements[i].currentTime <= 1*60)
                 {
-                    Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime, initialPosX, (finalPosX - initialPosX), 1.0f);
+                    Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime, initialPosX, (finalPosX - initialPosX), 1.0f*60);
                     
                 }
                 else if (Achievements[i].currentTime >= Achievements[i].maxTime)
@@ -161,8 +169,8 @@ public class AchievementManager : MonoBehaviour
 
                 if (Achievements[i].timeDelay <= 0)
                 {
-                    Achievements[i].currentTime2 += Time.deltaTime;
-                    if (Achievements[i].currentTime2 <= 1) Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime2, finalPosX, (initialPosX - finalPosX), 1.0f);
+                    Achievements[i].currentTime2 ++;
+                    if (Achievements[i].currentTime2 <= 1*60) Achievements[i].posX = (float)Easing.CubicEaseIn(Achievements[i].currentTime2, finalPosX, (initialPosX - finalPosX), 1.0f*60);
                 }
 
                 

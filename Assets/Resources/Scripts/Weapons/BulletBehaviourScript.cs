@@ -24,7 +24,8 @@ public class BulletBehaviourScript : MonoBehaviour {
 
 	}
 
-	public void OnTriggerEnter(Collider other){
+	public void OnTriggerEnter(Collider other)
+    {
 
 
         // Any case, Destroy bullet if collides with Wall

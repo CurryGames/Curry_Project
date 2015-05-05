@@ -18,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     private ShakeCamera camera;
     public PlayerStats playerStats;
 	public PlayerMovement playerMov;
+    private PauseLogic pauseLogic;
     private DataLogic dataLogic;
     private float clockGunTimer;
     private bool clockGun;
@@ -47,6 +48,7 @@ public class PlayerShooting : MonoBehaviour
 		playerStats = GetComponent <PlayerStats> ();
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").GetComponent<DataLogic>();
 		playerMov = GetComponent<PlayerMovement> ();
+        pauseLogic = GameObject.FindGameObjectWithTag("pause").GetComponent<PauseLogic>();
         camera = Camera.main.GetComponent<ShakeCamera>();
         gunUI = GameObject.FindGameObjectWithTag("gunUI");
         shotgunUI = GameObject.FindGameObjectWithTag("shotgunUI");
@@ -256,7 +258,9 @@ public class PlayerShooting : MonoBehaviour
 	{
 		GameObject grenadeGO = (GameObject)Instantiate (grenade, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z + 0.5f), transform.rotation);
 		grenadeGO.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * force);
-		Physics.IgnoreCollision (grenadeGO.GetComponent<Collider>(), this.GetComponent<Collider>());
+        Collider gr = grenadeGO.GetComponent<Collider>();
+        Collider pl = this.GetComponent<Collider>();
+		Physics.IgnoreCollision (gr, pl);
 	}
 
     public void Shake()

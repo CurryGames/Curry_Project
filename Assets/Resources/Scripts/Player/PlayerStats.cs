@@ -189,14 +189,14 @@ public class PlayerStats : MonoBehaviour {
             if (scoreMessage != null)
             {
                 counterScore += Time.deltaTime;
-                if (counterScore < 2.5f)
+                if (counterScore <= 2.5f)
                 {
                     calculateScore = (int)Easing.Linear(counterScore, 0, score, 2.5f);
                     
                 }
                 points.text = calculateScore.ToString() + "/" + dataLogic.unlockRifle.ToString();
-                
-                if (Input.anyKeyDown && calculateScore == score)
+
+                if (Input.anyKeyDown && counterScore >= 2.5f)
                 {
                     loadingScreen.loadNextScreen = true;
                     dataLogic.iniTime = 0;
