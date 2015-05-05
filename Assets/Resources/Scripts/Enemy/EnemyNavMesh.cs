@@ -11,6 +11,7 @@ public class EnemyNavMesh : MonoBehaviour
     private EnemyMoveBehaviour enemyMove;
     private RangedEnemy enemyRang;
     private EnemyStats enemyStats;
+	private float rotationSpeed;
     public bool chasing;
     private Animator animationLegs;
 	NavMeshHit hit;
@@ -18,7 +19,7 @@ public class EnemyNavMesh : MonoBehaviour
 
     void Start()
     {
-
+		rotationSpeed = 10;
         agent = GetComponent<NavMeshAgent>();
         enemyMove = GetComponent<EnemyMoveBehaviour>();
         //animationLegs = legs.GetComponent<Animator>();
@@ -50,13 +51,22 @@ public class EnemyNavMesh : MonoBehaviour
 
             if (target != null)
             {
-                agent.Resume();
+                
                 agent.SetDestination(target.transform.position);
+
                 //agent.SetDestination(new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z));
             }
 
-			if (!OnSight ()) agent.stoppingDistance = 0.5f;
-			else agent.stoppingDistance = 8;
+			if (!OnSight ())
+			{
+				agent.stoppingDistance = 0.5f;
+				agent.Resume();
+			}
+			else 
+			{
+				agent.stoppingDistance = 8;
+				RotateTowards(target.transform);
+			}
         }
         else
         {
@@ -94,5 +104,12 @@ public class EnemyNavMesh : MonoBehaviour
 			return false;
 		} 
 		else return true;
+	}
+
+	private void RotateTowards (Transform target) 
+	{
+		Vector3 direction = (target.position - transform.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(direction);
+		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
 	}
 }
