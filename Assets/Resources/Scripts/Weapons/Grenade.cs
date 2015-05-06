@@ -25,6 +25,7 @@ public class Grenade : MonoBehaviour {
 		Invoke ("PropExplosion", explosionTime);
         dataLogic = GameObject.FindGameObjectWithTag("DataLogic").
             GetComponent<DataLogic>();
+        dataLogic.strike = 0;
         audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
 	}
 

@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piece1: {fileID: 143062, guid: 5454ae3bae1e5fa4b999b152b3fe89bc, type: 2}
+  puntuationText: {fileID: 174928, guid: 8def04c296307264393437efc1be525b, type: 2}
 --- !u!212 &21257096
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,15 +92,19 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 2f5d8582f2bf3b64e97cd7095d4db488, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d28e084dcf5bb404686fcce5ad010ed7, type: 3}
@@ -115,4 +120,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157096}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

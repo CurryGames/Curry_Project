@@ -80,9 +80,69 @@ MonoBehaviour:
     RewardPoints: 0
     TargetProgress: 10
     Secret: 0
+    Earned: 0
     showPop: 0
     currentTime: 2
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
+  - Name: x20
+    Description: Get a x20 combo
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 20
+    Secret: 0
     Earned: 0
+    showPop: 0
+    currentTime: 2
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
+  - Name: Riffle
+    Description: Unlock the Riffle
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 1
+    Secret: 0
+    Earned: 0
+    showPop: 0
+    currentTime: 2
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
+  - Name: Rage Againts the Machine
+    Description: Destroy 50electronic devices
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 50
+    Secret: 0
+    Earned: 0
+    showPop: 0
+    currentTime: 2
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
+  - Name: Carnage
+    Description: Kill 500 enemies
+    IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
+    IconComplete: {fileID: 2800000, guid: 0dfc8e61dfc91f14195727b4e99430a8, type: 3}
+    RewardPoints: 0
+    TargetProgress: 500
+    Secret: 0
+    Earned: 0
+    showPop: 0
+    currentTime: 2
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
   - Name: Strike
     Description: Kill 5 enemies with one grenade
     IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
@@ -90,9 +150,13 @@ MonoBehaviour:
     RewardPoints: 0
     TargetProgress: 5
     Secret: 0
+    Earned: 0
     showPop: 0
     currentTime: 2
-    Earned: 0
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
   - Name: Blooshed!
     Description: Complete Bloodshed
     IconIncomplete: {fileID: 2800000, guid: 37a2453ba897ef147bcbe8d5bafa6601, type: 3}
@@ -100,9 +164,13 @@ MonoBehaviour:
     RewardPoints: 0
     TargetProgress: 1
     Secret: 0
+    Earned: 0
     showPop: 0
     currentTime: 2
-    Earned: 0
+    currentTime2: 0
+    timeDelay: 3
+    maxTime: 5
+    posX: 0
   EarnedSound: {fileID: 8300000, guid: ba46af9178a1b9948a04548232c17990, type: 3}
   GUIStyleAchievementEarned:
     m_Name: 

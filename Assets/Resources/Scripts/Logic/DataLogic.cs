@@ -18,6 +18,7 @@ public class DataLogic : MonoBehaviour {
     public int currentTime { get; set; }
 	public int iniGrenades { get; set; }
     public int unlockRifle { get; set; }
+    public int strike { get; set; }
     public bool riffleActive { get; set; }
     public AudioClip riffle;
     public AudioClip gun;

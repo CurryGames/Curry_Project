@@ -144,6 +144,7 @@ public class AchievementManager : MonoBehaviour
             Achievements[i].currentTime2 = 0.0f;
             Achievements[i].timeDelay = 3.0f * 60;
             Achievements[i].maxTime = 5.0f * 60;
+            Achievements[i].posX = initialPosX;
         }
 	}
 
@@ -262,13 +263,13 @@ public class AchievementManager : MonoBehaviour
     {
         if (onMenu)
         {
-            float yValue = 200.0f;
-            float achievementGUIWidth = 500.0f;
+            float yValue = (Screen.width / 2 - 75 * 4) - 25;
+            float achievementGUIWidth = 400.0f;
 
             //GUI.Label(new Rect(200.0f, 5.0f, 200.0f, 25.0f), "-- Achievements --");
 
-            achievementScrollviewLocation = GUI.BeginScrollView(new Rect((Screen.width / 2 - achievementGUIWidth/2), 225.0f, achievementGUIWidth + 25.0f, 250.0f), achievementScrollviewLocation,
-                                                                new Rect((Screen.width / 2 - achievementGUIWidth / 2), 200.0f, achievementGUIWidth, Achievements.Count() * 80.0f));
+            achievementScrollviewLocation = GUI.BeginScrollView(new Rect((Screen.width / 2 - achievementGUIWidth / 2), (Screen.width / 2 - 75*4), achievementGUIWidth + 25.0f, 250.0f), achievementScrollviewLocation,
+                                                                new Rect((Screen.width / 2 - achievementGUIWidth / 2), (Screen.width / 2 - 75*4) - 25, achievementGUIWidth, Achievements.Count() * 80.0f));
 
             foreach (Achievement achievement in Achievements)
             {

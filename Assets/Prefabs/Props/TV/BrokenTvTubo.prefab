@@ -42,7 +42,7 @@ GameObject:
   - 65: {fileID: 6543060}
   m_Layer: 0
   m_Name: BrokenTvTubo
-  m_TagString: ShootableProp
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 143062}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .95655793, y: .956557095, z: .956557095}
+  m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children:
   - {fileID: 454188}
   - {fileID: 443066}
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159146}
   m_LocalRotation: {x: -.704978764, y: .0548173487, z: -.0548174456, w: .704978764}
-  m_LocalPosition: {x: .225781322, y: -10.6029243, z: 17.9678974}
+  m_LocalPosition: {x: 0, y: .0799999982, z: -0}
   m_LocalScale: {x: .320557028, y: .320556879, z: .320556909}
   m_Children:
   - {fileID: 438186}
@@ -344,7 +344,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .0500000007
+      scalar: .0199999996
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1265,7 +1265,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1392,7 +1392,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1407,7 +1407,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .5
+          value: .200000003
           inSlope: 0
           outSlope: 0
           tangentMode: 0

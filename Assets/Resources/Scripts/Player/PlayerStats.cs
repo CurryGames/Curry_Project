@@ -128,6 +128,7 @@ public class PlayerStats : MonoBehaviour {
             if (multiplyText != null) multiplyText.text = "X" + multiply.ToString();
             multiplyTemp += Time.deltaTime;
             if (multiplyAnim != null) multiplyAnim.animActive = true;
+            achievementManager.SetProgressToAchievement("x20", (float)multiply);
 
             if (multiplyTemp >= 5.0f)
             {
@@ -188,15 +189,15 @@ public class PlayerStats : MonoBehaviour {
             keyCounter += Time.deltaTime;
             if (scoreMessage != null)
             {
-                counterScore += Time.deltaTime;
-                if (counterScore <= 2.5f)
+                counterScore ++;
+                if (counterScore <= 2.5f*60)
                 {
-                    calculateScore = (int)Easing.Linear(counterScore, 0, score, 2.5f);
+                    calculateScore = (int)Easing.Linear(counterScore, 0, score, 2.5f*60);
                     
                 }
                 points.text = calculateScore.ToString() + "/" + dataLogic.unlockRifle.ToString();
 
-                if (Input.anyKeyDown && counterScore >= 2.5f)
+                if (Input.anyKeyDown && counterScore >= 2.5f* 60)
                 {
                     loadingScreen.loadNextScreen = true;
                     dataLogic.iniTime = 0;
@@ -228,7 +229,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
 	{
-		//Debug.Log("COLISION: "+col);
+		//Debug.Log("COLISION: "+col.name);
 
 		if(col.gameObject.tag == "enemyBullet")
 		{	
@@ -298,21 +299,7 @@ public class PlayerStats : MonoBehaviour {
 
         if ((col.tag == "levelEnding") && brutalMode == false)
         {
-            levelCleared = true;
             LevelEnd();
-            setIddle();
-            go = false;
-            if (scoreMessage != null)
-            {
-                scrMsm = (GameObject)Instantiate(scoreMessage, new Vector3(Camera.main.transform.position.x, 55, Camera.main.transform.position.z), Quaternion.Euler(new Vector3(90, 0, 0)));
-                points = scrMsm.GetComponent<TextMesh>();
-            }
-            if (dataLogic.riffleActive == false) dataLogic.riffleActive = true;
-            dataLogic.iniHealth = currentHealth;
-            dataLogic.iniBrutality = currentBrutality;
-            dataLogic.iniRiffleAmmo = riffleBullets;
-            dataLogic.iniShotgunAmmo = shotgunBullets;
-            dataLogic.iniGrenades = currentGrenades;
         }
 
         if ((col.tag == "ScreenEnding") && brutalMode == false)
@@ -464,9 +451,36 @@ public class PlayerStats : MonoBehaviour {
 		//EndLevelScreen.SetActive (true);
         playerMov.enabled = false;
         GameObject gOS = (GameObject)Instantiate(EndLevelScreen, Camera.main.transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
-		//playerMov.enabled = false;
-		//pauseLogic.enabled = false;
-        //points.text = dataLogic.currentTime.ToString();
-		
+        levelCleared = true;
+        setIddle();
+        go = false;
+        if (scoreMessage != null)
+        {
+            scrMsm = (GameObject)Instantiate(scoreMessage, new Vector3(Camera.main.transform.position.x, 55, Camera.main.transform.position.z), Quaternion.Euler(new Vector3(90, 0, 0)));
+            points = scrMsm.GetComponent<TextMesh>();
+        }
+        if (score >= dataLogic.unlockRifle)
+        {
+            dataLogic.riffleActive = true;
+            achievementManager.SetProgressToAchievement("Riffle", 1.0f);
+        }
+        dataLogic.iniHealth = currentHealth;
+        dataLogic.iniBrutality = currentBrutality;
+        dataLogic.iniRiffleAmmo = riffleBullets;
+        dataLogic.iniShotgunAmmo = shotgunBullets;
+        dataLogic.iniGrenades = currentGrenades;
 	}
+
+    public void enemyKill(int puntuation)
+    {
+        score += puntuation;
+        onCombo = true;
+        multiply++;
+        multiplyTemp = 0.0f;
+        if (multiplyAnim.animActive == true && multiplyAnim != null)
+        {
+            multiplyAnim.ResetAnim();
+        }
+        deathNumber++;
+    }
 }

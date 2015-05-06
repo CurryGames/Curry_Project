@@ -112,10 +112,11 @@ public class MenuLogic : MonoBehaviour {
                     hd.Select();
                     break;
                 case ScrResolution.FULLHD:
-                    cuatrotecios.Select();
+                    fullhd.Select();
                     break;
                 case ScrResolution.UXGA:
-                    fullhd.Select();
+                    
+                    cuatrotecios.Select();
                     break;
             }
             break;

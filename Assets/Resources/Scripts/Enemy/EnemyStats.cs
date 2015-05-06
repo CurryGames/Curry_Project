@@ -25,6 +25,7 @@ public class EnemyStats : MonoBehaviour
     public GameObject[] deathshotedGun;
     public GameObject deathExploited;
 	public GameObject puntuationText;
+    public int doorCounter { get; set; }
     //public AudioClip death;
     private DataLogic dataLogic;
 	private int puntuation;
@@ -34,6 +35,8 @@ public class EnemyStats : MonoBehaviour
     bool down = true;
     bool hit = false;
 
+    private AchievementManager achievementManager;
+
     // Use this for initialization
     void Awake()
     {
@@ -41,6 +44,8 @@ public class EnemyStats : MonoBehaviour
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         color = enemySprite.GetComponent<Renderer>().material.color;
+        achievementManager = GameObject.FindGameObjectWithTag("DataLogic").
+            GetComponent<AchievementManager>();
 
         speedOnChase = agent.speed;
         speed = 4f;
@@ -79,6 +84,8 @@ public class EnemyStats : MonoBehaviour
                     break;
                 case Death.EXPLOITED:
                     Instantiate(deathExploited, transform.position, aim.transform.rotation);
+                    achievementManager.SetProgressToAchievement("Strike", (float)dataLogic.strike);
+                    dataLogic.strike++;
                     break;
                 case Death.CARVED:
                     Instantiate(deathshotedGun[Random.Range(0, deathshotedGun.GetLength(0))], transform.position, aim.transform.rotation);
@@ -89,22 +96,14 @@ public class EnemyStats : MonoBehaviour
             //Destroy(bld,2);
             AudioSource audiSor = dataLogic.gameObject.AddComponent<AudioSource>();
             dataLogic.Play(dataLogic.death, audiSor, dataLogic.volumFx);
+            achievementManager.AddProgressToAchievement("Carnage", 1.0f);
+            
 			puntuation =  100 * playerStats.multiply;
-            playerStats.score += puntuation;
-            playerStats.onCombo = true;
-            playerStats.multiply++;
-            playerStats.multiplyTemp = 0.0f;
+            playerStats.enemyKill(puntuation);
 			GameObject pText = (GameObject)Instantiate(puntuationText, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), Quaternion.Euler(new Vector3 (90, 0, 0)));
 			TextMesh punText = pText.GetComponent <TextMesh>();
 			punText.text = puntuation.ToString();
 			Destroy(pText, 1.5f);
-
-            if (playerStats.multiplyAnim.animActive == true && playerStats.multiplyAnim != null)
-            {
-                playerStats.multiplyAnim.ResetAnim();
-            }
-
-            playerStats.deathNumber++;
             Destroy(gameObject);
         }
 		if (hit) 
